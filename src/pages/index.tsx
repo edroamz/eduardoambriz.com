@@ -1,7 +1,8 @@
 import Head from 'next/head';
-import { Inter } from '@next/font/google';
-
-const inter = Inter({ subsets: ['latin'] });
+import { Header } from '@/components/Header';
+import { Footer } from '@/components/Footer';
+import { Heading } from '@/components/Heading';
+import { Avatar } from '@/components/Avatar';
 
 export default function Home() {
   return (
@@ -12,9 +13,41 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={inter.className}>
-        <h1 className="text-4xl font-bold text-black ">Hello World</h1>
-      </main>
+      <div className="overflow-hidden">
+        <Header />
+        <main className="mt-header">
+          <section className="mx-auto mt-20 flex max-w-7xl flex-col items-center justify-center px-7 text-center">
+            <Avatar />
+            <Heading
+              level={1}
+              className="mt-6 max-w-5xl text-5xl font-bold leading-snug tracking-tighter md:text-6xl md:leading-tight"
+            >
+              FrontEnd Developer, JavaScript Enthusiast
+            </Heading>
+            <p className="mt-5 max-w-2xl text-xl leading-9">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
+              aut laborum doloribus quos adipisci.
+            </p>
+          </section>
+          <section className="mx-auto mt-20 flex max-w-7xl flex-col items-center justify-center px-7 text-center">
+            <Heading
+              level={2}
+              className="mt-4 max-w-5xl text-4xl font-bold leading-snug tracking-tighter md:text-5xl md:leading-tight"
+            >
+              Take a look at my work
+            </Heading>
+          </section>
+          <section className="mx-auto mt-20 flex max-w-7xl flex-col items-center justify-center px-7 text-center">
+            <Heading
+              level={2}
+              className="mt-4 max-w-5xl text-4xl font-bold leading-snug tracking-tighter md:text-5xl md:leading-tight"
+            >
+              Blog
+            </Heading>
+          </section>
+        </main>
+        <Footer />
+      </div>
     </>
   );
 }

@@ -1,8 +1,21 @@
+const { fontFamily } = require('tailwindcss/defaultTheme');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js,ts,jsx,tsx}"],
-  theme: {
-    extend: {},
+  content: ['./src/**/*.{js,ts,jsx,tsx}'],
+  darkMode: 'class',
+  future: {
+    hoverOnlyWhenSupported: true
   },
-  plugins: [],
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['Inter', ...fontFamily.sans]
+      },
+      spacing: {
+        header: '64px'
+      }
+    }
+  },
+  plugins: []
 };
