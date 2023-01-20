@@ -3,7 +3,7 @@ import { NavItems } from '@/components/Header';
 
 export function Footer() {
   return (
-    <footer className="mt-36 border-t">
+    <footer className="mt-36 border-t dark:border-gray-800">
       <div className="mx-auto max-w-5xl px-7">
         <div className="flex flex-col items-baseline gap-y-16 py-12 lg:grid lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-5 lg:col-start-1">
@@ -33,7 +33,7 @@ export function Footer() {
             <a href="https://vercel.com/">Vercel</a>.
           </div>
         </div>
-        <div className="border-t"></div>
+        <div className="border-t dark:border-gray-800"></div>
         <div className="mt-6 pb-8">
           <p className="text-sm">
             © {new Date().getFullYear()} Eduardo Ambriz. All rights reserved.

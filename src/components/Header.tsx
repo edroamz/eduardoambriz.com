@@ -27,7 +27,7 @@ function NavPopover() {
 
 export function Header() {
   return (
-    <header className="h-header border-b">
+    <header className="h-header border-b dark:border-gray-800">
       <div className="mx-auto grid max-w-screen-2xl grid-cols-2 items-center justify-between gap-x-7 px-7 py-4 md:grid-cols-3">
         <div>
           <Link href="/">
@@ -46,7 +46,7 @@ export function Header() {
             <ThemeToggle />
           </div>
           <div className="md:hidden">
-            <NavPopover></NavPopover>
+            <NavPopover />
           </div>
         </div>
       </div>
