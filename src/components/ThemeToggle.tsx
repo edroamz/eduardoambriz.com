@@ -128,16 +128,22 @@ export function ThemeToggle() {
     <DropdownMenu dir="ltr" modal={false}>
       <DropdownMenuTrigger
         id="btn-theme"
-        className="group invisible rounded-md px-2 py-[2px] text-gray-400 outline-none ring-0 hover:text-gray-600 focus-visible:ring-2 focus-visible:ring-gray-900 group-hover:transition-colors dark:text-gray-300 dark:hover:text-gray-100 dark:focus-visible:ring-gray-50 md:visible md:pr-0"
+        className="group rounded-md px-2 py-[2px] outline-none ring-0 focus-visible:ring-2 focus-visible:ring-gray-900 group-hover:transition-colors dark:focus-visible:ring-gray-50 md:pr-0"
       >
-        <MoonIcon selected className="hidden h-6 w-6 dark:block"></MoonIcon>
-        <SunIcon selected className="h-6 w-6 dark:hidden"></SunIcon>
+        <MoonIcon
+          selected
+          className="hidden h-6 w-6 hover:text-gray-800 dark:block"
+        ></MoonIcon>
+        <SunIcon
+          selected
+          className="h-6 w-6 hover:text-gray-800 dark:hidden"
+        ></SunIcon>
       </DropdownMenuTrigger>
       <DropdownMenuPortal>
         <DropdownMenuContent
-          className="invisible z-30 grid w-40 grid-cols-1 items-start justify-center rounded-xl border border-gray-300 bg-white py-1 shadow dark:border-gray-800 dark:bg-gray-900/80 dark:shadow-none md:visible"
-          sideOffset={36}
-          collisionPadding={{ right: 36 }}
+          className="z-30 grid w-36 grid-cols-1 items-start justify-center overflow-hidden rounded-lg bg-white py-1 text-sm font-semibold text-slate-700 shadow-lg ring-1  ring-slate-900/10 dark:bg-slate-800 dark:text-slate-300 dark:ring-0"
+          sideOffset={28}
+          collisionPadding={{ right: 28 }}
           hideWhenDetached
         >
           <>
@@ -145,7 +151,7 @@ export function ThemeToggle() {
               <DropdownMenuItem asChild key={value}>
                 <button
                   onClick={() => setTheme(value)}
-                  className="flex w-full flex-row items-center justify-start px-3 py-[6px] text-left align-middle text-[17px] font-medium leading-none tracking-tight outline-none hover:bg-gray-50 focus-visible:bg-gray-50 dark:hover:bg-gray-800 dark:focus-visible:bg-gray-800"
+                  className="flex w-full flex-row items-center justify-start px-2 py-[4px] text-left align-middle  leading-none tracking-tight outline-none focus-visible:bg-gray-50 data-[highlighted]:bg-gray-50  dark:focus-visible:bg-gray-800 dark:data-[highlighted]:bg-gray-700/80"
                 >
                   <Icon
                     selected={currentTheme === value}
