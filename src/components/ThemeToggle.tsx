@@ -7,10 +7,20 @@ import {
   DropdownMenuContent,
   DropdownMenuItem
 } from '@radix-ui/react-dropdown-menu';
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectPortal,
+  SelectContent,
+  SelectViewport,
+  SelectItem,
+  SelectItemText
+} from '@radix-ui/react-select';
 import { inter } from '@/lib/fonts';
 import { cn } from '@/lib/utils';
 
-let settings = [
+let themeSettings = [
   {
     value: 'light',
     label: 'Light',
@@ -147,12 +157,12 @@ export function ThemeToggle() {
             inter.className,
             'z-30 grid w-36 grid-cols-1 items-start justify-center overflow-hidden rounded-lg bg-white py-1 text-sm font-semibold text-slate-700 shadow-lg ring-1  ring-slate-900/10 dark:bg-slate-800 dark:text-slate-300 dark:ring-0'
           )}
-          sideOffset={28}
+          sideOffset={32}
           collisionPadding={{ right: 28 }}
           hideWhenDetached
         >
           <>
-            {settings.map(({ value, label, icon: Icon }) => (
+            {themeSettings.map(({ value, label, icon: Icon }) => (
               <DropdownMenuItem asChild key={value}>
                 <button
                   onClick={() => setTheme(value)}
@@ -178,5 +188,68 @@ export function ThemeToggle() {
         </DropdownMenuContent>
       </DropdownMenuPortal>
     </DropdownMenu>
+  );
+}
+
+export function ThemeSelect() {
+  const [isSelectOpen, setIsSelectOpen] = useState(false);
+  const { theme, setTheme } = useTheme();
+
+  return (
+    <>
+      <Select
+        open={isSelectOpen}
+        onOpenChange={setIsSelectOpen}
+        value={theme}
+        onValueChange={(selectedTheme: string) => {
+          setTheme(selectedTheme);
+        }}
+      >
+        <SelectTrigger className="appearance-none rounded-lg border border-gray-200 bg-white py-2 px-[10px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 dark:border-gray-800 dark:bg-gray-600 dark:focus-visible:ring-gray-50">
+          <SelectValue className="flex items-center justify-center gap-2 align-middle">
+            <div className="flex items-center justify-center gap-2 align-middle">
+              <MoonIcon className="hidden h-6 w-6 dark:block"></MoonIcon>
+              <SunIcon className="h-6 w-6 dark:hidden"></SunIcon>
+              <span className="font-semibold capitalize leading-none tracking-normal text-gray-900 dark:text-gray-100">
+                {theme}
+              </span>
+              <svg className="h-6 w-6 text-slate-400" fill="none">
+                <path
+                  d="m15 11-3 3-3-3"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+          </SelectValue>
+        </SelectTrigger>
+        <SelectPortal>
+          <SelectContent
+            position="popper"
+            hideWhenDetached
+            style={{
+              userSelect: 'none',
+              width: 'var(--radix-select-trigger-width)',
+              maxHeight: 'var(--radix-select-content-available-height)'
+            }}
+            className="z-50 w-full rounded-md border border-gray-300 bg-gray-50 py-1 shadow dark:border-gray-600 dark:bg-gray-900"
+          >
+            <SelectViewport className={inter.className}>
+              {themeSettings.map(({ value, label }) => (
+                <SelectItem
+                  key={value}
+                  value={value}
+                  className="w-full border border-transparent px-2 py-[7px] font-semibold leading-none  focus-visible:outline-none data-[highlighted]:bg-gray-200 dark:data-[highlighted]:bg-gray-600/80"
+                >
+                  <SelectItemText>{label}</SelectItemText>
+                </SelectItem>
+              ))}
+            </SelectViewport>
+          </SelectContent>
+        </SelectPortal>
+      </Select>
+    </>
   );
 }

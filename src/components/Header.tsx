@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Wordmark } from '@/components/Wordmark';
-import { ThemeToggle } from '@/components/ThemeToggle';
+import { ThemeToggle, ThemeSelect } from '@/components/ThemeToggle';
 import {
   Dialog,
   DialogTrigger,
@@ -53,7 +53,7 @@ function NavPopover() {
       </DialogTrigger>
       {isMobile && (
         <DialogPortal>
-          <DialogOverlay className="fixed inset-0 z-30 h-full w-screen bg-black/20 backdrop-blur-sm dark:bg-gray-900/90 " />
+          <DialogOverlay className="fixed inset-0 z-30 h-full w-screen bg-black/20 backdrop-blur-sm dark:bg-black/70 " />
           <DialogContent
             className={cn(
               inter.className,
@@ -76,12 +76,12 @@ function NavPopover() {
                 />
               </svg>
             </DialogClose>
-            <ul className="mt-2 flex flex-col items-start justify-center gap-y-5 text-left text-lg">
+            <ul className="mt-2 flex flex-col items-start justify-center gap-y-5 text-left font-semibold">
               <NavItems />
             </ul>
-            <div className="flex flex-row items-center justify-between border-t pt-5 dark:border-gray-800">
-              <span className="text-lg">Switch theme</span>
-              <div>theme switcher</div>
+            <div className="flex flex-row items-center justify-between gap-x-3 border-t pt-5 dark:border-gray-700">
+              <span>Switch theme</span>
+              <ThemeSelect />
             </div>
           </DialogContent>
         </DialogPortal>
