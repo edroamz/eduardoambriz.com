@@ -10,7 +10,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', ...fontFamily.sans]
+        display: ['var(--font-cal-sans)', ...fontFamily.sans],
+        sans: ['var(--font-inter-sans)', ...fontFamily.sans]
       },
       spacing: {
         header: '64px'

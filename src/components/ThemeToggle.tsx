@@ -7,6 +7,8 @@ import {
   DropdownMenuContent,
   DropdownMenuItem
 } from '@radix-ui/react-dropdown-menu';
+import { inter } from '@/lib/fonts';
+import { cn } from '@/lib/utils';
 
 let settings = [
   {
@@ -141,7 +143,10 @@ export function ThemeToggle() {
       </DropdownMenuTrigger>
       <DropdownMenuPortal>
         <DropdownMenuContent
-          className="z-30 grid w-36 grid-cols-1 items-start justify-center overflow-hidden rounded-lg bg-white py-1 text-sm font-semibold text-slate-700 shadow-lg ring-1  ring-slate-900/10 dark:bg-slate-800 dark:text-slate-300 dark:ring-0"
+          className={cn(
+            inter.className,
+            'z-30 grid w-36 grid-cols-1 items-start justify-center overflow-hidden rounded-lg bg-white py-1 text-sm font-semibold text-slate-700 shadow-lg ring-1  ring-slate-900/10 dark:bg-slate-800 dark:text-slate-300 dark:ring-0'
+          )}
           sideOffset={28}
           collisionPadding={{ right: 28 }}
           hideWhenDetached
@@ -151,14 +156,18 @@ export function ThemeToggle() {
               <DropdownMenuItem asChild key={value}>
                 <button
                   onClick={() => setTheme(value)}
-                  className="flex w-full flex-row items-center justify-start px-2 py-[4px] text-left align-middle  leading-none tracking-tight outline-none focus-visible:bg-gray-50 data-[highlighted]:bg-gray-50  dark:focus-visible:bg-gray-800 dark:data-[highlighted]:bg-gray-700/80"
+                  className="flex w-full flex-row items-center justify-start px-2 py-[4px] text-left align-middle  leading-none outline-none focus-visible:bg-gray-50 data-[highlighted]:bg-gray-50  dark:focus-visible:bg-gray-800 dark:data-[highlighted]:bg-gray-700/80"
                 >
                   <Icon
                     selected={currentTheme === value}
                     className="mr-2 h-6 w-6"
                   ></Icon>
                   <span
-                    className={currentTheme === value ? 'font-semibold ' : ''}
+                    className={
+                      currentTheme === value
+                        ? ' text-sky-600 dark:text-sky-400'
+                        : ''
+                    }
                   >
                     {label}
                   </span>

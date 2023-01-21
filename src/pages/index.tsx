@@ -20,7 +20,7 @@ export default function Home() {
             <Avatar />
             <Heading
               level={1}
-              className="mt-6 max-w-5xl text-5xl font-bold leading-snug tracking-tighter md:text-6xl md:leading-tight"
+              className="mt-6 max-w-5xl text-5xl leading-snug md:text-6xl md:leading-tight"
             >
               FrontEnd Developer, JavaScript Enthusiast
             </Heading>
@@ -32,7 +32,7 @@ export default function Home() {
           <section className="mx-auto mt-20 flex max-w-7xl flex-col items-center justify-center px-7 text-center">
             <Heading
               level={2}
-              className="mt-4 max-w-5xl text-4xl font-bold leading-snug tracking-tighter md:text-5xl md:leading-tight"
+              className="mt-4 max-w-5xl text-4xl leading-snug tracking-wide md:text-5xl md:leading-tight"
             >
               Take a look at my work
             </Heading>
@@ -40,7 +40,7 @@ export default function Home() {
           <section className="mx-auto mt-20 flex max-w-7xl flex-col items-center justify-center px-7 text-center">
             <Heading
               level={2}
-              className="mt-4 max-w-5xl text-4xl font-bold leading-snug tracking-tighter md:text-5xl md:leading-tight"
+              className="mt-4 max-w-5xl text-4xl leading-snug tracking-wide md:text-5xl md:leading-tight"
             >
               Blog
             </Heading>

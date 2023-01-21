@@ -11,6 +11,8 @@ import {
 } from '@radix-ui/react-dialog';
 import { useState } from 'react';
 import useIsMobile from '@/hooks/use-is-mobile';
+import { inter } from '@/lib/fonts';
+import { cn } from '@/lib/utils';
 
 export function NavItems() {
   return (
@@ -52,7 +54,12 @@ function NavPopover() {
       {isMobile && (
         <DialogPortal>
           <DialogOverlay className="fixed inset-0 z-30 h-full w-screen bg-black/20 backdrop-blur-sm dark:bg-gray-900/90 " />
-          <DialogContent className=" fixed top-4 right-4 z-40 flex w-full max-w-xs flex-col gap-6 rounded-lg bg-white p-6 shadow-lg dark:bg-gray-800 ">
+          <DialogContent
+            className={cn(
+              inter.className,
+              'fixed top-4 right-4 z-40 flex w-full max-w-xs flex-col gap-6 rounded-lg bg-white p-6 shadow-lg dark:bg-gray-800'
+            )}
+          >
             <DialogClose className="absolute top-5 right-5 flex h-8 w-8 items-center justify-center">
               <span className="sr-only">Close navigation</span>
               <svg
@@ -69,7 +76,7 @@ function NavPopover() {
                 />
               </svg>
             </DialogClose>
-            <ul className="mt-2 flex flex-col items-start justify-center gap-y-5 text-left text-lg ">
+            <ul className="mt-2 flex flex-col items-start justify-center gap-y-5 text-left text-lg">
               <NavItems />
             </ul>
             <div className="flex flex-row items-center justify-between border-t pt-5 dark:border-gray-800">
