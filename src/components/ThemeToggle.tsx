@@ -135,9 +135,9 @@ export function ThemeToggle() {
       </DropdownMenuTrigger>
       <DropdownMenuPortal>
         <DropdownMenuContent
-          className="invisible z-30 grid w-40 grid-cols-1 items-start justify-center rounded-lg border border-gray-100 bg-white py-1 shadow dark:border-gray-800 dark:bg-gray-900 dark:shadow-none md:visible"
+          className="invisible z-30 grid w-40 grid-cols-1 items-start justify-center rounded-xl border border-gray-300 bg-white py-1 shadow dark:border-gray-800 dark:bg-gray-900/80 dark:shadow-none md:visible"
           sideOffset={36}
-          collisionPadding={{ right: 28 }}
+          collisionPadding={{ right: 36 }}
           hideWhenDetached
         >
           <>

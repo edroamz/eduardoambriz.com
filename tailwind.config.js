@@ -14,6 +14,9 @@ module.exports = {
       },
       spacing: {
         header: '64px'
+      },
+      maxWidth: {
+        '8xl': '90rem'
       }
     }
   },
