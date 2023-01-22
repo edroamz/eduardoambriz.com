@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Wordmark } from '@/components/Wordmark';
 import { ThemeToggle, ThemeSelect } from '@/components/ThemeToggle';
@@ -9,7 +10,6 @@ import {
   DialogContent,
   DialogClose
 } from '@radix-ui/react-dialog';
-import { useState } from 'react';
 import useIsMobile from '@/hooks/use-is-mobile';
 import { inter } from '@/lib/fonts';
 import { cn } from '@/lib/utils';
@@ -91,8 +91,29 @@ function NavPopover() {
 }
 
 export function Header() {
+  const [isPageScrolled, setIsPageScrolled] = useState(false);
+
+  useEffect(() => {
+    const handlePageScroll = () => {
+      if (window.scrollY >= 32) {
+        setIsPageScrolled(true);
+      } else {
+        setIsPageScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handlePageScroll);
+
+    return () => window.removeEventListener('scroll', handlePageScroll);
+  }, []);
+
   return (
-    <header className="h-header border-b dark:border-gray-800">
+    <header
+      className={cn(
+        'fixed top-0 z-20 h-header w-full max-w-full border-b border-gray-200 bg-white transition-shadow duration-200 dark:border-slate-700/80 dark:bg-black',
+        isPageScrolled && 'shadow-[0_0_15px_0_rgb(0,0,0,0.1)]'
+      )}
+    >
       <div className="mx-auto grid max-w-8xl grid-cols-2 items-center justify-between gap-x-7 px-7 py-4 md:grid-cols-3">
         <div>
           <Link href="/">
