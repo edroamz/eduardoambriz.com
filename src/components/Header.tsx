@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { Link } from '@/components/Link';
 import { Wordmark } from '@/components/Wordmark';
 import { ThemeToggle, ThemeSelect } from '@/components/ThemeToggle';
 import {
@@ -15,20 +16,42 @@ import { inter } from '@/lib/fonts';
 import { cn } from '@/lib/utils';
 
 export function NavItems() {
+  const router = useRouter();
+
   return (
     <>
-      <Link href="/projects">
-        <li>Projects</li>
-      </Link>
-      <Link href="/blog">
-        <li>Blog</li>
-      </Link>
-      <Link href="/snippets">
-        <li>Snippets</li>
-      </Link>
-      <Link href="/uses">
-        <li>Uses</li>
-      </Link>
+      <li>
+        <Link
+          href="/projects"
+          intent={router.pathname === '/projects' ? 'highlight' : 'primary'}
+        >
+          Projects
+        </Link>
+      </li>
+      <li>
+        <Link
+          href="/blog"
+          intent={router.pathname === '/blog' ? 'highlight' : 'primary'}
+        >
+          Blog
+        </Link>
+      </li>
+      <li>
+        <Link
+          href="/snippets"
+          intent={router.pathname === '/snippets' ? 'highlight' : 'primary'}
+        >
+          Snippets
+        </Link>
+      </li>
+      <li>
+        <Link
+          href="/uses"
+          intent={router.pathname === '/uses' ? 'highlight' : 'primary'}
+        >
+          Uses
+        </Link>
+      </li>
     </>
   );
 }
@@ -60,7 +83,7 @@ function NavPopover() {
               'fixed top-4 right-4 z-40 flex w-full max-w-xs flex-col gap-6 rounded-lg bg-white p-6 shadow-lg dark:bg-gray-800'
             )}
           >
-            <DialogClose className="absolute top-5 right-5 flex h-8 w-8 items-center justify-center">
+            <DialogClose className="absolute top-5 right-5 flex h-8 w-8 items-center justify-center text-slate-500 hover:text-slate-700 hover:transition-colors dark:text-slate-400 dark:hover:text-slate-300">
               <span className="sr-only">Close navigation</span>
               <svg
                 viewBox="0 0 10 10"
@@ -79,7 +102,7 @@ function NavPopover() {
             <ul className="mt-2 flex flex-col items-start justify-center gap-y-5 text-left font-semibold">
               <NavItems />
             </ul>
-            <div className="flex flex-row items-center justify-between gap-x-3 border-t pt-5 dark:border-gray-700">
+            <div className="flex flex-row items-center justify-between gap-x-3 border-t pt-5 text-gray-500 dark:border-gray-700 dark:text-gray-400">
               <span>Switch theme</span>
               <ThemeSelect />
             </div>
