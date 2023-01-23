@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { Layout } from '@/components/Layout';
 import { Heading } from '@/components/Heading';
 import { Avatar } from '@/components/Avatar';
+import { AnchorLink } from '@/components/AnchorLink';
 
 let posts = [0, 1, 3];
 
@@ -54,12 +55,13 @@ export default function Home() {
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum,
                   consequuntur?
                 </p>
-                <a
+                <AnchorLink
                   href="https://edroamz.github.io/car-rental-react/"
-                  className="mt-4 inline-block"
+                  intent="primary"
+                  className="mt-4 inline-block font-medium"
                 >
                   https://edroamz.github.io/car-rental-react/
-                </a>
+                </AnchorLink>
               </div>
             </div>
           </div>

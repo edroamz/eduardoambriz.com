@@ -1,11 +1,9 @@
-import { cn } from '@/lib/utils';
+import { cn, WithRequired } from '@/lib/utils';
 import { HTMLProps } from 'react';
 
 type HeadingType = {
   level: 1 | 2 | 3 | 4;
 };
-
-type WithRequired<T, K extends keyof T> = T & { [P in K]-?: T[P] };
 
 interface HeadingProps
   extends HTMLProps<HTMLHeadingElement>,

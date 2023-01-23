@@ -23,7 +23,7 @@ export function NavItems() {
       <li>
         <Link
           href="/projects"
-          intent={router.pathname === '/projects' ? 'highlight' : 'primary'}
+          intent={router.pathname === '/projects' ? 'highlight' : 'tertiary'}
         >
           Projects
         </Link>
@@ -31,7 +31,7 @@ export function NavItems() {
       <li>
         <Link
           href="/blog"
-          intent={router.pathname === '/blog' ? 'highlight' : 'primary'}
+          intent={router.pathname === '/blog' ? 'highlight' : 'tertiary'}
         >
           Blog
         </Link>
@@ -39,7 +39,7 @@ export function NavItems() {
       <li>
         <Link
           href="/snippets"
-          intent={router.pathname === '/snippets' ? 'highlight' : 'primary'}
+          intent={router.pathname === '/snippets' ? 'highlight' : 'tertiary'}
         >
           Snippets
         </Link>
@@ -47,7 +47,7 @@ export function NavItems() {
       <li>
         <Link
           href="/uses"
-          intent={router.pathname === '/uses' ? 'highlight' : 'primary'}
+          intent={router.pathname === '/uses' ? 'highlight' : 'tertiary'}
         >
           Uses
         </Link>
@@ -139,7 +139,7 @@ export function Header() {
     >
       <div className="mx-auto grid max-w-8xl grid-cols-2 items-center justify-between gap-x-7 px-7 py-4 md:grid-cols-3">
         <div>
-          <Link href="/">
+          <Link href="/" intent="non-style">
             <Wordmark />
           </Link>
         </div>
