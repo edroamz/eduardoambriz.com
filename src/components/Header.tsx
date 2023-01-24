@@ -62,7 +62,7 @@ function NavPopover() {
 
   return (
     <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-      <DialogTrigger className="group rounded-md px-2 py-[2px]  pr-0 text-gray-600 hover:text-gray-900 hover:transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 dark:text-gray-300 dark:hover:text-gray-50 dark:focus-visible:ring-gray-50 md:hidden">
+      <DialogTrigger className="group inline rounded-md px-2 py-[2px] pr-0 text-gray-600 hover:text-gray-900 hover:transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 dark:text-gray-300 dark:hover:text-gray-50 dark:focus-visible:ring-gray-50 md:hidden">
         <span className="sr-only">Navigation</span>
         <svg width="24" height="24" fill="none" aria-hidden="true">
           <path
@@ -137,7 +137,7 @@ export function Header() {
         isPageScrolled && 'shadow-[0_0_15px_0_rgb(0,0,0,0.1)]'
       )}
     >
-      <div className="mx-auto grid max-w-8xl grid-cols-2 items-center justify-between gap-x-7 px-7 py-4 md:grid-cols-3">
+      <div className="mx-auto grid max-w-8xl grid-cols-2 items-center justify-between gap-x-7 px-5 py-4 md:grid-cols-3">
         <div>
           <Link href="/" intent="non-style">
             <Wordmark />

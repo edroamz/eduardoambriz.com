@@ -5,7 +5,8 @@ import {
   DropdownMenuTrigger,
   DropdownMenuPortal,
   DropdownMenuContent,
-  DropdownMenuItem
+  DropdownMenuItem,
+  DropdownMenuLabel
 } from '@radix-ui/react-dropdown-menu';
 import {
   Select,
@@ -144,17 +145,15 @@ export function ThemeToggle() {
 
   return (
     <DropdownMenu dir="ltr" modal={false}>
-      <DropdownMenuTrigger
-        id="btn-theme"
-        className="group rounded-md px-2 py-[2px] outline-none ring-0 focus-visible:ring-2 focus-visible:ring-gray-900 group-hover:transition-colors dark:focus-visible:ring-gray-50 md:pr-0"
-      >
+      <DropdownMenuLabel className="sr-only">Theme</DropdownMenuLabel>
+      <DropdownMenuTrigger id="btn-theme">
         <MoonIcon
           selected
-          className="hidden h-6 w-6 hover:text-gray-800 dark:block"
+          className="hidden h-6 w-6 hover:text-gray-800 dark:inline"
         ></MoonIcon>
         <SunIcon
           selected
-          className="h-6 w-6 hover:text-gray-800 dark:hidden"
+          className="inline h-6 w-6 hover:text-gray-800 dark:hidden"
         ></SunIcon>
       </DropdownMenuTrigger>
       <DropdownMenuPortal>

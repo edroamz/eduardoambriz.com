@@ -13,7 +13,7 @@ export const gradientTextVariants = cva(
         winter:
           'from-[#5237f9] to-[#00b8b9] dark:from-[#6369ff] dark:to-[#87ffff]',
         summer:
-          'from-[#e36b52] via-[#632cda] to-[#5237f9] dark:from-[#fca493] dark:via-[#9f75f9] dark:to-[#6369ff]'
+          'from-[#e36b52] to-[#632cda]  dark:from-[#fca493] dark:to-[#9f75f9] '
       },
       direction: {
         top: 'bg-gradient-to-t',

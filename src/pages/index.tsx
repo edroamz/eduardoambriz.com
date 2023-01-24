@@ -18,7 +18,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <section className="mx-auto mt-20 flex max-w-7xl flex-col items-center justify-center px-7 text-center">
+        <section className="mx-auto mt-20 flex max-w-7xl flex-col items-center justify-center px-5 text-center">
           <Avatar />
           <Heading
             level={1}
@@ -27,14 +27,17 @@ export default function Home() {
             Front-End Web Developer.
           </Heading>
           <p className="mt-5 max-w-4xl text-xl leading-9">
-            Hi, I'm Eduardo, experienced Front-End Web Developer specializing in
-            JavaScript and ReactJS, creating dynamic and user-friendly web
-            experiences.
+            Hi, I&apos;m Eduardo, experienced Front-End Web Developer
+            specializing in JavaScript and ReactJS, creating dynamic and
+            user-friendly web experiences.
           </p>
         </section>
-        <section className="mx-auto mt-24 flex max-w-7xl flex-col items-center justify-center px-7 text-center">
+        <section className="mx-auto mt-24 flex max-w-7xl flex-col items-center justify-center px-5 text-center">
           <GradientText asChild>
-            <Heading level={2} className="font-sans text-3xl tracking-tight">
+            <Heading
+              level={2}
+              className="m-0 font-sans text-[2rem] leading-normal tracking-tight"
+            >
               Curated Work
             </Heading>
           </GradientText>
@@ -44,7 +47,7 @@ export default function Home() {
           >
             Explore my portfolio of completed projects
           </Heading>
-          <div className="mx-auto mt-10 grid w-full max-w-5xl grid-cols-1 items-center gap-y-14 md:mt-14">
+          <div className="mx-auto mt-10 grid w-full max-w-6xl grid-cols-1 items-center gap-y-14 md:mt-14">
             <div>
               <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-slate-200  dark:border-slate-700">
                 <Image
@@ -72,9 +75,12 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="mx-auto mt-24 flex max-w-5xl flex-col items-center justify-center px-7 text-center">
+        <section className="mx-auto mt-24 flex max-w-5xl flex-col items-center justify-center px-5 text-center">
           <GradientText intent="summer" asChild>
-            <Heading level={2} className="font-sans text-3xl tracking-tight">
+            <Heading
+              level={2}
+              className="m-0 font-sans text-[2rem] leading-normal tracking-tight"
+            >
               Top-Read Posts
             </Heading>
           </GradientText>
