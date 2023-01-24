@@ -28,7 +28,7 @@ interface LinkProps
   extends NextLinkProps,
     Omit<AnchorLinkProps, 'href' | 'as' | 'ref'> {}
 
-export function Link({ intent, className, ...props }: LinkProps) {
+export function Link({ intent, className = '', ...props }: LinkProps) {
   return (
     <NextLink className={cn(linkVariants({ intent }), className)} {...props}>
       {props.children}

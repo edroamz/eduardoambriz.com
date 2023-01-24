@@ -9,7 +9,7 @@ export interface AnchorLinkProps
 export function AnchorLink({
   intent,
   href,
-  className,
+  className = '',
   ...props
 }: AnchorLinkProps) {
   return (

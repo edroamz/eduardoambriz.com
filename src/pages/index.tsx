@@ -4,6 +4,7 @@ import { Layout } from '@/components/Layout';
 import { Heading } from '@/components/Heading';
 import { Avatar } from '@/components/Avatar';
 import { AnchorLink } from '@/components/AnchorLink';
+import { GradientText } from '@/components/GradientText';
 
 let posts = [0, 1, 3];
 
@@ -23,21 +24,27 @@ export default function Home() {
             level={1}
             className="mt-6 max-w-5xl text-5xl leading-snug md:text-6xl md:leading-tight"
           >
-            FrontEnd Developer, JavaScript Enthusiast
+            Front-End Web Developer.
           </Heading>
-          <p className="mt-5 max-w-2xl text-xl leading-9">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            aut laborum doloribus quos adipisci.
+          <p className="mt-5 max-w-4xl text-xl leading-9">
+            Hi, I'm Eduardo, experienced Front-End Web Developer specializing in
+            JavaScript and ReactJS, creating dynamic and user-friendly web
+            experiences.
           </p>
         </section>
-        <section className="mx-auto mt-20 flex max-w-7xl flex-col items-center justify-center px-7 text-center">
+        <section className="mx-auto mt-24 flex max-w-7xl flex-col items-center justify-center px-7 text-center">
+          <GradientText asChild>
+            <Heading level={2} className="font-sans text-3xl tracking-tight">
+              Curated Work
+            </Heading>
+          </GradientText>
           <Heading
-            level={2}
-            className="mt-4 max-w-5xl text-4xl leading-snug tracking-wide md:text-5xl md:leading-tight"
+            level={3}
+            className="mt-5 max-w-5xl text-4xl leading-snug  md:mt-7 md:text-5xl md:leading-tight"
           >
-            Take a look at my work
+            Explore my portfolio of completed projects
           </Heading>
-          <div className="mx-auto mt-10 grid w-full max-w-5xl grid-cols-1 items-center gap-y-14">
+          <div className="mx-auto mt-10 grid w-full max-w-5xl grid-cols-1 items-center gap-y-14 md:mt-14">
             <div>
               <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-slate-200  dark:border-slate-700">
                 <Image
@@ -49,31 +56,35 @@ export default function Home() {
               </div>
               <div className="text-left">
                 <Heading level={3} className="mt-6 text-lg">
-                  car-rental-react
+                  car rental website
                 </Heading>
                 <p className="mt-2">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum,
-                  consequuntur?
+                  Your one-stop destination for all your transportation needs.
                 </p>
                 <AnchorLink
                   href="https://edroamz.github.io/car-rental-react/"
                   intent="primary"
                   className="mt-4 inline-block font-medium"
                 >
-                  https://edroamz.github.io/car-rental-react/
+                  Live demo
                 </AnchorLink>
               </div>
             </div>
           </div>
         </section>
-        <section className="mx-auto mt-20 flex max-w-5xl flex-col items-center justify-center px-7 text-center">
+        <section className="mx-auto mt-24 flex max-w-5xl flex-col items-center justify-center px-7 text-center">
+          <GradientText intent="summer" asChild>
+            <Heading level={2} className="font-sans text-3xl tracking-tight">
+              Top-Read Posts
+            </Heading>
+          </GradientText>
           <Heading
-            level={2}
-            className="mt-4 max-w-5xl text-4xl leading-snug tracking-wide md:text-5xl md:leading-tight"
+            level={3}
+            className="mt-5 max-w-5xl text-4xl leading-snug tracking-wide md:mt-7 md:text-5xl md:leading-tight"
           >
-            Blog
+            Most popularly read blog entries
           </Heading>
-          <div className="relative mt-10 sm:ml-[calc(2rem+1px)] sm:pb-12 md:ml-[calc(3.5rem+1px)] lg:ml-[max(calc(14.5rem+1px),calc(100%-48rem))]">
+          <div className="relative mt-10 sm:ml-[calc(2rem+1px)] sm:pb-12 md:mt-14 md:ml-[calc(3.5rem+1px)] lg:ml-[max(calc(14.5rem+1px),calc(100%-48rem))]">
             <div className="absolute top-3 bottom-0 right-full mr-7 hidden w-px bg-slate-200 dark:bg-slate-800 sm:block md:mr-[3.25rem]"></div>
             <div className="space-y-16">
               {posts.map((post) => (
@@ -110,7 +121,7 @@ export default function Home() {
                     </div>
                     <dl className="absolute left-0 top-0 lg:left-auto lg:right-full lg:mr-[calc(6.5rem+1px)]">
                       <dt className="sr-only">Date</dt>
-                      <dd className="whitespace-nowrap text-sm leading-6 dark:text-slate-400">
+                      <dd className="whitespace-nowrap text-sm leading-6 tracking-wide dark:text-slate-400">
                         <time dateTime="2022-12-15T15:00:00.000Z">
                           December 15, 2022
                         </time>
