@@ -156,7 +156,7 @@ export function ThemeToggle() {
         <DropdownMenuContent
           className={cn(
             inter.className,
-            'z-30 grid w-36 grid-cols-1 items-start justify-center overflow-hidden rounded-lg bg-white py-1 text-sm font-semibold text-slate-700 shadow-lg ring-1  ring-slate-900/10 dark:bg-gray-800 dark:text-slate-300 dark:ring-0'
+            'z-30 grid w-36 grid-cols-1 items-start justify-center overflow-hidden rounded-lg bg-white py-1 text-sm font-semibold text-slate-700 shadow-sm ring-1  ring-slate-900/10 dark:bg-gray-800 dark:text-slate-300 dark:ring-0'
           )}
           sideOffset={32}
           collisionPadding={{ right: 28 }}

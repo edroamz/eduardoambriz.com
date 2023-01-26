@@ -46,6 +46,7 @@ interface CardProps {
 function Card({ title, description, icon: Icon, tags = [] }: CardProps) {
   return (
     <Link href="/" intent="non-text">
+      {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
       <div className="group/card mx-5 mb-[60px] h-[275px] w-[290px] rounded-lg border border-transparent shadow-sm transition-all duration-200 hover:shadow-lg dark:border-slate-700/80 dark:shadow-none dark:hover:border-slate-300">
         <div className="flex h-[126px] items-center justify-center border-b dark:border-slate-700/80 ">
           <Icon className="h-14 w-14 grayscale group-hover/card:grayscale-0 group-hover/card:transition-all group-hover/card:duration-300" />

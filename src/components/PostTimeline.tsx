@@ -7,8 +7,8 @@ interface PostTimelineProps {
 
 export function PostTimeline({ posts }: PostTimelineProps) {
   return (
-    <div className="mx-auto max-w-[52rem] px-0 sm:px-6 lg:max-w-6xl">
-      <div className="relative mt-16 sm:ml-[calc(2rem+1px)] sm:pb-12 md:ml-[calc(3.5rem+1px)] lg:ml-[max(calc(14.5rem+1px),calc(100%-48rem))]">
+    <div className="mx-auto mt-16 max-w-[52rem] px-0 sm:px-6 lg:max-w-6xl">
+      <div className="relative sm:ml-[calc(2rem+1px)] sm:pb-12 md:ml-[calc(3.5rem+1px)] lg:ml-[max(calc(14.5rem+1px),calc(100%-48rem))]">
         <div className="absolute top-3 bottom-0 right-full mr-7 hidden w-px bg-slate-200 dark:bg-slate-800/80 sm:block md:mr-[3.25rem]"></div>
         <div className="space-y-16">
           {posts.map((post) => (

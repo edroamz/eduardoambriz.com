@@ -58,7 +58,7 @@ export default function Home() {
           >
             Explore my portfolio of completed projects
           </Heading>
-          <div className="mx-auto mt-10 grid w-full max-w-6xl grid-cols-1 items-center gap-y-14 md:mt-14">
+          <div className="mx-auto mt-12 grid w-full max-w-6xl grid-cols-1 items-center gap-y-14 md:mt-16">
             <div>
               <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-slate-200  dark:border-slate-700">
                 <Image
