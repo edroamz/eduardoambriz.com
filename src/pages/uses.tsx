@@ -12,16 +12,16 @@ export default function Uses() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <section className="mx-auto mt-20 flex max-w-7xl flex-col items-center justify-center px-7 text-center">
+        <section className="mt-10 flex max-w-7xl flex-col justify-center px-5 sm:mx-auto sm:items-center sm:text-center">
           <Heading
             level={1}
-            className="mt-6 max-w-5xl text-5xl leading-snug md:text-6xl md:leading-tight"
+            className="mt-6 max-w-5xl text-5xl leading-snug sm:leading-tight"
           >
             Uses
           </Heading>
-          <p className="mt-5 max-w-2xl text-xl leading-9">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            aut laborum doloribus quos adipisci.
+          <p className="mt-2 max-w-3xl text-lg leading-8 dark:text-slate-400 sm:mt-6">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae
+            adipisci voluptas doloremque deleniti rem?
           </p>
         </section>
       </Layout>

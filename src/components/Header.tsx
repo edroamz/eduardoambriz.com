@@ -11,7 +11,6 @@ import {
   DialogContent,
   DialogClose
 } from '@radix-ui/react-dialog';
-import useIsMobile from '@/hooks/use-is-mobile';
 import { inter } from '@/lib/fonts';
 import { cn } from '@/lib/utils';
 
@@ -58,7 +57,22 @@ export function NavItems() {
 
 function NavPopover() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const isMobile = useIsMobile();
+  const MOBILE_BREAKPOINT = 768;
+  const getIsMobile = () => window.innerWidth < MOBILE_BREAKPOINT;
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== 'undefined' ? getIsMobile() : false
+  );
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(getIsMobile());
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Remove event listener on cleanup
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
@@ -133,11 +147,11 @@ export function Header() {
   return (
     <header
       className={cn(
-        'fixed top-0 z-20 h-header w-full max-w-full border-b border-gray-200 bg-white transition-shadow duration-200 dark:border-slate-700/80 dark:bg-black',
+        'fixed top-0 z-20 h-header w-full max-w-full border-b border-gray-200 bg-white transition-shadow duration-200 dark:border-gray-700/80 dark:bg-black',
         isPageScrolled && 'shadow-[0_0_15px_0_rgb(0,0,0,0.1)]'
       )}
     >
-      <div className="mx-auto grid max-w-8xl grid-cols-2 items-center justify-between gap-x-7 px-5 py-4 md:grid-cols-3">
+      <div className="mx-auto grid max-w-8xl grid-cols-2 items-center justify-between gap-x-7 px-6 py-4 md:grid-cols-3">
         <div>
           <Link href="/" intent="non-style">
             <Wordmark />

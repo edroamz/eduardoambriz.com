@@ -10,11 +10,11 @@ export const linkVariants = cva(
     variants: {
       intent: {
         primary:
-          'text-blue-600 dark:text-blue-300 decoration-transparent underline underline-offset-4 hover:decoration-inherit',
+          'text-primary dark:text-primary-dark decoration-transparent underline underline-offset-4 hover:decoration-inherit',
         secondary:
-          'font-semibold text-slate-900 dark:text-slate-200 decoration-transparent underline underline-offset-4 hover:decoration-inherit',
+          'font-semibold text-slate-900 dark:text-slate-200 underline hover:decoration-2 underline-offset-4 decoration-inherit',
         tertiary:
-          'text-gray-600/80 hover:text-black dark:text-gray-400 dark:hover:text-gray-100',
+          'text-slate-600 hover:text-black dark:text-slate-400 dark:hover:text-slate-100',
         highlight: 'font-medium text-black dark:text-white',
         'non-text': 'block',
         'non-style': ''

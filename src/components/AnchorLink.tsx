@@ -1,6 +1,8 @@
 import { HTMLProps } from 'react';
 import { linkVariants, LinkVariantProps } from '@/components/Link';
-import { cn, WithRequired } from '@/lib/utils';
+import { cn } from '@/lib/utils';
+
+type WithRequired<T, K extends keyof T> = T & { [P in K]-?: T[P] };
 
 export interface AnchorLinkProps
   extends LinkVariantProps,

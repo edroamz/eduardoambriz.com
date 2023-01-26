@@ -1,13 +1,11 @@
-import { cn, WithRequired } from '@/lib/utils';
+import { cn } from '@/lib/utils';
 import { HTMLProps } from 'react';
-
-type HeadingType = {
-  level: 1 | 2 | 3 | 4;
-};
 
 interface HeadingProps
   extends HTMLProps<HTMLHeadingElement>,
-    WithRequired<HeadingType, 'level'> {}
+    Required<{
+      level: 1 | 2 | 3 | 4;
+    }> {}
 
 export function Heading({
   level = 1,
