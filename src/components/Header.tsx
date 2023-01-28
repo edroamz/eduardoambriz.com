@@ -11,7 +11,7 @@ import {
   DialogContent,
   DialogClose
 } from '@radix-ui/react-dialog';
-import { inter } from '@/lib/fonts';
+import { fontSans } from '@/lib/fonts';
 import { cn } from '@/lib/utils';
 
 export function NavItems() {
@@ -93,7 +93,7 @@ function NavPopover() {
           <DialogOverlay className="fixed inset-0 z-30 h-full w-screen bg-black/20 backdrop-blur-sm dark:bg-black/70 " />
           <DialogContent
             className={cn(
-              inter.className,
+              fontSans.className,
               'fixed top-4 right-4 z-40 flex w-full max-w-xs flex-col gap-6 rounded-lg bg-white p-6 shadow-lg dark:bg-gray-800'
             )}
           >

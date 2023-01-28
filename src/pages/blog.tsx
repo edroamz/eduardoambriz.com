@@ -2,20 +2,21 @@ import Head from 'next/head';
 import { Layout } from '@/components/Layout';
 import { Heading } from '@/components/Heading';
 import { PostTimeline } from '@/components/PostTimeline';
+import { allPosts, Post } from 'contentlayer/generated';
+import { compareDesc } from 'date-fns';
 
-let posts = [
-  {
-    key: 'p01'
-  },
-  {
-    key: 'p02'
-  },
-  {
-    key: 'p03'
-  }
-];
+export interface BlogProps {
+  posts: Post[];
+}
 
-export default function Blog() {
+export async function getStaticProps() {
+  const posts = allPosts.sort((a, b) => {
+    return compareDesc(new Date(a.date), new Date(b.date));
+  });
+  return { props: { posts } };
+}
+
+export default function Blog({ posts }: BlogProps) {
   return (
     <>
       <Head>

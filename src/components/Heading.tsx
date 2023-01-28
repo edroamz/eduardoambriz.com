@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils';
-import { HTMLProps } from 'react';
+import { forwardRef, HTMLProps, Ref } from 'react';
 
 interface HeadingProps
   extends HTMLProps<HTMLHeadingElement>,
@@ -7,22 +7,21 @@ interface HeadingProps
       level: 1 | 2 | 3 | 4;
     }> {}
 
-export function Heading({
-  level = 1,
-  id,
-  className = '',
-  children,
-  ...props
-}: HeadingProps) {
-  const Component: any = `h${level}`;
+export const Heading = forwardRef(
+  (props: HeadingProps, ref: Ref<HTMLHeadingElement>) => {
+    const Component: any = `h${props.level}`;
 
-  return (
-    <Component
-      id={id}
-      className={cn('whitespace-pre-wrap', className)}
-      {...props}
-    >
-      {children}
-    </Component>
-  );
-}
+    return (
+      <Component
+        ref={ref}
+        id={props.id}
+        className={cn('whitespace-pre-wrap', props.className)}
+        {...props}
+      >
+        {props.children}
+      </Component>
+    );
+  }
+);
+
+Heading.displayName = 'Heading';

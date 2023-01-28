@@ -1,13 +1,13 @@
-import { Inter } from '@next/font/google';
+import { Inter as FontSans } from '@next/font/google';
 import localFont from '@next/font/local';
 
-export const inter = Inter({
-  variable: '--font-inter-sans',
+export const fontSans = FontSans({
+  variable: '--font-inter',
   subsets: ['latin']
 });
 
-export const calSans = localFont({
-  variable: '--font-cal-sans',
+export const fontDisplay = localFont({
+  variable: '--font-cal',
   src: './../fonts/CalSans-SemiBold.woff2',
   display: 'optional'
 });

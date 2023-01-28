@@ -6,20 +6,20 @@ import { Avatar } from '@/components/Avatar';
 import { AnchorLink } from '@/components/AnchorLink';
 import { GradientText } from '@/components/GradientText';
 import { PostTimeline } from '@/components/PostTimeline';
+import { BlogProps } from '@/pages/blog';
+import { allPosts } from 'contentlayer/generated';
+import { compareDesc } from 'date-fns';
 
-let posts = [
-  {
-    key: 'p01'
-  },
-  {
-    key: 'p02'
-  },
-  {
-    key: 'p03'
-  }
-];
+export async function getStaticProps() {
+  const posts = allPosts
+    .filter((post) => post.featured)
+    .sort((a, b) => {
+      return compareDesc(new Date(a.date), new Date(b.date));
+    });
+  return { props: { posts } };
+}
 
-export default function Home() {
+export default function Home({ posts }: BlogProps) {
   return (
     <>
       <Head>

@@ -18,7 +18,7 @@ import {
   SelectItem,
   SelectItemText
 } from '@radix-ui/react-select';
-import { inter } from '@/lib/fonts';
+import { fontSans } from '@/lib/fonts';
 import { cn } from '@/lib/utils';
 
 let themeSettings = [
@@ -155,7 +155,7 @@ export function ThemeToggle() {
       <DropdownMenuPortal>
         <DropdownMenuContent
           className={cn(
-            inter.className,
+            fontSans.className,
             'z-30 grid w-36 grid-cols-1 items-start justify-center overflow-hidden rounded-lg bg-white py-1 text-sm font-semibold text-slate-700 shadow-sm ring-1  ring-slate-900/10 dark:bg-gray-800 dark:text-slate-300 dark:ring-0'
           )}
           sideOffset={32}
@@ -237,7 +237,7 @@ export function ThemeSelect() {
             }}
             className="z-50 w-full rounded-md border border-gray-300 bg-gray-100 py-1 shadow dark:border-gray-600 dark:bg-gray-900"
           >
-            <SelectViewport className={inter.className}>
+            <SelectViewport className={fontSans.className}>
               {themeSettings.map(({ value, label }) => (
                 <SelectItem
                   key={value}
