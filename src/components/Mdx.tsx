@@ -69,10 +69,22 @@ const components = {
       href && (href.startsWith('/') || href.startsWith('#'));
 
     if (isInternalLink) {
-      return <Link href={props.href} {...props}></Link>;
+      return (
+        <Link
+          href={props.href}
+          className={cn(props.className, className)}
+          {...props}
+        ></Link>
+      );
     }
 
-    return <AnchorLink href={props.href} {...props} />;
+    return (
+      <AnchorLink
+        href={props.href}
+        className={cn(props.className, className)}
+        {...props}
+      />
+    );
   },
   p: ({ className, ...props }: Props) => (
     <p
@@ -130,7 +142,7 @@ const components = {
   tr: ({ className, ...props }: React.HTMLAttributes<HTMLTableRowElement>) => (
     <tr
       className={cn(
-        'm-0 border-t border-slate-300 p-0 even:bg-slate-100 dark:border-slate-700 dark:even:bg-slate-800/70',
+        'm-0 border-t border-slate-300 p-0 even:bg-slate-100 dark:border-slate-800 dark:even:bg-slate-800/40',
         className
       )}
       {...props}
@@ -139,7 +151,7 @@ const components = {
   th: ({ className, ...props }: Props) => (
     <th
       className={cn(
-        'border border-slate-200 px-4 py-2 text-left font-bold dark:border-slate-800 [&[align=center]]:text-center [&[align=right]]:text-right',
+        'border border-slate-200 px-4 py-2 text-left font-bold dark:border-slate-800/80 [&[align=center]]:text-center [&[align=right]]:text-right',
         className
       )}
       {...props}
@@ -148,7 +160,7 @@ const components = {
   td: ({ className, ...props }: Props) => (
     <td
       className={cn(
-        'border border-slate-200 px-4 py-2 text-left dark:border-slate-800 [&[align=center]]:text-center [&[align=right]]:text-right',
+        'border border-slate-200 px-4 py-2 text-left dark:border-slate-800/80 dark:text-slate-300 [&[align=center]]:text-center [&[align=right]]:text-right',
         className
       )}
       {...props}
@@ -166,7 +178,7 @@ const components = {
   code: ({ className, ...props }: Props) => (
     <code
       className={cn(
-        'relative rounded border bg-slate-300 bg-opacity-25 py-[0.2rem] px-[0.3rem] font-mono text-sm text-slate-600 dark:border-slate-500 dark:bg-slate-700 dark:text-slate-300',
+        'relative rounded border bg-slate-300 bg-opacity-25 py-[0.2rem] px-[0.3rem] font-mono text-sm text-slate-600 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300',
         className
       )}
       {...props}
@@ -182,7 +194,7 @@ export function Mdx({ code }: MdxProps) {
   const Component = useMDXComponent(code);
 
   return (
-    <div className="mdx w-full">
+    <div className="w-full">
       <Component components={components} />
     </div>
   );

@@ -1,4 +1,8 @@
 @import 'base.css';
 
+/*! purgecss start ignore */
+@import 'mdx.css';
+/*! purgecss end ignore */
+
 @import 'tailwindcss/components';
 @import 'utilities.css';

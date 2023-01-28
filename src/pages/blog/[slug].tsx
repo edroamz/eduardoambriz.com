@@ -50,7 +50,7 @@ const PostLayout = ({ post }: PostLayoutProps) => {
           <Link
             href="/blog"
             intent="tertiary"
-            className="mt-4 inline-flex items-center font-semibold"
+            className="mt-2 inline-flex items-center text-sm font-semibold tracking-wide"
           >
             <svg
               viewBox="0 -9 3 24"
@@ -68,9 +68,12 @@ const PostLayout = ({ post }: PostLayoutProps) => {
             <span>Back to Blog</span>
           </Link>
         </div>
-        <article className="mx-auto mt-8 flex max-w-3xl flex-col items-center px-6 lg:px-0">
+        <article className="mx-auto mt-6 flex max-w-3xl flex-col items-center px-6">
           <div className="mb-12 w-full text-left">
-            <time dateTime={post.date} className="mb-1 text-sm tracking-wide">
+            <time
+              dateTime={post.date}
+              className="mb-1 text-sm tracking-wide dark:text-slate-300"
+            >
               {format(parseISO(post.date), 'LLLL d, yyyy')}
             </time>
             <Heading
