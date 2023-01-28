@@ -1,5 +1,7 @@
 import { useMDXComponent } from 'next-contentlayer/hooks';
+
 import { cn } from '@/lib/utils';
+import { Callout } from '@/components/Callout';
 import { AnchorLink } from '@/components/AnchorLink';
 import { Link } from '@/components/Link';
 
@@ -183,7 +185,8 @@ const components = {
       )}
       {...props}
     />
-  )
+  ),
+  Callout
 };
 
 interface MdxProps {

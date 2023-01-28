@@ -8,6 +8,6 @@ export const fontSans = FontSans({
 
 export const fontDisplay = localFont({
   variable: '--font-cal',
-  src: './../fonts/CalSans-SemiBold.woff2',
+  src: './../assets/fonts/CalSans-SemiBold.woff2',
   display: 'optional'
 });
