@@ -1,78 +1,69 @@
-import { SVGProps } from 'react';
+import { SVGProps, createElement } from 'react';
 import Head from 'next/head';
 import { Layout } from '@/components/Layout';
 import { Heading } from '@/components/Heading';
 import { Link } from '@/components/Link';
+import { allSnippets, Snippet } from 'contentlayer/generated';
+import type { InferGetStaticPropsType, GetStaticProps } from 'next';
 
-const snippets = [
-  {
-    key: 's01',
-    title: 'useIsMobile Hook',
-    description:
-      'Detects when the browser window width has entered the mobile breakpoint',
-    tags: ['React.js'],
-    icon: ReactSVG
-  },
-  {
-    key: 's02',
-    title: 'Gradient Text',
-    description: 'Set Gradient Colors for Text',
-    tags: ['CSS'],
-    icon: CSSSVG
-  },
-  {
-    key: 's03',
-    title: 'Tailwind CSS classes',
-    description: '',
-    tags: ['TailwindCSS', 'CSS'],
-    icon: TailwindSVG
-  },
-  {
-    key: 's04',
-    title: 'WithRequired Type',
-    description: '',
-    tags: ['TypeScript'],
-    icon: TypeScriptSVG
-  }
-];
+const icons: any = {
+  React: React,
+  Css: Css,
+  Tailwind: Tailwind,
+  Typescript: Typescript
+};
 
-interface CardProps {
-  title: string;
-  description: string;
-  icon: any;
-  tags: string[];
+interface SnippetCardProps {
+  snippet: Snippet;
 }
 
-function Card({ title, description, icon: Icon, tags = [] }: CardProps) {
+function SnippetCard({ snippet }: SnippetCardProps) {
+  const Icon = icons[snippet.icon];
+
   return (
-    <Link href="/" intent="non-text">
+    <Link href={snippet.slug} intent="non-text">
       {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
-      <div className="group/card mx-5 mb-[60px] h-[275px] w-[290px] rounded-lg border border-transparent shadow-sm transition-all duration-200 hover:shadow-lg dark:border-slate-700/80 dark:shadow-none dark:hover:border-slate-300">
-        <div className="flex h-[126px] items-center justify-center border-b dark:border-slate-700/80 ">
+      <div className="group/card mx-5 mb-[60px] h-[275px] w-[290px] rounded-lg border border-transparent shadow-sm  duration-200 hover:shadow-lg dark:border-slate-700/80 dark:shadow-none dark:hover:border-slate-300">
+        <div className="flex h-[126px] items-center justify-center border-b dark:border-slate-700/80">
           <Icon className="h-14 w-14 grayscale group-hover/card:grayscale-0 group-hover/card:transition-all group-hover/card:duration-300" />
         </div>
         <div className="h-[100px] p-5 text-left">
-          <div className="font-sans text-lg font-semibold">{title}</div>
+          <div className="font-sans text-lg font-semibold">{snippet.title}</div>
           <div className="mt-[5px] text-sm leading-6 text-slate-600/90 line-clamp-2 dark:text-slate-400">
-            {description}
+            {snippet.description}
           </div>
         </div>
         <div className="flex items-center gap-x-[6px] px-5 pt-[12.5px] pb-0">
-          {tags.map((tag) => (
-            <span
-              key={tag}
-              className="inline-block rounded-[4px] border border-slate-300 px-[6px] py-px text-xs text-black dark:border-slate-700 dark:text-gray-200"
-            >
-              {tag}
-            </span>
-          ))}
+          {snippet?.tags &&
+            snippet.tags.map((tag) => (
+              <span
+                key={tag}
+                className="inline-block rounded-[4px] border border-slate-300 px-[6px] py-px text-xs text-black dark:border-slate-700 dark:text-gray-200"
+              >
+                {tag}
+              </span>
+            ))}
         </div>
       </div>
     </Link>
   );
 }
 
-export default function Snippets() {
+export const getStaticProps: GetStaticProps<{
+  snippets: Snippet[];
+}> = async () => {
+  const snippets = allSnippets;
+
+  return {
+    props: {
+      snippets
+    }
+  };
+};
+
+export default function Snippets({
+  snippets
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
       <Head>
@@ -96,7 +87,7 @@ export default function Snippets() {
           <div className="mt-16 flex w-full max-w-[1010px] flex-wrap justify-center">
             <div className="flex flex-wrap justify-center">
               {snippets.map((snippet) => (
-                <Card {...snippet} key={snippet.key} />
+                <SnippetCard snippet={snippet} key={snippet._id} />
               ))}
             </div>
           </div>
@@ -108,7 +99,7 @@ export default function Snippets() {
 
 interface IconProps extends SVGProps<SVGSVGElement> {}
 
-function ReactSVG({ ...props }: IconProps) {
+function React({ ...props }: IconProps) {
   return (
     <svg
       width="100%"
@@ -130,7 +121,7 @@ function ReactSVG({ ...props }: IconProps) {
   );
 }
 
-function CSSSVG({ ...props }: IconProps) {
+function Css({ ...props }: IconProps) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" {...props}>
       <path
@@ -150,7 +141,7 @@ function CSSSVG({ ...props }: IconProps) {
   );
 }
 
-function TailwindSVG({ ...props }: IconProps) {
+function Tailwind({ ...props }: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -175,7 +166,7 @@ function TailwindSVG({ ...props }: IconProps) {
   );
 }
 
-function TypeScriptSVG({ ...props }: IconProps) {
+function Typescript({ ...props }: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

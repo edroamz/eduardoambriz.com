@@ -4,19 +4,23 @@ import { Heading } from '@/components/Heading';
 import { PostTimeline } from '@/components/PostTimeline';
 import { allPosts, Post } from 'contentlayer/generated';
 import { compareDesc } from 'date-fns';
+import type { InferGetStaticPropsType, GetStaticProps } from 'next';
 
-export interface BlogProps {
-  posts: Post[];
-}
-
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async () => {
   const posts = allPosts.sort((a, b) => {
     return compareDesc(new Date(a.date), new Date(b.date));
   });
-  return { props: { posts } };
-}
 
-export default function Blog({ posts }: BlogProps) {
+  return {
+    props: {
+      posts
+    }
+  };
+};
+
+export default function Blog({
+  posts
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
       <Head>

@@ -1,5 +1,4 @@
 import { Link } from '@/components/Link';
-import { BlogProps } from '@/pages/blog';
 import { Post } from 'contentlayer/generated';
 import { format, parseISO } from 'date-fns';
 import { Mdx } from '@/components/Mdx';
@@ -68,14 +67,18 @@ function Post(post: Post) {
   );
 }
 
-export function PostTimeline({ posts }: BlogProps) {
+interface PostTimelineProps {
+  posts: Post[];
+}
+
+export function PostTimeline({ posts }: PostTimelineProps) {
   return (
     <div className="mx-auto mt-16 w-full max-w-[52rem] px-0 sm:px-6 lg:max-w-6xl">
       <div className="relative sm:ml-[calc(2rem+1px)] sm:pb-12 md:ml-[calc(3.5rem+1px)] lg:ml-[max(calc(14.5rem+1px),calc(100%-48rem))]">
         <div className="absolute top-3 bottom-0 right-full mr-7 hidden w-px bg-slate-200 dark:bg-slate-800/80 sm:block md:mr-[3.25rem]"></div>
         <div className="space-y-16">
-          {posts.map((post, idx) => (
-            <Post key={idx} {...post} />
+          {posts.map((post) => (
+            <Post key={post._id} {...post} />
           ))}
         </div>
       </div>

@@ -7,6 +7,7 @@ import { Heading } from '@/components/Heading';
 import { Link } from '@/components/Link';
 import { AnchorLink } from '@/components/AnchorLink';
 import { Avatar } from '@/components/Avatar';
+import type { InferGetStaticPropsType, GetStaticProps } from 'next';
 
 export async function getStaticPaths() {
   const paths = allPosts.map((post) => ({
@@ -19,33 +20,29 @@ export async function getStaticPaths() {
   };
 }
 
-interface Params {
-  params: {
-    slug: string;
-  };
-}
-
-export async function getStaticProps({ params }: Params) {
-  const post: Post | undefined = allPosts.find(
-    (post) => post.slugAsParams === params?.slug
-  );
+export const getStaticProps: GetStaticProps<{ post?: Post }> = async ({
+  params
+}) => {
+  const post = allPosts.find((post) => post.slugAsParams === params?.slug);
 
   return {
     props: {
       post
     }
   };
-}
+};
 
-interface PostLayoutProps {
-  post: Post;
-}
+const PostLayout = ({
+  post
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
+  if (!post) {
+    return null;
+  }
 
-const PostLayout = ({ post }: PostLayoutProps) => {
   return (
     <>
       <Head>
-        <title>{post.title}</title>
+        <title>Eduardo Ambriz - {post.title}</title>
       </Head>
       <Layout>
         <div className="mx-auto max-w-8xl px-6 py-4">
@@ -103,7 +100,7 @@ const PostLayout = ({ post }: PostLayoutProps) => {
               </AnchorLink>
             </div>
             <hr />
-            <div className="my-14 flex items-center justify-center">
+            <div className="my-16 flex items-center justify-center">
               <Link
                 href="/blog"
                 intent="tertiary"
