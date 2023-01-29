@@ -37,7 +37,7 @@ export default function Home({ posts }: BlogProps) {
           >
             Front-End Web Developer.
           </Heading>
-          <p className="mt-5 max-w-4xl text-xl leading-9">
+          <p className="mt-5 max-w-4xl text-xl leading-9 sm:px-7">
             Hi, I&apos;m Eduardo, experienced Front-End Web Developer
             specializing in JavaScript and ReactJS, creating dynamic and
             user-friendly web experiences.
@@ -71,7 +71,7 @@ export default function Home({ posts }: BlogProps) {
               <div className="text-left">
                 <Heading
                   level={3}
-                  className="mt-6 font-display text-xl tracking-wide text-black dark:text-gray-200"
+                  className="mt-6 font-sans text-lg font-semibold"
                 >
                   car rental website
                 </Heading>
@@ -81,7 +81,7 @@ export default function Home({ posts }: BlogProps) {
                 <AnchorLink
                   href="https://edroamz.github.io/car-rental-react/"
                   intent="primary"
-                  className="mt-4 inline-block text-sm font-medium tracking-wide"
+                  className="mt-4 inline-block text-sm font-medium"
                 >
                   <span>Live demo</span>
                   <svg
@@ -102,7 +102,7 @@ export default function Home({ posts }: BlogProps) {
             </div>
           </div>
         </section>
-        <section className="mx-auto mt-24 flex max-w-5xl flex-col items-center justify-center px-6 text-center">
+        <section className="mx-auto mb-32 mt-24 flex max-w-5xl flex-col items-center justify-center px-6 text-center">
           <GradientText intent="summer" asChild>
             <Heading
               level={2}
@@ -113,7 +113,7 @@ export default function Home({ posts }: BlogProps) {
           </GradientText>
           <Heading
             level={3}
-            className="mt-5 max-w-5xl text-4xl leading-snug tracking-wide md:mt-7 md:text-5xl md:leading-tight"
+            className="mt-5 max-w-5xl text-4xl leading-snug md:mt-7 md:text-5xl md:leading-tight"
           >
             Most popularly read blog entries
           </Heading>

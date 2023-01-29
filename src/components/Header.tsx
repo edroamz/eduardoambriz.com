@@ -151,7 +151,7 @@ export function Header() {
         isPageScrolled && 'shadow-[0_0_15px_0_rgb(0,0,0,0.1)]'
       )}
     >
-      <div className="mx-auto grid max-w-8xl grid-cols-2 items-center justify-between gap-x-7 px-6 py-4 md:grid-cols-3">
+      <div className="mx-auto flex max-w-8xl grid-cols-2 items-center justify-between gap-x-7 px-6 py-4 sm:grid md:grid-cols-3">
         <div>
           <Link href="/" intent="non-style">
             <Wordmark />

@@ -26,7 +26,7 @@ export default function Blog({ posts }: BlogProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <section className="mt-10 flex max-w-5xl flex-col justify-center px-5 sm:mx-auto sm:items-center sm:text-center">
+        <section className="mt-10 mb-32 flex max-w-5xl flex-col justify-center px-5 sm:mx-auto sm:items-center sm:text-center">
           <Heading
             level={1}
             className="mt-6 max-w-5xl text-5xl leading-snug sm:leading-tight"

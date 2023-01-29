@@ -52,9 +52,7 @@ function Card({ title, description, icon: Icon, tags = [] }: CardProps) {
           <Icon className="h-14 w-14 grayscale group-hover/card:grayscale-0 group-hover/card:transition-all group-hover/card:duration-300" />
         </div>
         <div className="h-[100px] p-5 text-left">
-          <div className="font-display text-xl tracking-wide text-black dark:text-gray-200">
-            {title}
-          </div>
+          <div className="font-sans text-lg font-semibold">{title}</div>
           <div className="mt-[5px] text-sm leading-6 text-slate-600/90 line-clamp-2 dark:text-slate-400">
             {description}
           </div>
@@ -84,7 +82,7 @@ export default function Snippets() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <section className="mt-10 flex max-w-7xl flex-col justify-center px-5 sm:mx-auto sm:items-center sm:text-center">
+        <section className="mt-10 mb-32 flex max-w-7xl flex-col justify-center px-5 sm:mx-auto sm:items-center sm:text-center">
           <Heading
             level={1}
             className="mt-6 max-w-5xl text-5xl leading-snug sm:leading-tight"

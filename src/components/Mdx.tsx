@@ -197,8 +197,8 @@ export function Mdx({ code }: MdxProps) {
   const Component = useMDXComponent(code);
 
   return (
-    <div className="w-full">
+    <>
       <Component components={components} />
-    </div>
+    </>
   );
 }

@@ -17,4 +17,8 @@
   h4 {
     @apply relative font-display text-black dark:text-slate-200;
   }
+
+  hr {
+    @apply border-slate-200 dark:border-slate-800;
+  }
 }

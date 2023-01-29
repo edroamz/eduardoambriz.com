@@ -36,6 +36,7 @@
 }
 
 .subheading-anchor {
+  position: unset !important;
   text-decoration-line: unset !important;
   font-weight: 400 !important;
   @apply before:invisible before:absolute before:inset-y-0 before:-left-9 before:flex before:h-[26px] before:w-[26px] before:items-center before:justify-center before:rounded-md before:border before:border-slate-200 before:p-0 before:px-[7px] hover:before:visible dark:before:border-slate-700 dark:before:bg-slate-800 md:before:-left-11;

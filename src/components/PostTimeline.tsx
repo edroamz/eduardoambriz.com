@@ -2,6 +2,7 @@ import { Link } from '@/components/Link';
 import { BlogProps } from '@/pages/blog';
 import { Post } from 'contentlayer/generated';
 import { format, parseISO } from 'date-fns';
+import { Mdx } from '@/components/Mdx';
 
 function Post(post: Post) {
   return (
@@ -21,20 +22,15 @@ function Post(post: Post) {
         ></circle>
       </svg>
       <div className="relative">
-        <h3 className="pt-8 font-display text-xl tracking-wide text-black dark:text-gray-200 lg:pt-0">
+        <h3 className="pt-8 font-sans text-lg font-semibold lg:pt-0">
           {post.title}
         </h3>
         <div className="mt-2 mb-4 line-clamp-2">
-          {post?.description?.html && (
-            <div
-              className="leading-7"
-              dangerouslySetInnerHTML={{ __html: post.description.html }}
-            ></div>
-          )}
+          {post?.description?.code && <Mdx code={post.description.code} />}
         </div>
         <dl className="absolute left-0 top-0 lg:left-auto lg:right-full lg:mr-[calc(6.5rem+1px)]">
           <dt className="sr-only">Date</dt>
-          <dd className="whitespace-nowrap text-sm leading-6 tracking-wide dark:text-slate-400">
+          <dd className="whitespace-nowrap text-sm leading-6 dark:text-slate-400">
             <time dateTime="2022-12-15T15:00:00.000Z">
               {format(parseISO(post.date), 'LLLL d, yyyy')}
             </time>
@@ -43,7 +39,7 @@ function Post(post: Post) {
       </div>
       <Link
         intent="primary"
-        className="flex items-center text-sm font-medium tracking-wide"
+        className="flex items-center text-sm font-medium"
         href={post.slug}
       >
         <span className="absolute -inset-y-2.5 -inset-x-4 sm:rounded-2xl md:-inset-y-4 md:-inset-x-6"></span>

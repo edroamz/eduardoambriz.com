@@ -26,7 +26,7 @@ export const Post = defineDocumentType(() => ({
       required: true
     },
     description: {
-      type: 'markdown'
+      type: 'mdx'
     },
     date: {
       type: 'date',
