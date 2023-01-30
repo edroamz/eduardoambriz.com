@@ -1,8 +1,23 @@
 import Head from 'next/head';
 import { Layout } from '@/components/Layout';
 import { Heading } from '@/components/Heading';
+import type { InferGetStaticPropsType, GetStaticProps } from 'next';
+import { allPages, Page } from 'contentlayer/generated';
+import { Mdx } from '@/components/Mdx';
 
-export default function Uses() {
+export const getStaticProps: GetStaticProps<{ page?: Page }> = async () => {
+  let page = allPages.find((page) => page.title === 'Uses');
+
+  return {
+    props: {
+      page
+    }
+  };
+};
+
+export default function Uses({
+  page
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
       <Head>
@@ -12,17 +27,23 @@ export default function Uses() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <section className="mt-10 mb-32 flex max-w-7xl flex-col justify-center px-5 sm:mx-auto sm:items-center sm:text-center">
-          <Heading
-            level={1}
-            className="mt-6 max-w-5xl text-5xl leading-snug sm:leading-tight"
-          >
-            Uses
-          </Heading>
-          <p className="mt-2 max-w-3xl text-lg leading-8 dark:text-slate-400 sm:mt-6">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae
-            adipisci voluptas doloremque deleniti rem?
-          </p>
+        <section className="mx-auto mt-10 mb-32 flex max-w-3xl flex-col items-center px-6">
+          <div className="mb-12 w-full text-left sm:text-center">
+            <Heading
+              level={1}
+              className="mt-6 max-w-5xl text-5xl leading-snug sm:leading-tight"
+            >
+              Uses
+            </Heading>
+            <p className="mt-2 max-w-3xl text-lg leading-8 dark:text-slate-400 sm:mt-6">
+              {page?.description}
+            </p>
+          </div>
+          {page && (
+            <div className="w-full">
+              <Mdx code={page.body.code} />
+            </div>
+          )}
         </section>
       </Layout>
     </>

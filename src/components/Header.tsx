@@ -151,7 +151,7 @@ export function Header() {
         </div>
         <div className="hidden text-center md:block">
           <nav>
-            <ul className="flex flex-row items-center justify-center gap-x-5">
+            <ul className="flex flex-row items-center justify-center gap-x-7">
               <NavItems />
             </ul>
           </nav>
