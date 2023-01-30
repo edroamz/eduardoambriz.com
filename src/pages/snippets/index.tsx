@@ -1,4 +1,4 @@
-import { SVGProps, createElement } from 'react';
+import { SVGProps } from 'react';
 import Head from 'next/head';
 import { Layout } from '@/components/Layout';
 import { Heading } from '@/components/Heading';
@@ -6,11 +6,15 @@ import { Link } from '@/components/Link';
 import { allSnippets, Snippet } from 'contentlayer/generated';
 import type { InferGetStaticPropsType, GetStaticProps } from 'next';
 
-const icons: any = {
-  React: React,
-  Css: Css,
-  Tailwind: Tailwind,
-  Typescript: Typescript
+type Icons = {
+  [key in Snippet['icon']]: ({ ...props }: IconProps) => JSX.Element;
+};
+
+const icons: Icons = {
+  react: React,
+  css: Css,
+  tailwindcss: Tailwind,
+  typescript: Typescript
 };
 
 interface SnippetCardProps {

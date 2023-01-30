@@ -42,7 +42,7 @@ const PostLayout = ({
   return (
     <>
       <Head>
-        <title>Eduardo Ambriz - {post.title}</title>
+        <title>{`Eduardo Ambriz - ${post.title}`}</title>
       </Head>
       <Layout>
         <div className="mx-auto max-w-8xl px-6 py-4">

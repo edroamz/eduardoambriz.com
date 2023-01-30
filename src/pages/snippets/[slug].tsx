@@ -41,7 +41,7 @@ const SnippetLayout = ({
   return (
     <>
       <Head>
-        <title>Eduardo Ambriz - {snippet.title}</title>
+        <title>{`Eduardo Ambriz - ${snippet.title}`}</title>
       </Head>
       <Layout>
         <div className="mx-auto max-w-8xl px-6 py-4">

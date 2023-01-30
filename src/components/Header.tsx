@@ -21,14 +21,6 @@ export function NavItems() {
     <>
       <li>
         <Link
-          href="/projects"
-          intent={router.pathname === '/projects' ? 'highlight' : 'tertiary'}
-        >
-          Projects
-        </Link>
-      </li>
-      <li>
-        <Link
           href="/blog"
           intent={router.pathname === '/blog' ? 'highlight' : 'tertiary'}
         >

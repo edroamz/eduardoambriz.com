@@ -29,7 +29,8 @@ export const Snippet = defineDocumentType(() => ({
       type: 'string'
     },
     icon: {
-      type: 'string',
+      type: 'enum',
+      options: ['react', 'css', 'tailwindcss', 'typescript'],
       required: true
     },
     tags: {
