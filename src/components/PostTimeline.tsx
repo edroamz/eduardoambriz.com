@@ -62,7 +62,7 @@ export function PostTimeline({ posts }: PostTimelineProps) {
           ))}
         </div>
       </div>
-      <div className="pointer-events-none invisible absolute inset-x-0 -bottom-8 bg-gradient-to-t from-white pt-20 dark:from-black sm:visible"></div>
+      <div className="pointer-events-none invisible absolute inset-x-0 -bottom-8 bg-gradient-to-t from-white pt-28 dark:from-black sm:visible"></div>
     </div>
   );
 }

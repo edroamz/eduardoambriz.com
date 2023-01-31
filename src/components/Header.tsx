@@ -4,7 +4,6 @@ import { Link } from '@/components/Link';
 import { Wordmark } from '@/components/Wordmark';
 import { ThemeToggle, ThemeSelect } from '@/components/ThemeToggle';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
-import { fontSans } from '@/lib/fonts';
 import { cn } from '@/lib/utils';
 import { Icons } from '@/components/Icons';
 
@@ -67,12 +66,7 @@ function NavPopover() {
         <Icons.ellipsis className="inline h-5 w-5" />
       </DialogTrigger>
       {isMobile && (
-        <DialogContent
-          className={cn(
-            fontSans.className,
-            'fixed top-4 right-4 flex w-full max-w-xs flex-col gap-6 rounded-lg bg-white p-6 shadow-lg dark:bg-gray-800 sm:max-w-xs'
-          )}
-        >
+        <DialogContent className="fixed top-4 right-4 flex w-full max-w-xs flex-col gap-6 rounded-lg bg-white p-6 shadow-lg dark:bg-gray-800 sm:max-w-xs">
           <ul className="mt-2 flex flex-col items-start justify-center gap-y-5 text-left font-semibold">
             <NavItems />
           </ul>
