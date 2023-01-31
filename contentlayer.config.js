@@ -30,7 +30,7 @@ export const Snippet = defineDocumentType(() => ({
     },
     icon: {
       type: 'enum',
-      options: ['react', 'css', 'tailwindcss', 'typescript'],
+      options: ['react', 'css', 'tailwind', 'typescript'],
       required: true
     },
     tags: {
