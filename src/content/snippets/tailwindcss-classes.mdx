@@ -1,71 +1,32 @@
 ---
 title: Tailwind CSS Classes
+description: Utilities for simplifying the management of Tailwind CSS class names
 icon: tailwindcss
 # prettier-ignore
 tags: 
   - TailwindCSS
-  - CSS
+  - Typescript
 ---
 
-The code blocks on the documentation site and the blog are powered by [rehype-pretty-code](https://github.com/atomiks/rehype-pretty-code). The syntax highlighting is done using [shiki](https://github.com/shikijs/shiki).
+```ts title="lib/utils.ts"
+import { twMerge } from 'tailwind-merge';
+import { ClassValue, clsx } from 'clsx';
 
-It has the following features:
-
-1. Beautiful code blocks with syntax highlighting.
-2. Support for VS Code themes.
-3. Works with hundreds of languages.
-4. Line and word highlighting.
-5. Support for line numbers.
-6. Show code block titles using meta strings.
-
-## Example
-
-```ts showLineNumbers title="next.config.js" {3} /appDir: true/
-import { withContentlayer } from 'next-contentlayer';
-
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  images: {
-    domains: ['avatars.githubusercontent.com']
-  },
-  experimental: {
-    appDir: true,
-    serverComponentsExternalPackages: ['@prisma/client']
-  }
-};
-
-export default withContentlayer(nextConfig);
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
 ```
 
-## Title
+This code exports a function `cn` that merges Tailwind CSS class names. The function takes one or more arguments, which are passed to the [`clsx`](https://www.npmjs.com/package/clsx) utility. `clsx` concatenates the class names and returns a string of space-separated class names. The resulting string is then passed to the `twMerge` function from the [`tailwind-merge`](https://www.npmjs.com/package/tailwind-merge) library. `twMerge` merges the Tailwind CSS class names into a single string.
 
-````mdx
-```ts title="path/to/file.ts"
-// Code here
-```
-````
+The `...inputs: ClassValue[]` syntax allows the function to accept an indefinite number of arguments of the `ClassValue` type. The `clsx` function accepts one or more arguments, which can be either a string, an array of strings, or an object that maps class names to boolean values. The `twMerge` function accepts a single string argument, which is a space-separated list of class names.
 
-## Line Highlight
+Overall, this code provides a convenient way to build up class names for HTML/JSX elements, and makes it easy to use Tailwind CSS with multiple configuration files.
 
-````mdx
-```ts {1,3-6}
-// Highlight line 1 and line 3 to 6
-```
-````
+## Formatting and linting
 
-## Word Highlight
+- [`eslint-plugin-tailwindcss`](https://www.npmjs.com/package/eslint-plugin-tailwindcss) - Plugin for ESLint that checks your code for best practices and common errors when using Tailwind CSS.
 
-````mdx
-```ts /edroamz/
-// Highlight the word edroamz.
-```
-````
+- [`prettier-plugin-tailwindcss`](https://www.npmjs.com/package/prettier-plugin-tailwindcss) - Plugin for Prettier. It formats your code according to a set of rules and conventions, ensuring that your code is consistent and readable.
 
-## Line Numbers
-
-````mdx
-```ts showLineNumbers
-// This will show line numbers.
-```
-````
+By using these packages, you can ensure that your code is **consistent**, **error-free**, and **easily readable**, making it easier to maintain and collaborate on your projects.

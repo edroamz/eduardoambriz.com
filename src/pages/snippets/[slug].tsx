@@ -67,15 +67,18 @@ const SnippetLayout = ({
           </Link>
         </div>
         <article className="mx-auto mt-6 flex max-w-3xl flex-col items-center px-6">
-          <div className="mb-12 w-full text-left">
+          <div className="w-full text-left">
             <Heading
               level={1}
-              className="mt-4 text-4xl leading-tight tracking-[0.01em]"
+              className="text-4xl leading-tight tracking-[0.01em]"
             >
               {snippet.title}
             </Heading>
+            {snippet?.description && (
+              <div className="mt-4">{snippet.description}.</div>
+            )}
           </div>
-          <div className="mb-32 w-full">
+          <div className="mt-10 mb-32 w-full">
             <Mdx code={snippet.body.code} />
           </div>
         </article>

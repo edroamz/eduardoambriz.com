@@ -7,18 +7,26 @@ tags:
   - CSS
 ---
 
-```html
-<article class="prose">
-  <h1>Garlic bread with cheese: What the science tells us</h1>
-  <p>
-    For years parents have espoused the health benefits of eating garlic bread
-    with cheese to their children, with the food earning such an iconic status
-    in our culture that kids will often dress up as warm, cheesy loaf for
-    Halloween.
-  </p>
-  <p>
-    But a recent study shows that the celebrated appetizer may be linked to a
-    series of rabies cases springing up around the country.
-  </p>
-</article>
+```css {7-13} /display: inline/
+.gradient-text {
+  --gradient-direction: to right;
+  --gradient-from: #5237f9;
+  --gradient-to: #00b8b9;
+  --gradient-stops: var(--gradient-from), var(--gradient-to);
+  display: inline;
+  background-image: linear-gradient(
+    var(--gradient-direction),
+    var(--gradient-stops)
+  );
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
 ```
+
+CSS class that applies a linear gradient to the background of the element, and sets the text fill color to transparent so that the text appears as part of the gradient. The direction, start color, end color, and stops of the gradient are defined as CSS custom properties (variables). The display of the element is set to inline, and the CSS properties `-webkit-text-fill-color` and `-webkit-background-clip` are set for compatibility with webkit-based browsers. The `background-clip` property is set for compatibility with all other browsers.
+
+## Browser Compatibility
+
+- [`background-clip:text`](https://caniuse.com/?search=Background-clip%3A%20text)
+- [`-webkit-text-fill-color`](https://caniuse.com/?search=CSS%20property%3A%20-webkit-text-fill-color)

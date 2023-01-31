@@ -16,6 +16,9 @@ module.exports = {
       spacing: {
         header: '64px'
       },
+      minHeight: {
+        main: 'calc(100vh - theme(spacing.header))'
+      },
       maxWidth: {
         '8xl': '90rem'
       },

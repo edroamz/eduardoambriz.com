@@ -45,9 +45,9 @@ export default function Home({
             Front-End Web Developer.
           </Heading>
           <p className="mt-5 max-w-4xl text-xl leading-9 sm:px-7">
-            Hi, I&apos;m Eduardo, experienced Front-End Web Developer
-            specializing in JavaScript and ReactJS, creating dynamic and
-            user-friendly web experiences.
+            Hi! I&apos;m Eduardo, Software Engineer and Front-End JavaScript
+            Developer focused on creating dynamic, user-friendly websites with
+            clean, efficient code.
           </p>
         </section>
         <section className="mx-auto mt-24 flex max-w-7xl flex-col items-center justify-center px-6 text-center">

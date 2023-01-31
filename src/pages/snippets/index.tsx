@@ -85,8 +85,8 @@ export default function Snippets({
             Code Snippets
           </Heading>
           <p className="mt-2 max-w-3xl text-lg leading-8 dark:text-slate-400 sm:mt-6">
-            This is a compilation of useful code snippets for solving common
-            programming challenges.
+            Curated collection of concise and effective code solutions to tackle
+            common programming problems.
           </p>
           <div className="mt-16 flex w-full max-w-[1010px] flex-wrap justify-center">
             <div className="flex flex-wrap justify-center">

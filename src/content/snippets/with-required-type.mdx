@@ -1,23 +1,14 @@
 ---
 title: WithRequired Type
+description: Type utility that creates a new type from an existing one with mandatory specified properties
 icon: typescript
 # prettier-ignore
 tags: 
   - TypeScript
 ---
 
-```html
-<article class="prose">
-  <h1>Garlic bread with cheese: What the science tells us</h1>
-  <p>
-    For years parents have espoused the health benefits of eating garlic bread
-    with cheese to their children, with the food earning such an iconic status
-    in our culture that kids will often dress up as warm, cheesy loaf for
-    Halloween.
-  </p>
-  <p>
-    But a recent study shows that the celebrated appetizer may be linked to a
-    series of rabies cases springing up around the country.
-  </p>
-</article>
+```ts
+type WithRequired<T, K extends keyof T> = T & { [P in K]-?: T[P] };
 ```
+
+TypeScript utility type that creates a new type from the type `T` with the properties in `K` made required. The `WithRequired` type is the intersection of `T` and an object type that has a property for each property in `K` with a type of the corresponding property in `T` and a required modifier (`-?`).
