@@ -6,7 +6,7 @@ import { Mdx } from '@/components/Mdx';
 import { Heading } from '@/components/Heading';
 import { Link } from '@/components/Link';
 import { AnchorLink } from '@/components/AnchorLink';
-import { Avatar } from '@/components/Avatar';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import type { InferGetStaticPropsType, GetStaticProps } from 'next';
 import { Icons } from '@/components/Icons';
 
@@ -68,7 +68,10 @@ const PostLayout = ({
               {post.title}
             </Heading>
             <div className="mt-4 flex flex-row items-center gap-x-2">
-              <Avatar />
+              <Avatar>
+                <AvatarImage src="https://github.com/edroamz.png" />
+                <AvatarFallback>EA</AvatarFallback>
+              </Avatar>
               <div className="flex flex-col items-start justify-center text-sm font-medium">
                 <span>Eduardo Ambriz</span>
                 <AnchorLink intent="primary" href="https://twitter.com/edroamz">

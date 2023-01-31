@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { Layout } from '@/components/Layout';
 import { Heading } from '@/components/Heading';
-import { Avatar } from '@/components/Avatar';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { AnchorLink } from '@/components/AnchorLink';
 import { GradientText } from '@/components/GradientText';
 import { PostTimeline } from '@/components/PostTimeline';
@@ -38,7 +38,10 @@ export default function Home({
       </Head>
       <Layout>
         <section className="mx-auto mt-20 flex max-w-7xl flex-col items-center justify-center px-6 text-center">
-          <Avatar />
+          <Avatar className="h-12 w-12">
+            <AvatarImage src="https://github.com/edroamz.png" />
+            <AvatarFallback>EA</AvatarFallback>
+          </Avatar>
           <Heading
             level={1}
             className="mt-6 max-w-5xl text-5xl leading-snug md:text-6xl md:leading-tight"
