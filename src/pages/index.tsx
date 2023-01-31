@@ -1,15 +1,16 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Layout } from '@/components/Layout';
 import { Heading } from '@/components/Heading';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { AnchorLink } from '@/components/AnchorLink';
 import { GradientText } from '@/components/GradientText';
 import { PostTimeline } from '@/components/PostTimeline';
+import { Icons } from '@/components/Icons';
 import { allPosts, Post } from 'contentlayer/generated';
 import { compareDesc } from 'date-fns';
 import type { InferGetStaticPropsType, GetStaticProps } from 'next';
-import { Icons } from '@/components/Icons';
 
 export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async () => {
   let posts = allPosts
@@ -71,14 +72,21 @@ export default function Home({
           </Heading>
           <div className="mx-auto mt-12 grid w-full max-w-6xl grid-cols-1 items-center gap-y-14 md:mt-16">
             <div>
-              <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-slate-200  dark:border-slate-700">
-                <Image
-                  src="/assets/projects/car-rental-react.png"
-                  className="object-cover"
-                  alt="project 1"
-                  fill
-                ></Image>
-              </div>
+              <AnchorLink
+                href="https://edroamz.github.io/car-rental-react/"
+                intent="non-text"
+              >
+                <div className="w-full max-w-6xl overflow-hidden rounded-lg border border-slate-200 dark:border-slate-700">
+                  <AspectRatio ratio={16 / 9}>
+                    <Image
+                      src="/assets/projects/car-rental-react.png"
+                      alt="car rental website"
+                      fill
+                      className="object-cover"
+                    />
+                  </AspectRatio>
+                </div>
+              </AnchorLink>
               <div className="text-left">
                 <Heading
                   level={3}
