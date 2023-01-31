@@ -3,16 +3,10 @@ import { useRouter } from 'next/router';
 import { Link } from '@/components/Link';
 import { Wordmark } from '@/components/Wordmark';
 import { ThemeToggle, ThemeSelect } from '@/components/ThemeToggle';
-import {
-  Dialog,
-  DialogTrigger,
-  DialogPortal,
-  DialogOverlay,
-  DialogContent,
-  DialogClose
-} from '@radix-ui/react-dialog';
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { fontSans } from '@/lib/fonts';
 import { cn } from '@/lib/utils';
+import { Icons } from '@/components/Icons';
 
 export function NavItems() {
   const router = useRouter();
@@ -70,50 +64,23 @@ function NavPopover() {
     <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
       <DialogTrigger className="group inline rounded-md px-2 py-[2px] pr-0 text-gray-600 hover:text-gray-900 hover:transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 dark:text-gray-300 dark:hover:text-gray-50 dark:focus-visible:ring-gray-50 md:hidden">
         <span className="sr-only">Navigation</span>
-        <svg width="24" height="24" fill="none" aria-hidden="true">
-          <path
-            d="M12 6v.01M12 12v.01M12 18v.01M12 7a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+        <Icons.ellipsis className="inline h-5 w-5" />
       </DialogTrigger>
       {isMobile && (
-        <DialogPortal>
-          <DialogOverlay className="fixed inset-0 z-30 h-full w-screen bg-black/20 backdrop-blur-sm dark:bg-black/70 " />
-          <DialogContent
-            className={cn(
-              fontSans.className,
-              'fixed top-4 right-4 z-40 flex w-full max-w-xs flex-col gap-6 rounded-lg bg-white p-6 shadow-lg dark:bg-gray-800'
-            )}
-          >
-            <DialogClose className="absolute top-5 right-5 flex h-8 w-8 items-center justify-center text-slate-500 hover:text-slate-700 hover:transition-colors dark:text-slate-400 dark:hover:text-slate-300">
-              <span className="sr-only">Close navigation</span>
-              <svg
-                viewBox="0 0 10 10"
-                className="h-2.5 w-2.5 overflow-visible"
-                aria-hidden="true"
-              >
-                <path
-                  d="M0 0L10 10M10 0L0 10"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </DialogClose>
-            <ul className="mt-2 flex flex-col items-start justify-center gap-y-5 text-left font-semibold">
-              <NavItems />
-            </ul>
-            <div className="flex flex-row items-center justify-between gap-x-3 border-t pt-5 text-gray-500 dark:border-gray-700 dark:text-gray-400">
-              <span>Switch theme</span>
-              <ThemeSelect />
-            </div>
-          </DialogContent>
-        </DialogPortal>
+        <DialogContent
+          className={cn(
+            fontSans.className,
+            'fixed top-4 right-4 flex w-full max-w-xs flex-col gap-6 rounded-lg bg-white p-6 shadow-lg dark:bg-gray-800 sm:max-w-xs'
+          )}
+        >
+          <ul className="mt-2 flex flex-col items-start justify-center gap-y-5 text-left font-semibold">
+            <NavItems />
+          </ul>
+          <div className="flex flex-row items-center justify-between gap-x-3 border-t pt-5 text-gray-500 dark:border-gray-700 dark:text-gray-400">
+            <span>Switch theme</span>
+            <ThemeSelect />
+          </div>
+        </DialogContent>
       )}
     </Dialog>
   );

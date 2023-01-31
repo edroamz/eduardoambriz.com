@@ -5,6 +5,12 @@ import { Heading } from '@/components/Heading';
 import { Link } from '@/components/Link';
 import { allSnippets, Snippet } from 'contentlayer/generated';
 import type { InferGetStaticPropsType, GetStaticProps } from 'next';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger
+} from '@/components/ui/tooltip';
 
 type Icons = {
   [key in Snippet['icon']]: ({ ...props }: IconProps) => JSX.Element;
@@ -33,9 +39,16 @@ function SnippetCard({ snippet }: SnippetCardProps) {
         </div>
         <div className="h-[100px] p-5 text-left">
           <div className="font-sans text-lg font-semibold">{snippet.title}</div>
-          <div className="mt-[5px] text-sm leading-6 text-slate-600/90 line-clamp-2 dark:text-slate-400">
-            {snippet.description}
-          </div>
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div className="mt-[5px] text-sm leading-6 text-slate-600/90 line-clamp-2 dark:text-slate-400">
+                  {snippet.description}
+                </div>
+              </TooltipTrigger>
+              <TooltipContent>{snippet.description}</TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
         </div>
         <div className="flex items-center gap-x-[6px] px-5 pt-[12.5px] pb-0">
           {snippet?.tags &&

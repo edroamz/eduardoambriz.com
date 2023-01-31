@@ -5,6 +5,7 @@ import { Mdx } from '@/components/Mdx';
 import { Heading } from '@/components/Heading';
 import { Link } from '@/components/Link';
 import type { InferGetStaticPropsType, GetStaticProps } from 'next';
+import { Icons } from '@/components/Icons';
 
 export async function getStaticPaths() {
   const paths = allSnippets.map((snippet) => ({
@@ -48,21 +49,9 @@ const SnippetLayout = ({
           <Link
             href="/snippets"
             intent="tertiary"
-            className="mt-2 inline-flex items-center text-sm font-medium"
+            className="mt-4 inline-flex items-center text-sm font-medium"
           >
-            <svg
-              viewBox="0 -9 3 24"
-              className="mr-3 inline h-6 w-auto overflow-visible text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-300"
-            >
-              <path
-                d="M3 0L0 3L3 6"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              ></path>
-            </svg>
+            <Icons.chevronLeft className="mr-1.5 inline h-4 w-4" />
             <span>See all snippets</span>
           </Link>
         </div>

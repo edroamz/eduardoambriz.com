@@ -9,6 +9,7 @@ import { PostTimeline } from '@/components/PostTimeline';
 import { allPosts, Post } from 'contentlayer/generated';
 import { compareDesc } from 'date-fns';
 import type { InferGetStaticPropsType, GetStaticProps } from 'next';
+import { Icons } from '@/components/Icons';
 
 export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async () => {
   let posts = allPosts
@@ -91,19 +92,7 @@ export default function Home({
                   className="mt-4 inline-block text-sm font-medium"
                 >
                   <span>Live demo</span>
-                  <svg
-                    className="ml-2.5 inline overflow-visible text-sky-300 dark:text-sky-700"
-                    width="3"
-                    height="6"
-                    viewBox="0 0 3 6"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M0 0L3 3L0 6"></path>
-                  </svg>
+                  <Icons.chevronRight className="ml-1.5 inline h-4 w-4" />
                 </AnchorLink>
               </div>
             </div>
