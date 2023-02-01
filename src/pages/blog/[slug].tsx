@@ -63,7 +63,7 @@ const PostLayout = ({
             <h1 className="mt-4 max-w-5xl text-[2rem] leading-snug md:text-[2.5rem] md:leading-tight">
               {post.title}
             </h1>
-            <div className="mt-6 flex flex-row items-center gap-x-2">
+            <div className="mt-6 flex flex-row items-center gap-x-3">
               <Avatar>
                 <AvatarImage src="https://github.com/edroamz.png" />
                 <AvatarFallback>EA</AvatarFallback>

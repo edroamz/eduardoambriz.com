@@ -34,10 +34,6 @@ export const Snippet = defineDocumentType(() => ({
       type: 'enum',
       options: ['react', 'css', 'tailwind', 'typescript'],
       required: true
-    },
-    tags: {
-      type: 'list',
-      of: { type: 'string' }
     }
   },
   computedFields

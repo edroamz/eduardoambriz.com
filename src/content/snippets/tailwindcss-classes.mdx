@@ -1,11 +1,7 @@
 ---
-title: Tailwind CSS Classes
-description: Utilities for simplifying the management of Tailwind CSS class names
+title: Tailwind CSS Class Helper
+description: Utility for simplifying the management of Tailwind CSS class names
 icon: tailwind
-# prettier-ignore
-tags: 
-  - TailwindCSS
-  - Typescript
 ---
 
 ```ts title="lib/utils.ts"
@@ -22,11 +18,3 @@ This code exports a function `cn` that merges Tailwind CSS class names. The func
 The `...inputs: ClassValue[]` syntax allows the function to accept an indefinite number of arguments of the `ClassValue` type. The `clsx` function accepts one or more arguments, which can be either a string, an array of strings, or an object that maps class names to boolean values. The `twMerge` function accepts a single string argument, which is a space-separated list of class names.
 
 Overall, this code provides a convenient way to build up class names for HTML/JSX elements, and makes it easy to use Tailwind CSS with multiple configuration files.
-
-## Formatting and linting
-
-- [`eslint-plugin-tailwindcss`](https://www.npmjs.com/package/eslint-plugin-tailwindcss) - Plugin for ESLint that checks your code for best practices and common errors when using Tailwind CSS.
-
-- [`prettier-plugin-tailwindcss`](https://www.npmjs.com/package/prettier-plugin-tailwindcss) - Plugin for Prettier. It formats your code according to a set of rules and conventions, ensuring that your code is consistent and readable.
-
-By using these packages, you can ensure that your code is **consistent**, **error-free**, and **easily readable**, making it easier to maintain and collaborate on your projects.

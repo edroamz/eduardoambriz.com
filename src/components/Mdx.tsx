@@ -1,6 +1,6 @@
 import { useMDXComponent } from 'next-contentlayer/hooks';
 
-import Image from 'next/image';
+import Image, { ImageProps } from 'next/image';
 import { Link } from '@/components/Link';
 import { AnchorLink } from '@/components/AnchorLink';
 import { Callout } from '@/components/Callout';
@@ -149,13 +149,22 @@ const components = {
   code: ({ className, ...props }: HTMLAttributes<HTMLElement>) => (
     <code
       className={cn(
-        'relative rounded border bg-slate-300 bg-opacity-25 py-[0.2rem] px-[0.3rem] font-mono text-sm text-slate-600 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300',
+        'relative rounded border border-slate-300 bg-slate-300 bg-opacity-25 py-[0.2rem] px-[0.3rem] font-mono text-sm text-slate-700 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300',
         className
       )}
       {...props}
     />
   ),
-  Image,
+  Image: ({ className, alt, ...props }: ImageProps) => (
+    <Image
+      className={cn(
+        'mt-6 mb-4 rounded-md border border-slate-200 dark:border-slate-800',
+        className
+      )}
+      alt={alt}
+      {...props}
+    />
+  ),
   Callout
 };
 
