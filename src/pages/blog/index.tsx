@@ -27,12 +27,11 @@ export default function Blog({
       </Head>
       <Layout>
         <section className="mb-24 flex max-w-5xl flex-col justify-center py-8 px-6 sm:mx-auto sm:items-center sm:text-center md:py-10">
-          <h1 className="mt-2 max-w-5xl text-4xl leading-snug md:text-5xl md:leading-tight">
-            Blog
+          <h1 className="mt-2 max-w-4xl text-4xl leading-snug md:text-5xl md:leading-tight">
+            Mastering Programming through Knowledge Sharing
           </h1>
-          <p className="mt-3 max-w-3xl text-lg leading-8 sm:px-6">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla quos
-            cupiditate cum quaerat unde!
+          <p className="mt-4 max-w-3xl text-lg leading-8 sm:px-6">
+            A Blog Dedicated to the Craft of Coding.
           </p>
           <PostTimeline posts={posts} />
         </section>

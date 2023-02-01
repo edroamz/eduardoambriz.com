@@ -1,6 +1,6 @@
 ---
 title: Tailwind CSS Class Helper
-description: Utility for simplifying the management of Tailwind CSS class names
+description: Effortlessly manage Tailwind CSS class names with this powerful utility
 icon: tailwind
 ---
 
@@ -13,8 +13,4 @@ export function cn(...inputs: ClassValue[]) {
 }
 ```
 
-This code exports a function `cn` that merges Tailwind CSS class names. The function takes one or more arguments, which are passed to the [`clsx`](https://www.npmjs.com/package/clsx) utility. `clsx` concatenates the class names and returns a string of space-separated class names. The resulting string is then passed to the `twMerge` function from the [`tailwind-merge`](https://www.npmjs.com/package/tailwind-merge) library. `twMerge` merges the Tailwind CSS class names into a single string.
-
-The `...inputs: ClassValue[]` syntax allows the function to accept an indefinite number of arguments of the `ClassValue` type. The `clsx` function accepts one or more arguments, which can be either a string, an array of strings, or an object that maps class names to boolean values. The `twMerge` function accepts a single string argument, which is a space-separated list of class names.
-
-Overall, this code provides a convenient way to build up class names for HTML/JSX elements, and makes it easy to use Tailwind CSS with multiple configuration files.
+Streamline class name management for Tailwind CSS with this exported function `cn`. Simply pass in one or more class names, either as a string, array of strings, or an object, and the function will merge them into a single, optimized string for use with your HTML/JSX elements. The [`clsx`](https://www.npmjs.com/package/clsx) utility concatenates the class names, while the `twMerge` from the [`tailwind-merge`](https://www.npmjs.com/package/tailwind-merge) library optimizes the final output for maximum efficiency. Make class name management a breeze with this simple and convenient solution.

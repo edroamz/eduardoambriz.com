@@ -1,6 +1,6 @@
 ---
 title: WithRequired Type
-description: Type utility that creates a new type from an existing one with mandatory specified properties
+description: Easily create new types with mandatory specified properties
 icon: typescript
 ---
 
@@ -8,4 +8,4 @@ icon: typescript
 type WithRequired<T, K extends keyof T> = T & { [P in K]-?: T[P] };
 ```
 
-TypeScript utility type that creates a new type from the type `T` with the properties in `K` made required. The `WithRequired` type is the intersection of `T` and an object type that has a property for each property in `K` with a type of the corresponding property in `T` and a required modifier (`-?`).
+Type utility `WithRequired` enforces mandatory properties in type `T` by creating a new type with required properties from `K`. The result is a combination of `T` and a new object with required properties.

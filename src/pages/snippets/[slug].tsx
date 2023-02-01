@@ -60,7 +60,9 @@ const SnippetLayout = ({
               {snippet.title}
             </h1>
             {snippet?.description && (
-              <div className="mt-4 max-w-3xl">{snippet.description}</div>
+              <div className="mt-4 max-w-3xl text-lg">
+                {snippet.description}.
+              </div>
             )}
             <hr className="mt-4 w-full" />
           </div>

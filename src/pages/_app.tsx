@@ -21,7 +21,7 @@ const fontMono = FontMono({
 });
 
 const fontDisplay = localFont({
-  variable: '--font-cal',
+  variable: '--font-display',
   src: './../assets/fonts/CalSans-SemiBold.woff2'
 });
 

@@ -2,15 +2,9 @@ import Head from 'next/head';
 import { Layout } from '@/components/Layout';
 import { Link } from '@/components/Link';
 import { allSnippets, Snippet } from 'contentlayer/generated';
-import type { InferGetStaticPropsType, GetStaticProps } from 'next';
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger
-} from '@/components/ui/tooltip';
 import { Icons } from '@/components/Icons';
 import { LucideProps } from 'lucide-react';
+import type { InferGetStaticPropsType, GetStaticProps } from 'next';
 
 type SnippetIcons = {
   [key in Snippet['icon']]: ({ ...props }: LucideProps) => JSX.Element;
@@ -39,16 +33,9 @@ function SnippetCard({ snippet }: SnippetCardProps) {
         </div>
         <div className="h-[100px] p-5 text-left">
           <div className="font-sans text-lg font-semibold">{snippet.title}</div>
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <div className="mt-[6px] text-sm leading-6 text-slate-600/90 line-clamp-2 dark:text-slate-400">
-                  {snippet.description}
-                </div>
-              </TooltipTrigger>
-              <TooltipContent>{snippet.description}</TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
+          <div className="mt-[6px] text-sm leading-6 text-slate-600/90 line-clamp-2 dark:text-slate-400">
+            {snippet.description}
+          </div>
         </div>
       </div>
     </Link>
