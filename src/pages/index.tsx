@@ -69,7 +69,7 @@ export default function Home({
                 <div className="w-full max-w-6xl overflow-hidden rounded-lg border border-slate-200 dark:border-slate-700">
                   <AspectRatio ratio={16 / 9}>
                     <Image
-                      src="/assets/projects/car-rental-react.png"
+                      src="/static/car-rental-react.png"
                       alt="car rental website"
                       fill
                       className="object-cover"
