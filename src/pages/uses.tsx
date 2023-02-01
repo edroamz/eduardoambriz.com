@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import { Layout } from '@/components/Layout';
-import { Heading } from '@/components/Heading';
 import type { InferGetStaticPropsType, GetStaticProps } from 'next';
 import { allPages, Page } from 'contentlayer/generated';
 import { Mdx } from '@/components/Mdx';
@@ -27,22 +26,19 @@ export default function Uses({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <section className="mx-auto mt-10 mb-32 flex max-w-3xl flex-col items-center px-6">
-          <div className="mb-12 w-full text-left sm:text-center">
-            <Heading
-              level={1}
-              className="mt-6 max-w-5xl text-5xl leading-snug sm:leading-tight"
-            >
-              Uses
-            </Heading>
-            <p className="mt-2 max-w-3xl text-lg leading-8 dark:text-slate-400 sm:mt-6">
-              {page?.description}
-            </p>
-          </div>
+        <section className="mb-24 flex max-w-5xl flex-col justify-center py-8 px-6 sm:mx-auto sm:items-center sm:text-center md:py-10">
+          <h1 className="mt-2 max-w-5xl text-4xl leading-snug md:text-5xl md:leading-tight">
+            Uses
+          </h1>
+          <p className="mt-3 max-w-3xl text-lg leading-8 sm:px-6">
+            {page?.description}
+          </p>
           {page && (
-            <div className="w-full">
-              <Mdx code={page.body.code} />
-            </div>
+            <article className="mx-auto mt-16 flex max-w-3xl flex-col items-center sm:px-6">
+              <div className="w-full text-left">
+                <Mdx code={page.body.code} />
+              </div>
+            </article>
           )}
         </section>
       </Layout>

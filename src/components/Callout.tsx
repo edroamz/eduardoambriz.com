@@ -14,14 +14,14 @@ export function Callout({
 }: CalloutProps) {
   return (
     <div
-      className={cn('my-6 flex items-start rounded-md border border-b-4 p-4', {
-        'border-slate-900 bg-slate-50 dark:border-slate-600 dark:bg-slate-700/70 dark:[&_*]:text-slate-200':
-          type === 'default',
-        'border-red-900 bg-red-50 dark:border-red-100 dark:bg-red-900 dark:[&_*]:text-red-50':
-          type === 'danger',
-        'border-yellow-900 bg-yellow-50 dark:border-yellow-100 dark:bg-yellow-700/90 dark:[&_*]:text-yellow-50':
-          type === 'warning'
-      })}
+      className={cn(
+        'my-6 flex items-start rounded-md border border-b-4 border-slate-900 p-4',
+        {
+          'border-slate-900 dark:border-slate-700 ': type === 'default',
+          'border-yellow-500': type === 'warning',
+          'border-red-500': type === 'danger'
+        }
+      )}
       {...props}
     >
       {icon && <span className="mr-4 text-2xl">{icon}</span>}

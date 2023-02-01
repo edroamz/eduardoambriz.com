@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import { Layout } from '@/components/Layout';
-import { Heading } from '@/components/Heading';
 import { PostTimeline } from '@/components/PostTimeline';
 import { allPosts, Post } from 'contentlayer/generated';
 import { compareDesc } from 'date-fns';
@@ -30,16 +29,13 @@ export default function Blog({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <section className="mt-10 mb-32 flex max-w-5xl flex-col justify-center px-5 sm:mx-auto sm:items-center sm:text-center">
-          <Heading
-            level={1}
-            className="mt-6 max-w-5xl text-5xl leading-snug sm:leading-tight"
-          >
+        <section className="mb-24 flex max-w-5xl flex-col justify-center py-8 px-6 sm:mx-auto sm:items-center sm:text-center md:py-10">
+          <h1 className="mt-2 max-w-5xl text-4xl leading-snug md:text-5xl md:leading-tight">
             Blog
-          </Heading>
-          <p className="mt-2 max-w-3xl text-lg leading-8 dark:text-slate-400 sm:mt-6">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
-            commodi illo sit deserunt ut?
+          </h1>
+          <p className="mt-3 max-w-3xl text-lg leading-8 sm:px-6">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla quos
+            cupiditate cum quaerat unde!
           </p>
           <PostTimeline posts={posts} />
         </section>

@@ -54,9 +54,7 @@ export function ThemeToggle() {
         <Icons.sun className="inline h-[22px] w-[22px] text-slate-700 dark:hidden dark:text-slate-400" />
       </DropdownMenuTrigger>
       <DropdownMenuContent
-        className=
-          'grid w-36 grid-cols-1 items-start justify-center overflow-hidden rounded-lg bg-white py-1 text-sm font-semibold text-slate-700 shadow-sm ring-1  ring-slate-900/10 dark:bg-gray-800 dark:text-slate-300 dark:ring-0'
-       
+        className="grid w-36 grid-cols-1 items-start justify-center overflow-hidden rounded-lg bg-white py-1 text-sm font-semibold text-slate-700 shadow-sm ring-1  ring-slate-900/10 dark:bg-gray-800 dark:text-slate-300 dark:ring-0"
         sideOffset={28}
         collisionPadding={{ right: 28 }}
         hideWhenDetached
@@ -129,8 +127,7 @@ export function ThemeSelect() {
             <SelectItem
               key={value}
               value={value}
-              className=
-                'w-full border border-transparent px-2 py-[7px] font-semibold leading-none data-[highlighted]:bg-gray-200 dark:data-[highlighted]:bg-gray-600/80'
+              className="w-full border border-transparent px-2 py-[7px] font-semibold leading-none data-[highlighted]:bg-gray-200 dark:data-[highlighted]:bg-gray-600/80"
             >
               {label}
             </SelectItem>

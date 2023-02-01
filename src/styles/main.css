@@ -5,4 +5,4 @@
 /*! purgecss end ignore */
 
 @import 'tailwindcss/components';
-@import 'utilities.css';
+@import 'tailwindcss/utilities';

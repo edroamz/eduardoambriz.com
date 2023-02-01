@@ -2,7 +2,6 @@ import Head from 'next/head';
 import { allSnippets, Snippet } from 'contentlayer/generated';
 import { Layout } from '@/components/Layout';
 import { Mdx } from '@/components/Mdx';
-import { Heading } from '@/components/Heading';
 import { Link } from '@/components/Link';
 import type { InferGetStaticPropsType, GetStaticProps } from 'next';
 import { Icons } from '@/components/Icons';
@@ -49,7 +48,7 @@ const SnippetLayout = ({
           <Link
             href="/snippets"
             intent="tertiary"
-            className="mt-4 inline-flex items-center text-sm font-medium"
+            className="mt-3 inline-flex items-center text-sm font-medium"
           >
             <Icons.chevronLeft className="mr-1.5 inline h-4 w-4" />
             <span>See all snippets</span>
@@ -57,17 +56,14 @@ const SnippetLayout = ({
         </div>
         <article className="mx-auto mt-6 flex max-w-3xl flex-col items-center px-6">
           <div className="w-full text-left">
-            <Heading
-              level={1}
-              className="text-4xl leading-tight tracking-[0.01em]"
-            >
+            <h1 className="max-w-5xl text-[2rem] leading-snug md:text-[2.5rem] md:leading-tight">
               {snippet.title}
-            </Heading>
+            </h1>
             {snippet?.description && (
               <div className="mt-4">{snippet.description}.</div>
             )}
           </div>
-          <div className="mt-10 mb-32 w-full">
+          <div className="mt-12 mb-32 w-full">
             <Mdx code={snippet.body.code} />
           </div>
         </article>

@@ -1,6 +1,7 @@
 import {
   ChevronLeft,
   ChevronRight,
+  ChevronDown,
   Check,
   Circle,
   Laptop,
@@ -22,6 +23,7 @@ export const Icons = {
   spinner: Loader2,
   chevronLeft: ChevronLeft,
   chevronRight: ChevronRight,
+  chevronDown: ChevronDown,
   ellipsis: MoreVertical,
   sun: SunMedium,
   moon: Moon,

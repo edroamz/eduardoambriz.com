@@ -1,8 +1,10 @@
+import path from 'path';
 import { defineDocumentType, makeSource } from 'contentlayer/source-files';
 import remarkGfm from 'remark-gfm';
 import rehypePrettyCode from 'rehype-pretty-code';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import { getHighlighter, loadTheme } from 'shiki';
 
 /** @type {import('contentlayer/source-files').ComputedFields} */
 const computedFields = {
@@ -95,7 +97,12 @@ export default makeSource({
       [
         rehypePrettyCode,
         {
-          theme: 'github-dark',
+          getHighlighter: async () => {
+            const theme = await loadTheme(
+              path.join(process.cwd(), 'src/lib/vscode-theme.json')
+            );
+            return await getHighlighter({ theme });
+          },
           onVisitLine(node) {
             // Prevent lines from collapsing in `display: grid` mode, and allow empty
             // lines to be copy/pasted

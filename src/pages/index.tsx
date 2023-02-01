@@ -2,7 +2,6 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Layout } from '@/components/Layout';
-import { Heading } from '@/components/Heading';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { AnchorLink } from '@/components/AnchorLink';
 import { GradientText } from '@/components/GradientText';
@@ -38,17 +37,14 @@ export default function Home({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <section className="mx-auto mt-20 flex max-w-7xl flex-col items-center justify-center px-6 text-center">
+        <section className="mx-auto flex max-w-7xl flex-col items-center justify-center px-6 pt-[4.5rem] text-center">
           <Avatar className="h-12 w-12">
             <AvatarImage src="https://github.com/edroamz.png" />
             <AvatarFallback>EA</AvatarFallback>
           </Avatar>
-          <Heading
-            level={1}
-            className="mt-6 max-w-5xl text-5xl leading-snug md:text-6xl md:leading-tight"
-          >
+          <h1 className="mt-6 max-w-5xl text-5xl leading-tight lg:mt-8 lg:text-6xl">
             Front-End Web Developer.
-          </Heading>
+          </h1>
           <p className="mt-5 max-w-4xl text-xl leading-9 sm:px-7">
             Hi! I&apos;m Eduardo, Software Engineer and Front-End JavaScript
             Developer focused on creating dynamic, user-friendly websites with
@@ -57,19 +53,13 @@ export default function Home({
         </section>
         <section className="mx-auto mt-24 flex max-w-7xl flex-col items-center justify-center px-6 text-center">
           <GradientText asChild>
-            <Heading
-              level={2}
-              className="m-0 font-sans text-[2rem] leading-normal tracking-tight"
-            >
+            <h2 className="m-0 font-sans text-3xl leading-normal tracking-tight lg:text-[2rem]">
               Curated Work
-            </Heading>
+            </h2>
           </GradientText>
-          <Heading
-            level={3}
-            className="mt-5 max-w-5xl text-4xl leading-snug  md:mt-7 md:text-5xl md:leading-tight"
-          >
+          <h3 className="mt-5 max-w-5xl text-4xl leading-snug lg:mt-7 lg:text-5xl lg:leading-tight">
             Explore my portfolio of completed projects
-          </Heading>
+          </h3>
           <div className="mx-auto mt-12 grid w-full max-w-6xl grid-cols-1 items-center gap-y-14 md:mt-16">
             <div>
               <AnchorLink
@@ -88,12 +78,9 @@ export default function Home({
                 </div>
               </AnchorLink>
               <div className="text-left">
-                <Heading
-                  level={3}
-                  className="mt-6 font-sans text-lg font-semibold"
-                >
+                <h3 className="mt-6 font-sans text-lg font-semibold">
                   car rental website
-                </Heading>
+                </h3>
                 <p className="mt-2">
                   Your one-stop destination for all your transportation needs.
                 </p>
@@ -111,19 +98,13 @@ export default function Home({
         </section>
         <section className="mx-auto mb-32 mt-24 flex max-w-5xl flex-col items-center justify-center px-6 text-center">
           <GradientText intent="summer" asChild>
-            <Heading
-              level={2}
-              className="m-0 font-sans text-[2rem] leading-normal tracking-tight"
-            >
+            <h2 className="m-0 font-sans text-3xl leading-normal tracking-tight lg:text-[2rem]">
               Top-Read Posts
-            </Heading>
+            </h2>
           </GradientText>
-          <Heading
-            level={3}
-            className="mt-5 max-w-5xl text-4xl leading-snug md:mt-7 md:text-5xl md:leading-tight"
-          >
+          <h3 className="mt-5 max-w-5xl text-4xl leading-snug lg:mt-7 lg:text-5xl lg:leading-tight">
             Most popularly read blog entries
-          </Heading>
+          </h3>
           <PostTimeline posts={posts} />
         </section>
       </Layout>
