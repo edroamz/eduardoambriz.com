@@ -15,7 +15,6 @@ export const linkVariants = cva(
           'text-primary dark:text-primary-dark decoration-transparent underline underline-offset-4 hover:decoration-inherit',
         secondary:
           'text-slate-600 hover:text-black dark:text-slate-400 dark:hover:text-slate-100',
-        highlight: 'font-medium text-black dark:text-white',
         'non-text': 'block',
         'non-style': ''
       }
@@ -28,13 +27,9 @@ interface LinkProps
   extends NextLinkProps,
     Omit<AnchorLinkProps, 'href' | 'as'> {}
 
-export function Link({ variant, href, className = '', ...props }: LinkProps) {
+export function Link({ variant, className = '', ...props }: LinkProps) {
   return (
-    <NextLink
-      href={href}
-      className={cn(linkVariants({ variant }), className)}
-      {...props}
-    >
+    <NextLink className={cn(linkVariants({ variant }), className)} {...props}>
       {props.children}
     </NextLink>
   );
@@ -46,13 +41,11 @@ export interface AnchorLinkProps
 
 export function AnchorLink({
   variant,
-  href,
   className = '',
   ...props
 }: AnchorLinkProps) {
   return (
     <a
-      href={href}
       target="_blank"
       rel="noopener noreferrer"
       className={cn(linkVariants({ variant }), className)}

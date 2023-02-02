@@ -9,7 +9,7 @@ function Post(post: Post) {
     <article className="group relative text-left">
       <div className="absolute -inset-y-2.5 -inset-x-4 group-hover:bg-gray-50/50 dark:group-hover:bg-gray-800/40 sm:rounded-2xl md:-inset-y-4 md:-inset-x-6"></div>
       <Icons.circle
-        strokeWidth={4.5}
+        strokeWidth={4}
         className="absolute right-full top-[6px] mr-[22.5px] hidden h-[calc(0.7rem+1px)] w-[calc(0.7rem+1px)] overflow-visible fill-white text-slate-300 dark:fill-black dark:text-slate-700  sm:block md:mr-[2.9rem]"
       />
       <div className="relative">
@@ -55,7 +55,7 @@ export function PostTimeline({ posts }: PostTimelineProps) {
   return (
     <div className="relative mx-auto mt-16 w-full max-w-[52rem] px-0 sm:px-6 lg:mt-[4.5rem] lg:max-w-6xl">
       <div className="relative sm:ml-[calc(2rem+1px)] sm:pb-12 md:ml-[calc(3.5rem+1px)] lg:ml-[max(calc(14.5rem+1px),calc(100%-48rem))]">
-        <div className="absolute top-3 bottom-0 right-full mr-7 hidden w-px bg-slate-400 dark:bg-slate-700 sm:block md:mr-[3.25rem]"></div>
+        <div className="absolute top-3 bottom-0 right-full mr-7 hidden w-px border-l border-dashed border-slate-400 bg-transparent dark:border-slate-700 sm:block md:mr-[3.25rem]"></div>
         <div className="space-y-16">
           {posts.map((post) => (
             <Post key={post._id} {...post} />

@@ -15,7 +15,12 @@ export function NavItems() {
       <li>
         <Link
           href="/blog"
-          variant={router.pathname === '/blog' ? 'highlight' : 'secondary'}
+          variant="secondary"
+          className={
+            router.pathname.startsWith('/blog')
+              ? 'font-medium text-black dark:text-slate-200'
+              : ''
+          }
         >
           Blog
         </Link>
@@ -23,7 +28,12 @@ export function NavItems() {
       <li>
         <Link
           href="/snippets"
-          variant={router.pathname === '/snippets' ? 'highlight' : 'secondary'}
+          variant="secondary"
+          className={
+            router.pathname.startsWith('/snippets')
+              ? 'font-medium text-black dark:text-slate-200'
+              : ''
+          }
         >
           Snippets
         </Link>
@@ -31,7 +41,12 @@ export function NavItems() {
       <li>
         <Link
           href="/uses"
-          variant={router.pathname === '/uses' ? 'highlight' : 'secondary'}
+          variant="secondary"
+          className={
+            router.pathname.startsWith('/uses')
+              ? 'font-medium text-black dark:text-slate-200'
+              : ''
+          }
         >
           Uses
         </Link>
@@ -41,10 +56,10 @@ export function NavItems() {
 }
 
 function NavPopover() {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
   const MOBILE_BREAKPOINT = 768;
   const getIsMobile = () => window.innerWidth < MOBILE_BREAKPOINT;
-  const [isMobile, setIsMobile] = useState(
+  const [isMobile, setIsMobile] = useState<boolean>(
     typeof window !== 'undefined' ? getIsMobile() : false
   );
 
@@ -80,8 +95,8 @@ function NavPopover() {
   );
 }
 
-export function Header() {
-  const [isPageScrolled, setIsPageScrolled] = useState(false);
+export function SiteHeader() {
+  const [isPageScrolled, setIsPageScrolled] = useState<boolean>(false);
 
   useEffect(() => {
     const handlePageScroll = () => {

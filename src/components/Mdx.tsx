@@ -5,47 +5,29 @@ import { AnchorLink } from '@/components/Link';
 import { Callout } from '@/components/Callout';
 import { Card } from '@/components/Card';
 import { cn } from '@/lib/utils';
-import { HTMLAttributes, HTMLProps, LinkHTMLAttributes } from 'react';
+import { HTMLAttributes } from 'react';
 
 const components = {
   h1: ({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) => (
-    <h1
-      className={cn('mt-2 scroll-m-20 text-4xl tracking-wide', className)}
-      {...props}
-    />
+    <h1 className={cn('mt-2 scroll-m-20 text-4xl', className)} {...props} />
   ),
   h2: ({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) => (
     <h2
-      className={cn(
-        'mt-10 scroll-m-20 text-3xl tracking-wide first:mt-0',
-        className
-      )}
+      className={cn('mt-10 scroll-m-20 text-3xl first:mt-0', className)}
       {...props}
     />
   ),
   h3: ({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) => (
-    <h3
-      className={cn('mt-8 scroll-m-20 text-2xl tracking-wide', className)}
-      {...props}
-    />
+    <h3 className={cn('mt-8 scroll-m-20 text-2xl', className)} {...props} />
   ),
   h4: ({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) => (
-    <h4
-      className={cn('mt-8 scroll-m-20 text-xl tracking-wide', className)}
-      {...props}
-    />
+    <h4 className={cn('mt-8 scroll-m-20 text-xl', className)} {...props} />
   ),
   h5: ({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) => (
-    <h5
-      className={cn('mt-8 scroll-m-20 text-lg tracking-wide', className)}
-      {...props}
-    />
+    <h5 className={cn('mt-8 scroll-m-20 text-lg', className)} {...props} />
   ),
   h6: ({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) => (
-    <h6
-      className={cn('mt-8 scroll-m-20 text-base tracking-wide', className)}
-      {...props}
-    />
+    <h6 className={cn('mt-8 scroll-m-20 text-base', className)} {...props} />
   ),
   a: AnchorLink,
   p: ({ className, ...props }: HTMLAttributes<HTMLParagraphElement>) => (

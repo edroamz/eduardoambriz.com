@@ -96,7 +96,6 @@ export default function Home({
           <h2 className="m-0 font-sans text-3xl leading-normal tracking-tight lg:text-[2rem]">
             <GradientText variant="summer">Top-Read Posts</GradientText>
           </h2>
-
           <h3 className="mt-5 max-w-5xl text-4xl leading-snug lg:mt-7 lg:text-5xl lg:leading-tight">
             Most popularly read blog entries
           </h3>

@@ -35,7 +35,7 @@ let themeSettings = [
 ];
 
 export function ThemeToggle() {
-  const [mounted, setMounted] = useState(false);
+  const [mounted, setMounted] = useState<boolean>(false);
   const { theme: currentTheme, setTheme } = useTheme();
 
   // After mounting, we have access to the theme
@@ -89,7 +89,7 @@ export function ThemeToggle() {
 }
 
 export function ThemeSelect() {
-  const [isSelectOpen, setIsSelectOpen] = useState(false);
+  const [isSelectOpen, setIsSelectOpen] = useState<boolean>(false);
   const { theme, setTheme } = useTheme();
 
   return (

@@ -48,10 +48,10 @@ const SnippetLayout = ({
           <Link
             href="/snippets"
             variant="secondary"
-            className="mt-3 inline-flex items-center text-sm font-medium"
+            className="mt-3 inline-flex items-center font-medium"
           >
             <Icons.chevronLeft className="mr-1.5 inline h-4 w-4" />
-            <span>See all snippets</span>
+            <p>See all snippets</p>
           </Link>
         </div>
         <article className="mx-auto mt-6 flex max-w-3xl flex-col items-center px-6">
