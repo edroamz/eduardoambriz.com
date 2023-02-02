@@ -1,11 +1,11 @@
 import { useMDXComponent } from 'next-contentlayer/hooks';
 
 import Image, { ImageProps } from 'next/image';
-import { Link } from '@/components/Link';
-import { AnchorLink } from '@/components/AnchorLink';
+import { AnchorLink } from '@/components/Link';
 import { Callout } from '@/components/Callout';
+import { Card } from '@/components/Card';
 import { cn } from '@/lib/utils';
-import { HTMLAttributes, HTMLProps } from 'react';
+import { HTMLAttributes, HTMLProps, LinkHTMLAttributes } from 'react';
 
 const components = {
   h1: ({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) => (
@@ -47,16 +47,7 @@ const components = {
       {...props}
     />
   ),
-  a: ({ className, href, ...props }: HTMLProps<HTMLAnchorElement>) => {
-    const isInternalLink =
-      href && (href.startsWith('/') || href.startsWith('#'));
-
-    if (isInternalLink) {
-      return <Link href={href} className={className} {...props}></Link>;
-    }
-
-    return <AnchorLink href={href} className={className} {...props} />;
-  },
+  a: AnchorLink,
   p: ({ className, ...props }: HTMLAttributes<HTMLParagraphElement>) => (
     <p
       className={cn(
@@ -165,7 +156,8 @@ const components = {
       {...props}
     />
   ),
-  Callout
+  Callout,
+  Card
 };
 
 interface MdxProps {

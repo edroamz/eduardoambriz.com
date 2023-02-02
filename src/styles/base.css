@@ -1,6 +1,11 @@
 @tailwind base;
 
 @layer base {
+  ::selection {
+    background-color: #79ffe1;
+    color: #000;
+  }
+
   html {
     min-width: 360px;
     height: 100%;

@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Layout } from '@/components/Layout';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { AnchorLink } from '@/components/AnchorLink';
+import { AnchorLink } from '@/components/Link';
 import { GradientText } from '@/components/GradientText';
 import { PostTimeline } from '@/components/PostTimeline';
 import { Icons } from '@/components/Icons';
@@ -49,11 +49,9 @@ export default function Home({
           </p>
         </section>
         <section className="mx-auto mt-24 flex max-w-7xl flex-col items-center justify-center px-6 text-center">
-          <GradientText asChild>
-            <h2 className="m-0 font-sans text-3xl leading-normal tracking-tight lg:text-[2rem]">
-              Curated Work
-            </h2>
-          </GradientText>
+          <h2 className="m-0 font-sans text-3xl leading-normal tracking-tight lg:text-[2rem]">
+            <GradientText variant="winter">Curated Work</GradientText>
+          </h2>
           <h3 className="mt-5 max-w-5xl text-4xl leading-snug lg:mt-7 lg:text-5xl lg:leading-tight">
             Explore my portfolio of completed projects
           </h3>
@@ -61,7 +59,7 @@ export default function Home({
             <div>
               <AnchorLink
                 href="https://edroamz.github.io/car-rental-react/"
-                intent="non-text"
+                variant="non-text"
               >
                 <div className="w-full max-w-6xl overflow-hidden rounded-lg border border-slate-200 dark:border-slate-700">
                   <AspectRatio ratio={16 / 9}>
@@ -70,6 +68,7 @@ export default function Home({
                       alt="car rental website"
                       fill
                       className="object-cover"
+                      priority
                     />
                   </AspectRatio>
                 </div>
@@ -83,7 +82,7 @@ export default function Home({
                 </p>
                 <AnchorLink
                   href="https://edroamz.github.io/car-rental-react/"
-                  intent="primary"
+                  variant="primary"
                   className="mt-4 inline-block text-sm font-medium"
                 >
                   <span>Live demo</span>
@@ -94,11 +93,10 @@ export default function Home({
           </div>
         </section>
         <section className="mx-auto mb-32 mt-24 flex max-w-5xl flex-col items-center justify-center px-6 text-center">
-          <GradientText intent="summer" asChild>
-            <h2 className="m-0 font-sans text-3xl leading-normal tracking-tight lg:text-[2rem]">
-              Top-Read Posts
-            </h2>
-          </GradientText>
+          <h2 className="m-0 font-sans text-3xl leading-normal tracking-tight lg:text-[2rem]">
+            <GradientText variant="summer">Top-Read Posts</GradientText>
+          </h2>
+
           <h3 className="mt-5 max-w-5xl text-4xl leading-snug lg:mt-7 lg:text-5xl lg:leading-tight">
             Most popularly read blog entries
           </h3>

@@ -1,15 +1,13 @@
-import { ForwardRefExoticComponent, HTMLProps, RefAttributes } from 'react';
+import { HTMLAttributes } from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
-import { Slot, SlotProps } from '@radix-ui/react-slot';
 import { cn } from '@/lib/utils';
 
 type GradientTextVariantProps = VariantProps<typeof gradientTextVariants>;
 export const gradientTextVariants = cva(
-  'inline-block m-0 bg-clip-text font-bold [&_p]:text-[length:inherit] [&_p]:leading-[1.2]',
+  'inline m-0 bg-clip-text font-bold [&_p]:text-[length:inherit] [&_p]:leading-[1.2]',
   {
     variants: {
-      intent: {
-        gotham: 'from-black to-gray-800',
+      variant: {
         winter:
           'from-[#5237f9] to-[#00b8b9] dark:from-[#6369ff] dark:to-[#87ffff]',
         summer:
@@ -27,36 +25,29 @@ export const gradientTextVariants = cva(
       }
     },
     defaultVariants: {
-      intent: 'winter',
       direction: 'right'
     }
   }
 );
 
 interface GradientTextProps
-  extends GradientTextVariantProps,
-    Omit<HTMLProps<HTMLElement>, 'ref'> {
-  asChild?: boolean;
-}
+  extends HTMLAttributes<HTMLSpanElement>,
+    Omit<GradientTextVariantProps, 'variant'>,
+    Required<Pick<GradientTextVariantProps, 'variant'>> {}
 
 export function GradientText({
-  intent,
-  asChild,
+  variant,
   direction,
   className = '',
   ...props
 }: GradientTextProps) {
-  const Component:
-    | ForwardRefExoticComponent<SlotProps & RefAttributes<HTMLElement>>
-    | 'span' = asChild ? Slot : 'span';
-
   return (
-    <Component
-      className={cn(gradientTextVariants({ intent, direction }), className)}
+    <span
+      className={cn(gradientTextVariants({ variant, direction }), className)}
       style={{ WebkitTextFillColor: 'transparent' }}
       {...props}
     >
       {props.children}
-    </Component>
+    </span>
   );
 }

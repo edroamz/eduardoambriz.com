@@ -3,7 +3,7 @@ import { Header } from '@/components/Header';
 import { SkipNavLink, SkipNavContent } from '@reach/skip-nav';
 import { Wordmark } from '@/components/Wordmark';
 import { Link } from '@/components/Link';
-import { AnchorLink } from '@/components/AnchorLink';
+import { AnchorLink } from '@/components/Link';
 
 interface LayoutProps {
   children: ReactNode;
@@ -24,7 +24,7 @@ export function Layout({ children }: LayoutProps) {
             <div className="border-t py-10 dark:border-gray-700/60 ">
               <div className="flex flex-col flex-wrap items-center justify-center gap-2 lg:flex-row lg:justify-between">
                 <div className="shrink-0 text-center">
-                  <Link href="/" intent="non-style">
+                  <Link href="/" variant="non-style">
                     <Wordmark className="mr-2 text-xl" />
                   </Link>
                   <span className="inline-block text-center text-sm lg:text-left">

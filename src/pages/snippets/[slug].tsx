@@ -47,7 +47,7 @@ const SnippetLayout = ({
         <div className="mx-auto max-w-8xl px-6 py-4">
           <Link
             href="/snippets"
-            intent="tertiary"
+            variant="secondary"
             className="mt-3 inline-flex items-center text-sm font-medium"
           >
             <Icons.chevronLeft className="mr-1.5 inline h-4 w-4" />

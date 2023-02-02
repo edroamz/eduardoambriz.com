@@ -29,7 +29,7 @@ function Post(post: Post) {
         </dl>
       </div>
       <Link
-        intent="primary"
+        variant="primary"
         className="flex items-center text-sm font-medium"
         href={post.slug}
       >

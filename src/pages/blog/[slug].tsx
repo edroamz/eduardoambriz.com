@@ -4,7 +4,7 @@ import { allPosts, Post } from 'contentlayer/generated';
 import { Layout } from '@/components/Layout';
 import { Mdx } from '@/components/Mdx';
 import { Link } from '@/components/Link';
-import { AnchorLink } from '@/components/AnchorLink';
+import { AnchorLink } from '@/components/Link';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import type { InferGetStaticPropsType, GetStaticProps } from 'next';
 import { Icons } from '@/components/Icons';
@@ -48,7 +48,7 @@ const PostLayout = ({
         <div className="mx-auto max-w-8xl px-6 py-4">
           <Link
             href="/blog"
-            intent="tertiary"
+            variant="secondary"
             className="mt-3 inline-flex items-center text-sm font-medium"
           >
             <Icons.chevronLeft className="mr-1.5 inline h-4 w-4" />
@@ -70,7 +70,10 @@ const PostLayout = ({
               </Avatar>
               <div className="flex flex-col items-start justify-center text-sm font-medium">
                 <span>Eduardo Ambriz</span>
-                <AnchorLink intent="primary" href="https://twitter.com/edroamz">
+                <AnchorLink
+                  variant="primary"
+                  href="https://twitter.com/edroamz"
+                >
                   <span>@edroamz</span>
                 </AnchorLink>
               </div>
@@ -80,7 +83,7 @@ const PostLayout = ({
             <Mdx code={post.body.code} />
             <div className="mt-4 flex flex-col justify-between gap-x-7 gap-y-10 py-8 sm:flex-row md:mt-8">
               <AnchorLink
-                intent="tertiary"
+                variant="secondary"
                 className="text-left text-sm"
                 href={`https://github.com/edroamz/portfolio/edit/main/src/content/blog/${post.slugAsParams}.mdx`}
               >
@@ -91,7 +94,7 @@ const PostLayout = ({
             <div className="my-16 flex items-center justify-center">
               <Link
                 href="/blog"
-                intent="tertiary"
+                variant="secondary"
                 className="mt-2 inline-flex items-center text-sm font-medium"
               >
                 <Icons.chevronLeft className="mr-1.5 inline h-4 w-4" />

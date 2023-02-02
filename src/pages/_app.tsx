@@ -21,6 +21,7 @@ const fontMono = FontMono({
 });
 
 const fontDisplay = localFont({
+  weight: '600',
   variable: '--font-display',
   src: './../assets/fonts/CalSans-SemiBold.woff2'
 });
@@ -30,15 +31,13 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       <style jsx global>{`
 				:root {
-					--font-sans: ${fontSans.style.fontFamily};
           --font-display: ${fontDisplay.style.fontFamily};
+					--font-sans: ${fontSans.style.fontFamily};
           --font-mono: ${fontMono.style.fontFamily};
 				}
 			}`}</style>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-        <div className={`${fontSans.className} ${fontDisplay.variable}`}>
-          <Component {...pageProps} />
-        </div>
+        <Component {...pageProps} />
       </ThemeProvider>
     </>
   );

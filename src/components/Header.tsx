@@ -15,7 +15,7 @@ export function NavItems() {
       <li>
         <Link
           href="/blog"
-          intent={router.pathname === '/blog' ? 'highlight' : 'tertiary'}
+          variant={router.pathname === '/blog' ? 'highlight' : 'secondary'}
         >
           Blog
         </Link>
@@ -23,7 +23,7 @@ export function NavItems() {
       <li>
         <Link
           href="/snippets"
-          intent={router.pathname === '/snippets' ? 'highlight' : 'tertiary'}
+          variant={router.pathname === '/snippets' ? 'highlight' : 'secondary'}
         >
           Snippets
         </Link>
@@ -31,7 +31,7 @@ export function NavItems() {
       <li>
         <Link
           href="/uses"
-          intent={router.pathname === '/uses' ? 'highlight' : 'tertiary'}
+          variant={router.pathname === '/uses' ? 'highlight' : 'secondary'}
         >
           Uses
         </Link>
@@ -106,7 +106,7 @@ export function Header() {
     >
       <div className="mx-auto flex max-w-8xl grid-cols-2 items-center justify-between gap-x-7 px-6 py-4 sm:grid md:grid-cols-3">
         <div>
-          <Link href="/" intent="non-style">
+          <Link href="/" variant="non-style">
             <Wordmark />
           </Link>
         </div>
