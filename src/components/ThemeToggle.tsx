@@ -102,12 +102,12 @@ export function ThemeSelect() {
           setTheme(selectedTheme);
         }}
       >
-        <SelectTrigger className="w-[135px] bg-white dark:bg-gray-600">
+        <SelectTrigger className=" dark:border-slate-500/80 dark:bg-gray-700">
           <SelectValue className="flex items-center justify-center gap-2 align-middle">
             <div className="flex items-center justify-center gap-2 align-middle">
-              <Icons.moon className="hidden h-5 w-5 text-slate-500/80 dark:inline dark:text-slate-400" />
-              <Icons.sun className="inline h-5 w-5 text-slate-500/80 dark:hidden dark:text-slate-400" />
-              <span className="font-semibold capitalize leading-none tracking-normal text-gray-900 dark:text-gray-100">
+              <Icons.moon className="hidden h-5 w-5 text-slate-500 dark:inline dark:text-slate-400" />
+              <Icons.sun className="inline h-5 w-5 text-slate-500 dark:hidden dark:text-slate-400" />
+              <span className="text-base font-medium capitalize leading-none tracking-tight text-black dark:text-slate-100">
                 {theme}
               </span>
             </div>
@@ -127,7 +127,7 @@ export function ThemeSelect() {
             <SelectItem
               key={value}
               value={value}
-              className="w-full border border-transparent px-2 py-[7px] font-semibold leading-none data-[highlighted]:bg-gray-200 dark:data-[highlighted]:bg-gray-600/80"
+              className="w-full border border-transparent px-2 py-[7px] leading-none data-[highlighted]:bg-gray-200 dark:text-slate-300 dark:data-[highlighted]:bg-gray-600/80"
             >
               {label}
             </SelectItem>

@@ -13,9 +13,7 @@ function Post(post: Post) {
         className="absolute right-full top-[6px] mr-[22.5px] hidden h-[calc(0.7rem+1px)] w-[calc(0.7rem+1px)] overflow-visible fill-white text-slate-300 dark:fill-black dark:text-slate-700  sm:block md:mr-[2.9rem]"
       />
       <div className="relative">
-        <h3 className="pt-8 font-sans text-lg font-semibold lg:pt-0">
-          {post.title}
-        </h3>
+        <h3 className="pt-8 text-lg font-semibold lg:pt-0">{post.title}</h3>
         <div className="mt-2 mb-4 line-clamp-2">
           {post?.description?.code && <Mdx code={post.description.code} />}
         </div>

@@ -32,7 +32,7 @@ function SnippetCard({ snippet }: SnippetCardProps) {
           <Icon className="h-14 w-14 grayscale group-hover/card:grayscale-0 group-hover/card:transition-all group-hover/card:duration-300" />
         </div>
         <div className="h-[100px] p-5 text-left">
-          <div className="font-sans text-lg font-semibold">{snippet.title}</div>
+          <div className="text-lg font-semibold">{snippet.title}</div>
           <div className="mt-[6px] text-sm leading-6 text-slate-600/90 line-clamp-2 dark:text-slate-400">
             {snippet.description}
           </div>
@@ -63,11 +63,11 @@ export default function Snippets({
         <title>Eduardo Ambriz - Snippets</title>
       </Head>
       <Layout>
-        <section className="mb-24 flex max-w-7xl flex-col justify-center py-8 px-6 sm:mx-auto sm:items-center sm:text-center md:py-10">
-          <h1 className="mt-2 max-w-5xl text-4xl leading-snug md:text-5xl md:leading-tight">
+        <section className="mx-auto mb-24 flex max-w-7xl flex-col items-center justify-center py-8 px-6 text-center md:py-10">
+          <h1 className="mt-2 text-4xl font-bold tracking-tight">
             Code Snippets
           </h1>
-          <p className="mt-3 max-w-3xl text-lg leading-8 sm:px-6">
+          <p className="mt-5 max-w-3xl text-lg leading-8 sm:px-6">
             Curated collection of concise and effective code solutions to tackle
             common programming problems.
           </p>

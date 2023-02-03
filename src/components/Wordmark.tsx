@@ -2,14 +2,14 @@ import { cn } from '@/lib/utils';
 
 export function Wordmark({ className = '', ...props }) {
   return (
-    <div
+    <span
       className={cn(
-        'inline-block shrink-0 font-display text-2xl tracking-[0.025em] text-black dark:text-gray-200',
+        'inline-block shrink-0 text-2xl font-bold tracking-tight text-black dark:text-gray-200',
         className
       )}
       {...props}
     >
       Eduardo Ambriz
-    </div>
+    </span>
   );
 }

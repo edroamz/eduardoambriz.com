@@ -23,8 +23,8 @@ export default function Uses({
         <title>Eduardo Ambriz - Uses</title>
       </Head>
       <Layout>
-        <section className="mb-24 flex max-w-5xl flex-col justify-center py-8 px-6 sm:mx-auto sm:items-center sm:text-center md:py-10">
-          <h1 className="mt-2 max-w-4xl text-4xl leading-snug md:text-5xl md:leading-tight">
+        <section className="mx-auto mb-24 flex max-w-5xl flex-col items-center justify-center py-8 px-6 text-center md:py-10">
+          <h1 className="mt-2 text-4xl font-bold tracking-tight">
             {page?.title}
           </h1>
           {page && (

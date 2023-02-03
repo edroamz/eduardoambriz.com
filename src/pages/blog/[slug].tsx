@@ -56,7 +56,7 @@ const PostLayout = ({
               <p>See all posts</p>
             </Link>
           </div>
-          <article className="mx-auto flex w-full max-w-3xl flex-col items-center md:px-6">
+          <article className="mx-auto flex w-full max-w-3xl flex-col items-center">
             <div className="w-full text-left">
               <time
                 dateTime={post.date}
@@ -64,7 +64,7 @@ const PostLayout = ({
               >
                 Published on {format(parseISO(post.date), 'LLLL d, yyyy')}
               </time>
-              <h1 className="mt-4 max-w-5xl text-[2rem] font-bold leading-snug md:text-[2.5rem] md:leading-tight">
+              <h1 className="mt-4 max-w-5xl text-[2rem] font-extrabold leading-snug tracking-tight md:text-[2.5rem] md:leading-tight">
                 {post.title}
               </h1>
               <div className="mt-5">

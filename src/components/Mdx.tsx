@@ -9,25 +9,58 @@ import { HTMLAttributes } from 'react';
 
 const components = {
   h1: ({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) => (
-    <h1 className={cn('mt-2 scroll-m-20 text-4xl', className)} {...props} />
+    <h1
+      className={cn(
+        'mt-2 scroll-m-20 text-4xl font-bold tracking-tight',
+        className
+      )}
+      {...props}
+    />
   ),
   h2: ({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) => (
     <h2
-      className={cn('mt-10 scroll-m-20 text-3xl first:mt-0', className)}
+      className={cn(
+        'mt-12 scroll-m-20 border-b border-b-slate-200 pb-2 text-3xl font-semibold tracking-tight first:mt-0 dark:border-b-slate-700',
+        className
+      )}
       {...props}
     />
   ),
   h3: ({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) => (
-    <h3 className={cn('mt-8 scroll-m-20 text-2xl', className)} {...props} />
+    <h3
+      className={cn(
+        'mt-8 scroll-m-20 text-2xl font-semibold tracking-tight',
+        className
+      )}
+      {...props}
+    />
   ),
   h4: ({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) => (
-    <h4 className={cn('mt-8 scroll-m-20 text-xl', className)} {...props} />
+    <h4
+      className={cn(
+        'mt-8 scroll-m-20 text-xl font-semibold tracking-tight',
+        className
+      )}
+      {...props}
+    />
   ),
   h5: ({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) => (
-    <h5 className={cn('mt-8 scroll-m-20 text-lg', className)} {...props} />
+    <h5
+      className={cn(
+        'mt-8 scroll-m-20 text-lg font-semibold tracking-tight',
+        className
+      )}
+      {...props}
+    />
   ),
   h6: ({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) => (
-    <h6 className={cn('mt-8 scroll-m-20 text-base', className)} {...props} />
+    <h6
+      className={cn(
+        'mt-8 scroll-m-20 text-base font-semibold tracking-tight',
+        className
+      )}
+      {...props}
+    />
   ),
   a: AnchorLink,
   p: ({ className, ...props }: HTMLAttributes<HTMLParagraphElement>) => (

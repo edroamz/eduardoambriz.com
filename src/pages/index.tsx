@@ -10,6 +10,7 @@ import { Icons } from '@/components/Icons';
 import { allPosts, Post } from 'contentlayer/generated';
 import { compareDesc } from 'date-fns';
 import type { InferGetStaticPropsType, GetStaticProps } from 'next';
+import Balancer from 'react-wrap-balancer';
 
 export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async () => {
   let posts = allPosts
@@ -39,24 +40,24 @@ export default function Home({
             <AvatarImage src="https://github.com/edroamz.png" />
             <AvatarFallback>EA</AvatarFallback>
           </Avatar>
-          <h1 className="mt-6 max-w-5xl text-5xl leading-tight lg:mt-8 lg:text-6xl">
-            Front-End Web Developer.
+          <h1 className="mt-5 w-full text-[3rem] font-bold leading-tight tracking-tighter md:mt-7 md:text-7xl md:leading-[1.125]">
+            <Balancer>Front-End Web Developer.</Balancer>
           </h1>
-          <p className="mt-5 max-w-4xl text-xl leading-9 sm:px-7">
+          <p className="mt-6 max-w-4xl px-6 text-xl leading-9 sm:px-12">
             Hi! I&apos;m Eduardo, Software Engineer and Front-End JavaScript
             Developer focused on creating dynamic, user-friendly websites with
             clean, efficient code.
           </p>
         </section>
-        <section className="mx-auto mt-24 flex max-w-7xl flex-col items-center justify-center px-6 text-center">
-          <h2 className="m-0 font-sans text-3xl leading-normal tracking-tight lg:text-[2rem]">
+        <section className="mx-auto mt-24 flex max-w-7xl flex-col items-center justify-center px-6 text-center md:px-16">
+          <h2 className="m-0 text-[2rem] leading-normal tracking-tight">
             <GradientText variant="winter">Curated Work</GradientText>
           </h2>
-          <h3 className="mt-5 max-w-5xl text-4xl leading-snug lg:mt-7 lg:text-5xl lg:leading-tight">
-            Explore my portfolio of completed projects
+          <h3 className="mt-2 w-full text-[2.5rem] font-bold leading-snug tracking-tighter sm:mt-4 sm:text-6xl sm:leading-tight">
+            <Balancer>Explore my portfolio of completed projects</Balancer>
           </h3>
-          <div className="mx-auto mt-12 grid w-full max-w-6xl grid-cols-1 items-center gap-y-14 md:mt-16">
-            <div>
+          <div className="mx-auto mt-16 grid w-full max-w-6xl grid-cols-1 items-center gap-y-14 ">
+            <article>
               <AnchorLink
                 href="https://edroamz.github.io/car-rental-react/"
                 variant="non-text"
@@ -74,7 +75,7 @@ export default function Home({
                 </div>
               </AnchorLink>
               <div className="text-left">
-                <h3 className="mt-6 font-sans text-lg font-semibold">
+                <h3 className="mt-6 text-lg font-semibold">
                   car rental website
                 </h3>
                 <p className="mt-2">
@@ -89,15 +90,15 @@ export default function Home({
                   <Icons.chevronRight className="ml-1.5 inline h-4 w-4" />
                 </AnchorLink>
               </div>
-            </div>
+            </article>
           </div>
         </section>
         <section className="mx-auto mb-32 mt-24 flex max-w-5xl flex-col items-center justify-center px-6 text-center">
-          <h2 className="m-0 font-sans text-3xl leading-normal tracking-tight lg:text-[2rem]">
+          <h2 className="m-0 text-[2rem] leading-normal tracking-tight">
             <GradientText variant="summer">Top-Read Posts</GradientText>
           </h2>
-          <h3 className="mt-5 max-w-5xl text-4xl leading-snug lg:mt-7 lg:text-5xl lg:leading-tight">
-            Most popularly read blog entries
+          <h3 className="mt-2 w-full text-[2.5rem] font-bold leading-snug tracking-tighter sm:mt-4 sm:text-6xl sm:leading-tight">
+            <Balancer>Most popularly read blog entries</Balancer>
           </h3>
           <PostTimeline posts={posts} />
         </section>

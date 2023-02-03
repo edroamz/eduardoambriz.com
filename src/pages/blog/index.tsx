@@ -26,10 +26,8 @@ export default function Blog({
         <title>Eduardo Ambriz - Blog</title>
       </Head>
       <Layout>
-        <section className="mb-24 flex max-w-5xl flex-col justify-center py-8 px-6 sm:mx-auto sm:items-center sm:text-center md:py-10">
-          <h1 className="mt-2 max-w-4xl text-4xl leading-snug md:text-5xl md:leading-tight">
-            Mastering Programming through Knowledge Sharing
-          </h1>
+        <section className="mb-24 flex max-w-5xl flex-col items-center justify-center py-8 px-6 sm:mx-auto md:py-10">
+          <h1 className="mt-2 text-4xl font-bold tracking-tight">All Posts</h1>
           <PostTimeline posts={posts} />
         </section>
       </Layout>

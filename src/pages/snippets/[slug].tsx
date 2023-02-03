@@ -56,7 +56,7 @@ const SnippetLayout = ({
         </div>
         <article className="mx-auto mt-6 flex max-w-3xl flex-col items-center px-6">
           <div className="w-full text-left">
-            <h1 className="max-w-5xl text-[2rem] leading-snug md:text-[2.5rem] md:leading-tight">
+            <h1 className="max-w-5xl text-[2rem] font-extrabold leading-snug tracking-tight md:text-[2.5rem] md:leading-tight">
               {snippet.title}
             </h1>
             {snippet?.description && (
