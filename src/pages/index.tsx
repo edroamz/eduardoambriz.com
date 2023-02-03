@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
-import { Layout } from '@/components/Layout';
+import { SiteLayout } from '@/components/SiteLayout';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { AnchorLink } from '@/components/Link';
 import { GradientText } from '@/components/GradientText';
@@ -34,7 +34,7 @@ export default function Home({
       <Head>
         <title>Eduardo Ambriz</title>
       </Head>
-      <Layout>
+      <SiteLayout>
         <section className="mx-auto flex max-w-7xl flex-col items-center justify-center px-6 pt-[4.5rem] text-center">
           <Avatar className="h-12 w-12">
             <AvatarImage src="https://github.com/edroamz.png" />
@@ -102,7 +102,7 @@ export default function Home({
           </h3>
           <PostTimeline posts={posts} />
         </section>
-      </Layout>
+      </SiteLayout>
     </>
   );
 }

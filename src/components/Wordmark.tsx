@@ -4,7 +4,7 @@ export function Wordmark({ className = '', ...props }) {
   return (
     <span
       className={cn(
-        'inline-block shrink-0 text-2xl font-bold tracking-tight text-black dark:text-gray-200',
+        'inline-block shrink-0 text-2xl font-bold tracking-tight text-black dark:text-slate-100',
         className
       )}
       {...props}

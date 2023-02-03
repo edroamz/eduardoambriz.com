@@ -9,6 +9,9 @@ module.exports = {
   },
   theme: {
     extend: {
+      screens: {
+        'md+': '960px'
+      },
       fontFamily: {
         sans: ['var(--font-sans)', ...fontFamily.sans],
         mono: ['var(--font-mono)', ...fontFamily.mono]
@@ -18,9 +21,6 @@ module.exports = {
       },
       minHeight: {
         main: 'calc(100vh - theme(spacing.header))'
-      },
-      maxWidth: {
-        '8xl': '90rem'
       },
       colors: {
         primary: '#0070F3',

@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Layout } from '@/components/Layout';
+import { SiteLayout } from '@/components/SiteLayout';
 import { Link } from '@/components/Link';
 import { allSnippets, Snippet } from 'contentlayer/generated';
 import { Icons } from '@/components/Icons';
@@ -62,7 +62,7 @@ export default function Snippets({
       <Head>
         <title>Eduardo Ambriz - Snippets</title>
       </Head>
-      <Layout>
+      <SiteLayout>
         <section className="mx-auto mb-24 flex max-w-7xl flex-col items-center justify-center py-8 px-6 text-center md:py-10">
           <h1 className="mt-2 text-4xl font-bold tracking-tight">
             Code Snippets
@@ -79,7 +79,7 @@ export default function Snippets({
             </div>
           </div>
         </section>
-      </Layout>
+      </SiteLayout>
     </>
   );
 }

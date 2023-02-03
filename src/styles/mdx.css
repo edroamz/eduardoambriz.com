@@ -2,7 +2,7 @@
   @apply relative;
 }
 [data-rehype-pretty-code-fragment] code {
-  @apply grid min-w-full break-words rounded-none border-0 bg-transparent p-0 text-sm text-black dark:bg-transparent;
+  @apply grid min-w-full break-words rounded-none border-0 bg-transparent p-0 text-sm leading-4 text-black dark:bg-transparent;
   counter-reset: line;
   box-decoration-break: clone;
 }
@@ -40,9 +40,17 @@
 .subheading-anchor {
   position: unset !important;
   text-decoration-line: unset !important;
-  @apply flex items-center before:invisible before:absolute before:inset-y-auto before:-left-9 before:flex before:h-[26px] before:w-[26px] before:items-center before:justify-center before:rounded-md before:border before:border-slate-200 before:p-0 before:px-[7px] hover:before:visible dark:before:border-slate-700 dark:before:bg-slate-800 md:before:-left-11;
+  @apply items-center before:invisible before:absolute before:inset-y-auto before:-left-9 before:flex before:h-[26px] before:w-[26px] before:items-center before:justify-center before:rounded-md before:border before:border-slate-200 before:p-0 before:px-[7px] hover:before:visible dark:before:border-slate-700 dark:before:bg-slate-800 md:before:-left-11;
 }
 
 .subheading-anchor::before {
   content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' aria-hidden='true'%3E%3Cpath d='M3.75 1v10M8.25 1v10M1 3.75h10M1 8.25h10' stroke='%2394A3B8' stroke-width='1.5' stroke-linecap='round'%3E%3C/path%3E%3C/svg%3E") !important;
+}
+
+.mdx ul li {
+  @apply before:absolute before:ml-[-15px] before:inline-block before:text-slate-600 before:content-['–'] before:dark:text-slate-500;
+}
+
+.mdx > *:first-child {
+  @apply mt-0;
 }

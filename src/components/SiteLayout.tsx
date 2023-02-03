@@ -3,11 +3,11 @@ import { SiteHeader } from '@/components/SiteHeader';
 import { SiteFooter } from '@/components/SiteFooter';
 import { SkipNavLink, SkipNavContent } from '@reach/skip-nav';
 
-interface LayoutProps {
+interface SiteLayoutProps {
   children: ReactNode;
 }
 
-export function Layout({ children }: LayoutProps) {
+export function SiteLayout({ children }: SiteLayoutProps) {
   return (
     <>
       <div className="my-0 mx-auto max-w-full overflow-hidden pt-header">

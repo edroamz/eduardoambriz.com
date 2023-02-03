@@ -1,7 +1,6 @@
 import { Link } from '@/components/Link';
 import { Post } from 'contentlayer/generated';
 import { format, parseISO } from 'date-fns';
-import { Mdx } from '@/components/Mdx';
 import { Icons } from '@/components/Icons';
 
 function Post(post: Post) {
@@ -14,9 +13,7 @@ function Post(post: Post) {
       />
       <div className="relative">
         <h3 className="pt-8 text-lg font-semibold lg:pt-0">{post.title}</h3>
-        <div className="mt-2 mb-4 line-clamp-2">
-          {post?.description?.code && <Mdx code={post.description.code} />}
-        </div>
+        <div className="mt-2 mb-4 line-clamp-2">{post?.description}</div>
         <dl className="absolute left-0 top-0 lg:left-auto lg:right-full lg:mr-[calc(6.5rem+1px)]">
           <dt className="sr-only">Date</dt>
           <dd className="whitespace-nowrap text-sm leading-6 dark:text-slate-400">
@@ -34,10 +31,7 @@ function Post(post: Post) {
         <span className="absolute -inset-y-2.5 -inset-x-4 sm:rounded-2xl md:-inset-y-4 md:-inset-x-6"></span>
         <span className="relative">
           Read more
-          <span className="sr-only">
-            , Protocol: A beautiful starting point for your next API
-            documentation site
-          </span>
+          <span className="sr-only">, {post.title}</span>
         </span>
         <Icons.chevronRight className="ml-1.5 inline h-4 w-4" />
       </Link>

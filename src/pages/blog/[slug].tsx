@@ -1,13 +1,14 @@
 import Head from 'next/head';
 import { format, parseISO } from 'date-fns';
 import { allPosts, Post } from 'contentlayer/generated';
-import { Layout } from '@/components/Layout';
+import { SiteLayout } from '@/components/SiteLayout';
 import { Mdx } from '@/components/Mdx';
 import { Link } from '@/components/Link';
 import { AnchorLink } from '@/components/Link';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import type { InferGetStaticPropsType, GetStaticProps } from 'next';
 import { Icons } from '@/components/Icons';
+import Balancer from 'react-wrap-balancer';
 
 export async function getStaticPaths() {
   const paths = allPosts.map((post) => ({
@@ -44,50 +45,64 @@ const PostLayout = ({
       <Head>
         <title>{`Eduardo Ambriz - ${post.title}`}</title>
       </Head>
-      <Layout>
-        <div className="mx-auto mt-7 flex w-full max-w-8xl flex-col items-baseline justify-between gap-x-6 gap-y-7 px-6 xl:flex-row">
-          <div className="w-full xl:w-auto xl:flex-1">
+      <SiteLayout>
+        <div className="mx-auto mt-5 max-w-7xl">
+          <div className="max-w-4xl">
             <Link
               href="/blog"
               variant="secondary"
-              className="inline-flex items-center font-medium"
+              className="inline-flex items-center px-6"
             >
               <Icons.chevronLeft className="mr-1.5 inline h-4 w-4" />
-              <p>See all posts</p>
+              <p className="text-sm tracking-tight md+:text-base">
+                See all posts
+              </p>
             </Link>
-          </div>
-          <article className="mx-auto flex w-full max-w-3xl flex-col items-center">
-            <div className="w-full text-left">
+            <div className="mt-12 w-full px-6 text-left md:mt-16">
               <time
                 dateTime={post.date}
-                className="text-sm text-slate-700 dark:text-slate-300"
+                className="text-sm text-slate-600 dark:text-slate-400"
               >
-                Published on {format(parseISO(post.date), 'LLLL d, yyyy')}
+                <p>
+                  Published on {format(parseISO(post.date), 'LLLL d, yyyy')}
+                </p>
               </time>
-              <h1 className="mt-4 max-w-5xl text-[2rem] font-extrabold leading-snug tracking-tight md:text-[2.5rem] md:leading-tight">
-                {post.title}
+              <h1 className="mt-6 max-w-5xl text-3xl font-bold leading-snug tracking-tight md+:text-5xl md+:leading-tight md+:tracking-tighter">
+                <Balancer>{post.title}</Balancer>
               </h1>
-              <div className="mt-5">
-                <AnchorLink
-                  variant="non-style"
-                  className="inline-flex flex-row items-center gap-x-3"
-                  href="https://twitter.com/edroamz"
-                >
+              {post?.description && (
+                <p className="mt-4 tracking-tight text-slate-600 dark:text-slate-400 md+:mt-6 md+:text-2xl">
+                  {post.description}.
+                </p>
+              )}
+              <div className="mt-10 md+:hidden">
+                <div className="inline-flex flex-row items-center gap-x-3">
                   <Avatar>
                     <AvatarImage src="https://github.com/edroamz.png" />
                     <AvatarFallback>EA</AvatarFallback>
                   </Avatar>
-                  <div className="flex flex-col items-start justify-center text-sm font-medium">
-                    <span className="font-semibold">Eduardo Ambriz</span>
-                    <span className="text-slate-600 dark:text-slate-400">
-                      @edroamz
-                    </span>
+                  <div className="flex flex-col items-start justify-center">
+                    <p className="text-sm font-semibold">Eduardo Ambriz</p>
+                    <AnchorLink
+                      variant="non-style"
+                      href="https://twitter.com/edroamz"
+                    >
+                      <p className="text-sm text-slate-600 dark:text-slate-400">
+                        @edroamz
+                      </p>
+                    </AnchorLink>
                   </div>
-                </AnchorLink>
+                </div>
               </div>
             </div>
-            <hr className="mt-6 w-full" />
-            <div className="mt-6 w-full md:mt-8">
+          </div>
+          <hr className="mt-4 block w-full md+:hidden" />
+        </div>
+        {/* grid */}
+        <div className="mx-auto mt-6 grid w-full max-w-7xl grid-cols-1 items-baseline justify-between gap-x-3 md+:mt-8 md+:grid-cols-[minmax(0,1fr)_340px]">
+          {/* article */}
+          <article className="mx-auto flex w-full flex-col items-start md+:pr-8 lg:pr-24">
+            <div className="w-full px-6 ">
               <Mdx code={post.body.code} />
               <div className="mt-4 flex flex-col justify-between gap-x-7 gap-y-10 py-8 sm:flex-row md:mt-8">
                 <AnchorLink
@@ -98,22 +113,50 @@ const PostLayout = ({
                   Edit this page on GitHub
                 </AnchorLink>
               </div>
-              <hr />
-              <div className="my-20 flex items-center justify-center">
-                <Link
-                  href="/blog"
-                  variant="secondary"
-                  className="mt-2 inline-flex items-center font-medium"
-                >
-                  <Icons.chevronLeft className="mr-1.5 inline h-4 w-4" />
-                  <p>See all posts</p>
-                </Link>
-              </div>
             </div>
           </article>
-          <div className="hidden w-full border border-green-500 xl:invisible xl:block xl:w-auto xl:flex-1"></div>
+          {/* sidebar */}
+          <div className="hidden h-full w-full px-6 md+:block">
+            <div className="flex flex-col items-start justify-center gap-16">
+              <div>
+                <p className="text-sm text-slate-600 dark:text-slate-400">
+                  Author
+                </p>
+                <div className="mt-5 inline-flex flex-row items-center gap-x-3">
+                  <Avatar>
+                    <AvatarImage src="https://github.com/edroamz.png" />
+                    <AvatarFallback>EA</AvatarFallback>
+                  </Avatar>
+                  <div className="flex flex-col items-start justify-center">
+                    <p className="text-sm font-semibold">Eduardo Ambriz</p>
+                    <AnchorLink
+                      variant="non-style"
+                      href="https://twitter.com/edroamz"
+                    >
+                      <p className="text-sm text-slate-600 dark:text-slate-400">
+                        @edroamz
+                      </p>
+                    </AnchorLink>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </Layout>
+        <div className="mx-auto max-w-7xl px-6">
+          <hr />
+          <div className="my-20 flex items-center justify-center">
+            <Link
+              href="/blog"
+              variant="secondary"
+              className="mt-2 inline-flex items-center"
+            >
+              <Icons.chevronLeft className="mr-1.5 inline h-4 w-4" />
+              <p>See all posts</p>
+            </Link>
+          </div>
+        </div>
+      </SiteLayout>
     </>
   );
 };

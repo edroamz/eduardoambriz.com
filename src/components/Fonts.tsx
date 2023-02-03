@@ -1,7 +1,4 @@
-import {
-  Inter as FontSans,
-  Noto_Sans_Mono as FontMono
-} from '@next/font/google';
+import { Inter as FontSans, Roboto_Mono as FontMono } from '@next/font/google';
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -14,7 +11,6 @@ const fontMono = FontMono({
   variable: '--font-mono',
   display: 'swap'
 });
-
 
 export function Fonts() {
   return (

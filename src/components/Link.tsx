@@ -10,7 +10,7 @@ export const linkVariants = cva(
     variants: {
       variant: {
         default:
-          'relative z-10 font-semibold underline hover:decoration-2 underline-offset-4 decoration-inherit',
+          'underline hover:decoration-2 underline-offset-4 decoration-inherit',
         primary:
           'text-primary dark:text-primary-dark decoration-transparent underline underline-offset-4 hover:decoration-inherit',
         secondary:
@@ -23,7 +23,7 @@ export const linkVariants = cva(
   }
 );
 
-interface LinkProps
+export interface LinkProps
   extends NextLinkProps,
     Omit<AnchorLinkProps, 'href' | 'as'> {}
 

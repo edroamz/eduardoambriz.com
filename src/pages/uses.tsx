@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Layout } from '@/components/Layout';
+import { SiteLayout } from '@/components/SiteLayout';
 import type { InferGetStaticPropsType, GetStaticProps } from 'next';
 import { allPages, Page } from 'contentlayer/generated';
 import { Mdx } from '@/components/Mdx';
@@ -22,7 +22,7 @@ export default function Uses({
       <Head>
         <title>Eduardo Ambriz - Uses</title>
       </Head>
-      <Layout>
+      <SiteLayout>
         <section className="mx-auto mb-24 flex max-w-5xl flex-col items-center justify-center py-8 px-6 text-center md:py-10">
           <h1 className="mt-2 text-4xl font-bold tracking-tight">
             {page?.title}
@@ -36,7 +36,7 @@ export default function Uses({
             </article>
           )}
         </section>
-      </Layout>
+      </SiteLayout>
     </>
   );
 }

@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { allSnippets, Snippet } from 'contentlayer/generated';
-import { Layout } from '@/components/Layout';
+import { SiteLayout } from '@/components/SiteLayout';
 import { Mdx } from '@/components/Mdx';
 import { Link } from '@/components/Link';
 import type { InferGetStaticPropsType, GetStaticProps } from 'next';
@@ -43,8 +43,8 @@ const SnippetLayout = ({
       <Head>
         <title>{`Eduardo Ambriz - ${snippet.title}`}</title>
       </Head>
-      <Layout>
-        <div className="mx-auto max-w-8xl px-6 py-4">
+      <SiteLayout>
+        <div className="mx-auto max-w-7xl px-6 py-4">
           <Link
             href="/snippets"
             variant="secondary"
@@ -71,7 +71,7 @@ const SnippetLayout = ({
             <Mdx code={snippet.body.code} />
           </div>
         </article>
-      </Layout>
+      </SiteLayout>
     </>
   );
 };

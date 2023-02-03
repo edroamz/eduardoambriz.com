@@ -3,8 +3,8 @@ import { Link, AnchorLink } from '@/components/Link';
 
 export function SiteFooter() {
   return (
-    <footer className="mx-auto w-full max-w-8xl px-6 ">
-      <div className="border-t py-10 dark:border-gray-700/60 ">
+    <footer className=" border-t dark:border-slate-800">
+      <div className=" mx-auto w-full max-w-7xl px-6 py-10">
         <div className="flex flex-col flex-wrap items-center justify-center gap-2 lg:flex-row lg:justify-between">
           <div className="shrink-0 text-center">
             <Link href="/" variant="non-style">

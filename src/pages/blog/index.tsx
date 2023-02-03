@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Layout } from '@/components/Layout';
+import { SiteLayout } from '@/components/SiteLayout';
 import { PostTimeline } from '@/components/PostTimeline';
 import { allPosts, Post } from 'contentlayer/generated';
 import { compareDesc } from 'date-fns';
@@ -25,12 +25,12 @@ export default function Blog({
       <Head>
         <title>Eduardo Ambriz - Blog</title>
       </Head>
-      <Layout>
+      <SiteLayout>
         <section className="mb-24 flex max-w-5xl flex-col items-center justify-center py-8 px-6 sm:mx-auto md:py-10">
           <h1 className="mt-2 text-4xl font-bold tracking-tight">All Posts</h1>
           <PostTimeline posts={posts} />
         </section>
-      </Layout>
+      </SiteLayout>
     </>
   );
 }

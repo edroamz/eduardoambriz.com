@@ -15,22 +15,21 @@
   html {
     min-width: 360px;
     height: 100%;
-    @apply scroll-smooth;
+    text-rendering: optimizeLegibility;
+    @apply scroll-smooth antialiased;
   }
 
   body {
-    @apply w-screen overflow-x-hidden bg-white text-base text-black dark:bg-black dark:text-slate-300;
+    @apply w-screen overflow-x-hidden bg-white text-base text-slate-900 dark:bg-black dark:text-white;
   }
 
   h1,
   h2,
   h3,
-  h4 {
-    @apply relative dark:text-slate-200;
-  }
-
-  p {
-    letter-spacing: -0.02rem;
+  h4,
+  h5,
+  h6 {
+    @apply relative text-black dark:text-white;
   }
 
   hr {

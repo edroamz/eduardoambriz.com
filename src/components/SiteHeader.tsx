@@ -35,7 +35,7 @@ function MainNav({ items }: NavItemProps) {
               variant="secondary"
               className={
                 router.pathname.startsWith(item.href)
-                  ? 'font-medium text-black dark:text-slate-200'
+                  ? 'font-medium text-black dark:text-white'
                   : ''
               }
             >
@@ -127,11 +127,11 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        'fixed top-0 z-20 h-header w-full max-w-full border-b border-slate-200 bg-white transition-shadow duration-200 dark:border-slate-700/80 dark:bg-black',
+        'fixed top-0 z-20 h-header w-full max-w-full border-b border-slate-200 bg-white transition-shadow duration-200 dark:border-slate-800 dark:bg-black',
         isPageScrolled && 'shadow-[0_0_15px_0_rgb(0,0,0,0.1)]'
       )}
     >
-      <div className="mx-auto flex max-w-8xl grid-cols-2 items-center justify-between gap-x-7 px-6 py-4 sm:grid md:grid-cols-3">
+      <div className="mx-auto flex max-w-7xl grid-cols-2 items-center justify-between gap-x-7 px-6 py-4 sm:grid md:grid-cols-3">
         <div>
           <Link href="/" variant="non-style">
             <Wordmark />
