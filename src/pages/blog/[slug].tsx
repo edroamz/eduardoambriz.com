@@ -1,15 +1,16 @@
+import type { InferGetStaticPropsType, GetStaticProps } from 'next';
 import Head from 'next/head';
-import { format, parseISO } from 'date-fns';
+import Balancer from 'react-wrap-balancer';
 import { allPosts, Post } from 'contentlayer/generated';
 import { SiteLayout } from '@/components/SiteLayout';
 import { Mdx } from '@/components/Mdx';
 import { Link } from '@/components/Link';
 import { AnchorLink } from '@/components/Link';
 import { ResponsiveImage } from '@/components/ResponsiveImage';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import type { InferGetStaticPropsType, GetStaticProps } from 'next';
+import { Author } from '@/components/Author';
 import { Icons } from '@/components/Icons';
-import Balancer from 'react-wrap-balancer';
+
+import { format, parseISO } from 'date-fns';
 
 export async function getStaticPaths() {
   const paths = allPosts.map((post) => ({
@@ -92,27 +93,23 @@ const PostLayout = ({
                 <p className="text-sm text-slate-600 dark:text-slate-400">
                   Posted by
                 </p>
-                <div className="mt-4 inline-flex flex-row items-center gap-x-3">
-                  <Avatar className="h-9 w-9">
-                    <AvatarImage src="https://github.com/edroamz.png" />
-                    <AvatarFallback>EA</AvatarFallback>
-                  </Avatar>
-                  <div className="flex flex-col items-start justify-center">
-                    <p className="text-sm font-semibold">Eduardo Ambriz</p>
-                    <AnchorLink
-                      variant="non-style"
-                      href="https://twitter.com/edroamz"
-                    >
-                      <p className="text-sm text-slate-600 dark:text-slate-400">
-                        @edroamz
-                      </p>
-                    </AnchorLink>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
-          <hr className="mt-4 block w-full md+:hidden" />
+          <div className="mt-4 md+:hidden">
+            <div className="flex flex-row flex-nowrap items-stretch justify-start gap-x-6 overflow-auto px-6 pb-4">
+              {post.authors.map((author) => (
+                <Author
+                  key={author}
+                  image="https://github.com/edroamz.png"
+                  fallback="EA"
+                  name="Eduardo Ambriz"
+                  username={author}
+                />
+              ))}
+            </div>
+          </div>
+          <hr className="md+:hidden" />
         </div>
         {/* grid */}
         <div className="mx-auto mt-6 grid w-full max-w-7xl grid-cols-1 items-start justify-between gap-x-3 md+:mt-8 md+:grid-cols-[minmax(0,1fr)_320px]">
@@ -120,7 +117,7 @@ const PostLayout = ({
           <article className="mx-auto flex w-full flex-col items-start md+:pr-12 lg:pr-24">
             {post.image && (
               <div className="w-full px-6">
-                <div className="mb-12">
+                <div className="md+:mb-12">
                   <div className="hidden md+:block">
                     <ResponsiveImage
                       src={post.image}
@@ -133,7 +130,7 @@ const PostLayout = ({
             )}
             <div className="w-full px-6 ">
               <Mdx code={post.body.code} />
-              <div className="mt-4 flex flex-col justify-between gap-x-7 gap-y-10 py-8 sm:flex-row md:mt-8">
+              <div className="mt-16 flex flex-col justify-between gap-x-7 gap-y-10 pb-4 sm:flex-row md+:mt-20">
                 <AnchorLink
                   variant="secondary"
                   className="text-left text-sm"
@@ -152,26 +149,13 @@ const PostLayout = ({
                   Posted by
                 </p>
                 {post.authors.map((author) => (
-                  <div
+                  <Author
                     key={author}
-                    className="flex flex-row items-center gap-x-3"
-                  >
-                    <Avatar className="h-9 w-9">
-                      <AvatarImage src="https://github.com/edroamz.png" />
-                      <AvatarFallback>EA</AvatarFallback>
-                    </Avatar>
-                    <div className="flex flex-col items-start justify-center">
-                      <p className="text-sm font-semibold">Eduardo Ambriz</p>
-                      <AnchorLink
-                        variant="non-style"
-                        href="https://twitter.com/edroamz"
-                      >
-                        <p className="text-sm text-slate-600 dark:text-slate-400">
-                          @{author}
-                        </p>
-                      </AnchorLink>
-                    </div>
-                  </div>
+                    image="https://github.com/edroamz.png"
+                    fallback="EA"
+                    name="Eduardo Ambriz"
+                    username={author}
+                  />
                 ))}
               </div>
             </div>

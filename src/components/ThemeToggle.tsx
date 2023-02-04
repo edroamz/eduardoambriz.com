@@ -66,14 +66,13 @@ export function ThemeToggle() {
                 <Icon
                   className={cn(
                     'mr-2 inline h-[19px] w-[19px] text-slate-500 dark:text-slate-400/80',
-                    currentTheme === value &&
-                      'text-primary dark:text-primary-dark'
+                    currentTheme === value && 'text-black dark:text-white'
                   )}
                 ></Icon>
                 <span
                   className={
                     currentTheme === value
-                      ? 'text-primary dark:text-primary-dark'
+                      ? 'font-semibold text-black dark:text-white'
                       : ''
                   }
                 >
