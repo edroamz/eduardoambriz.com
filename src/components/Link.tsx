@@ -5,18 +5,17 @@ import { cn } from '@/lib/utils';
 
 export type LinkVariantProps = VariantProps<typeof linkVariants>;
 export const linkVariants = cva(
-  'hover:transition-colors hover:duration-75 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 dark:focus-visible:ring-gray-50 rounded-sm',
+  'hover:transition-colors hover:duration-75 group px-1 py-[2px]',
   {
     variants: {
       variant: {
         default:
           'underline hover:decoration-2 underline-offset-4 decoration-inherit',
         primary:
-          'text-primary dark:text-primary-dark decoration-transparent underline underline-offset-4 hover:decoration-inherit',
+          'font-semibold text-primary dark:text-primary-on-dark hover:text-black dark:hover:text-slate-100',
         secondary:
           'text-slate-600 hover:text-black dark:text-slate-400 dark:hover:text-slate-100',
-        'non-text': 'block',
-        'non-style': ''
+        'non-style': 'p-0'
       }
     },
     defaultVariants: { variant: 'default' }

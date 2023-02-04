@@ -3,19 +3,28 @@ import Image, { ImageProps } from 'next/image';
 
 import { cn } from '@/lib/utils';
 
+export interface ResponsiveImageProps extends ImageProps {
+  ratio?: number;
+  rounded?: boolean;
+}
+
 export function ResponsiveImage({
   ratio = 16 / 9,
   className,
   alt,
   width,
   height,
+  rounded = true,
   priority = false,
   ...props
-}: ImageProps & { ratio?: number }) {
+}: ResponsiveImageProps) {
   return (
     <div
       style={{ width: width }}
-      className="max-w-full overflow-hidden rounded-xl border border-slate-200 dark:border-slate-700/80"
+      className={cn(
+        'max-w-full overflow-hidden border border-slate-200 dark:border-slate-700/80',
+        rounded && 'rounded-xl'
+      )}
     >
       <AspectRatio ratio={ratio}>
         <Image

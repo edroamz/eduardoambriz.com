@@ -8,7 +8,7 @@ import {
   Loader2,
   LucideProps,
   Moon,
-  MoreVertical,
+  Menu,
   SunMedium,
   X,
   type Icon as LucideIcon
@@ -24,7 +24,7 @@ export const Icons = {
   chevronLeft: ChevronLeft,
   chevronRight: ChevronRight,
   chevronDown: ChevronDown,
-  ellipsis: MoreVertical,
+  menu: Menu,
   sun: SunMedium,
   moon: Moon,
   laptop: Laptop,

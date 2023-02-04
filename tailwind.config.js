@@ -24,7 +24,7 @@ module.exports = {
       },
       colors: {
         primary: '#0070F3',
-        'primary-dark': '#3291FF'
+        'primary-on-dark': '#3291FF'
       },
       boxShadow: {
         sm: '0 5px 10px rgba(0,0,0,.12)',

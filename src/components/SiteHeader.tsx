@@ -27,17 +27,17 @@ function MainNav({ items }: NavItemProps) {
 
   return (
     <nav>
-      <ul className="flex flex-row items-center justify-center gap-x-7">
+      <ul className="flex flex-row items-center justify-center gap-x-1">
         {items.map((item) => (
           <li key={item.title}>
             <Link
               href={item.href}
               variant="secondary"
-              className={
-                router.pathname.startsWith(item.href)
-                  ? 'font-medium text-black dark:text-white'
-                  : ''
-              }
+              className={cn(
+                'px-4 py-2',
+                router.pathname.startsWith(item.href) &&
+                  'font-medium text-black dark:text-white'
+              )}
             >
               {item.title}
             </Link>
@@ -48,7 +48,7 @@ function MainNav({ items }: NavItemProps) {
   );
 }
 
-function NavPopover({ items }: NavItemProps) {
+function MobileNav({ items }: NavItemProps) {
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
   const MOBILE_BREAKPOINT = 768;
   const getIsMobile = () => window.innerWidth < MOBILE_BREAKPOINT;
@@ -72,8 +72,7 @@ function NavPopover({ items }: NavItemProps) {
     <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
       <DialogTrigger className="group inline-flex items-center rounded-md px-2 py-1 pr-0 text-slate-600 hover:text-slate-900 hover:transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 dark:text-slate-300 dark:hover:text-slate-50 dark:focus-visible:ring-slate-50 md:hidden">
         <span className="sr-only">Navigation</span>
-        <span className="mr-2 text-sm font-medium tracking-wide">Menu</span>
-        <Icons.ellipsis className="inline h-5 w-5" />
+        <Icons.menu strokeWidth={1.5} className="inline h-6 w-6" />
       </DialogTrigger>
       {isMobile && (
         <DialogContent className="fixed top-4 right-4 flex w-full max-w-xs flex-col gap-6 rounded-lg border border-transparent bg-white p-6 shadow-md dark:border-slate-800 dark:bg-gray-800 sm:max-w-xs">
@@ -84,7 +83,7 @@ function NavPopover({ items }: NavItemProps) {
                   href={item.href}
                   variant="non-style"
                   className={cn(
-                    'block rounded-md py-2 pl-1 font-medium hover:underline dark:text-slate-300',
+                    'block rounded-md py-2 pl-1 font-medium dark:text-slate-300',
                     router.pathname.startsWith(item.href) &&
                       'font-semibold text-black dark:text-slate-100'
                   )}
@@ -131,13 +130,13 @@ export function SiteHeader() {
         isPageScrolled && 'shadow-[0_0_15px_0_rgb(0,0,0,0.1)]'
       )}
     >
-      <div className="mx-auto flex max-w-7xl grid-cols-2 items-center justify-between gap-x-7 px-6 py-4 sm:grid md:grid-cols-3">
-        <div>
-          <Link href="/" variant="non-style">
+      <div className="mx-auto flex h-full max-w-7xl grid-cols-2 items-center justify-between gap-x-7 px-6 sm:grid md:grid-cols-3">
+        <div className="flex items-center">
+          <Link href="/">
             <Wordmark />
           </Link>
         </div>
-        <div className="hidden text-center md:block">
+        <div className="hidden text-center md:flex md:items-center md:justify-center">
           <MainNav items={navItems} />
         </div>
         <div className="flex items-center justify-end">
@@ -145,7 +144,7 @@ export function SiteHeader() {
             <ThemeToggle />
           </div>
           <div className="md:hidden">
-            <NavPopover items={navItems} />
+            <MobileNav items={navItems} />
           </div>
         </div>
       </div>

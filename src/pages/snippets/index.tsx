@@ -25,7 +25,7 @@ function SnippetCard({ snippet }: SnippetCardProps) {
   const Icon = icons[snippet.icon];
 
   return (
-    <Link href={snippet.slug} variant="non-text">
+    <Link href={snippet.slug} variant="non-style">
       {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
       <div className="group/card mx-5 mb-[60px] h-[260px] w-[290px] rounded-lg border border-transparent shadow-sm  duration-200 hover:shadow-lg dark:border-slate-700/80 dark:shadow-none dark:hover:border-slate-300">
         <div className="flex h-[126px] items-center justify-center border-b dark:border-slate-700/80">

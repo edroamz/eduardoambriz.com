@@ -101,7 +101,7 @@ const PostLayout = ({
               {post.authors.map((author) => (
                 <Author
                   key={author}
-                  image="https://github.com/edroamz.png"
+                  image={`https://github.com/${author}.png`}
                   fallback="EA"
                   name="Eduardo Ambriz"
                   username={author}
@@ -151,7 +151,7 @@ const PostLayout = ({
                 {post.authors.map((author) => (
                   <Author
                     key={author}
-                    image="https://github.com/edroamz.png"
+                    image={`https://github.com/${author}.png`}
                     fallback="EA"
                     name="Eduardo Ambriz"
                     username={author}
