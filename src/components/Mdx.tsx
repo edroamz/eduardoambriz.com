@@ -1,12 +1,12 @@
 import { useMDXComponent } from 'next-contentlayer/hooks';
 
-import Image, { ImageProps } from 'next/image';
+import { ImageProps } from 'next/image';
 import { AnchorLink, Link } from '@/components/Link';
 import { Callout } from '@/components/Callout';
 import { Card } from '@/components/Card';
 import { cn } from '@/lib/utils';
 import { HTMLAttributes, LinkHTMLAttributes } from 'react';
-import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { ResponsiveImage } from '@/components/ResponsiveImage';
 
 const components = {
   h1: ({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) => (
@@ -161,27 +161,24 @@ const components = {
       {...props}
     />
   ),
-  Image: ({
-    ratio = 16 / 9,
+  ResponsiveImage: ({
+    ratio,
     className,
     alt,
     width,
     height,
+    priority,
     ...props
   }: ImageProps & { ratio: number }) => (
-    <div
-      style={{ width: width }}
-      className="my-10 max-w-full overflow-hidden rounded-lg border border-slate-200 dark:border-slate-700/80"
-    >
-      <AspectRatio ratio={ratio}>
-        <Image
-          alt={alt}
-          fill
-          className={cn('object-cover', className)}
-          priority
-          {...props}
-        />
-      </AspectRatio>
+    <div className="my-6 md+:my-12">
+      <ResponsiveImage
+        ratio={ratio}
+        className={className}
+        alt={alt}
+        width={width}
+        priority={priority}
+        {...props}
+      />
     </div>
   ),
   Callout,
