@@ -14,7 +14,6 @@ type NavItems = {
 };
 const navItems: NavItems[] = [
   { title: 'Blog', href: '/blog' },
-  { title: 'Snippets', href: '/snippets' },
   { title: 'Uses', href: '/uses' }
 ];
 

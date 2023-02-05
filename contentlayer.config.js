@@ -18,27 +18,6 @@ const computedFields = {
   }
 };
 
-export const Snippet = defineDocumentType(() => ({
-  name: 'Snippet',
-  filePathPattern: `snippets/**/*.mdx`,
-  contentType: 'mdx',
-  fields: {
-    title: {
-      type: 'string',
-      required: true
-    },
-    description: {
-      type: 'string'
-    },
-    icon: {
-      type: 'enum',
-      options: ['react', 'css', 'tailwind', 'typescript'],
-      required: true
-    }
-  },
-  computedFields
-}));
-
 export const Page = defineDocumentType(() => ({
   name: 'Page',
   filePathPattern: `pages/**/*.mdx`,
@@ -93,7 +72,7 @@ export const Post = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: './src/content',
-  documentTypes: [Post, Snippet, Page],
+  documentTypes: [Post, Page],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
