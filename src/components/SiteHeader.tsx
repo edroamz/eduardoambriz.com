@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { Link } from '@/components/Link';
-import { Wordmark } from '@/components/Wordmark';
 import { ThemeToggle, ThemeSelect } from '@/components/ThemeToggle';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
@@ -132,7 +131,8 @@ export function SiteHeader() {
       <div className="mx-auto flex h-full max-w-7xl grid-cols-2 items-center justify-between gap-x-7 px-6 sm:grid md:grid-cols-3">
         <div className="flex items-center">
           <Link href="/">
-            <Wordmark />
+            {/* <Wordmark /> */}
+            <Icons.wordmark className="h-5 w-full text-black dark:text-slate-100" />
           </Link>
         </div>
         <div className="hidden text-center md:flex md:items-center md:justify-center">
