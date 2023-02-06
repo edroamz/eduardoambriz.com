@@ -13,8 +13,10 @@ import {
   SelectTrigger,
   SelectValue
 } from '@/components/ui/select';
-import { cn } from '@/lib/utils';
 import { Icons } from '@/components/Icons';
+import { Text } from '@/components/Text';
+
+import { cn } from '@/lib/utils';
 
 let themeSettings = [
   {
@@ -54,7 +56,7 @@ export function ThemeToggle() {
         <Icons.sun className="inline h-[22px] w-[22px] text-slate-700 dark:hidden dark:text-slate-400" />
       </DropdownMenuTrigger>
       <DropdownMenuContent
-        className="grid w-36 grid-cols-1 items-start justify-center rounded-lg bg-white py-1 text-sm shadow-sm  dark:bg-gray-900"
+        className="grid w-36 grid-cols-1"
         sideOffset={28}
         collisionPadding={{ right: 28 }}
         hideWhenDetached
@@ -69,7 +71,9 @@ export function ThemeToggle() {
                     currentTheme === value && 'text-black dark:text-white'
                   )}
                 ></Icon>
-                <span
+                <Text
+                  as="span"
+                  size={14}
                   className={
                     currentTheme === value
                       ? 'font-semibold text-black dark:text-slate-200'
@@ -77,7 +81,7 @@ export function ThemeToggle() {
                   }
                 >
                   {label}
-                </span>
+                </Text>
               </button>
             </DropdownMenuItem>
           ))}
@@ -88,46 +92,48 @@ export function ThemeToggle() {
 }
 
 export function ThemeSelect() {
-  const [isSelectOpen, setIsSelectOpen] = useState<boolean>(false);
+  const [mounted, setMounted] = useState<boolean>(false);
+  const [open, setOpen] = useState<boolean>(false);
   const { theme, setTheme } = useTheme();
+
+  // After mounting, we have access to the theme
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <>
       <Select
-        open={isSelectOpen}
-        onOpenChange={setIsSelectOpen}
+        open={open}
+        onOpenChange={setOpen}
         value={theme}
         onValueChange={(selectedTheme: string) => {
           setTheme(selectedTheme);
         }}
       >
-        <SelectTrigger className=" dark:border-slate-500/80 dark:bg-gray-700">
-          <SelectValue className="flex items-center justify-center gap-2 align-middle">
-            <div className="flex items-center justify-center gap-2 align-middle">
-              <Icons.moon className="hidden h-5 w-5 text-slate-500 dark:inline dark:text-slate-400" />
-              <Icons.sun className="inline h-5 w-5 text-slate-500 dark:hidden dark:text-slate-400" />
-              <span className="text-base font-medium capitalize leading-none tracking-tight text-black dark:text-slate-100">
-                {theme}
-              </span>
-            </div>
-          </SelectValue>
+        <SelectTrigger className="w-36 outline-none hover:border-black focus:border-slate-500 dark:hover:border-white dark:focus:border-slate-400">
+          <Icons.moon className="hidden h-[18px] w-[18px] text-slate-500 dark:inline dark:text-slate-400" />
+          <Icons.sun className="inline h-[18px] w-[18px] text-slate-500 dark:hidden dark:text-slate-400" />
+          <Text
+            as="div"
+            fontWeight={500}
+            transform="capitalize"
+            className="text-center"
+          >
+            <SelectValue>{theme}</SelectValue>
+          </Text>
         </SelectTrigger>
         <SelectContent
           position="popper"
+          className="w-[var(--radix-select-trigger-width)]"
           hideWhenDetached
-          style={{
-            userSelect: 'none',
-            width: 'var(--radix-select-trigger-width)',
-            maxHeight: 'var(--radix-select-content-available-height)'
-          }}
-          className="z-50 w-full rounded-md border border-gray-300 bg-gray-100 py-1 shadow dark:border-gray-600 dark:bg-gray-900"
         >
           {themeSettings.map(({ value, label }) => (
-            <SelectItem
-              key={value}
-              value={value}
-              className="w-full border border-transparent px-2 py-[7px] leading-none data-[highlighted]:bg-gray-200 dark:text-slate-300 dark:data-[highlighted]:bg-gray-600/80"
-            >
+            <SelectItem key={value} value={value}>
               {label}
             </SelectItem>
           ))}

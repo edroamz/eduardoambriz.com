@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils';
 
 export type LinkVariantProps = VariantProps<typeof linkVariants>;
 export const linkVariants = cva(
-  'hover:transition-colors hover:duration-75 group px-1 py-[2px]',
+  'transition-colors hover:duration-75 group px-1 py-[2px]',
   {
     variants: {
       variant: {

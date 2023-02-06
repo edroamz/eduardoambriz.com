@@ -47,7 +47,7 @@ function MainNav({ items }: NavItemProps) {
 }
 
 function MobileNav({ items }: NavItemProps) {
-  const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
+  const [open, setOpen] = useState<boolean>(false);
   const MOBILE_BREAKPOINT = 768;
   const getIsMobile = () => window.innerWidth < MOBILE_BREAKPOINT;
   const [isMobile, setIsMobile] = useState<boolean>(
@@ -67,36 +67,34 @@ function MobileNav({ items }: NavItemProps) {
   }, []);
 
   return (
-    <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-      <DialogTrigger className="group inline-flex items-center rounded-md px-2 py-1 pr-0 text-slate-600 hover:text-slate-900 hover:transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 dark:text-slate-300 dark:hover:text-slate-50 dark:focus-visible:ring-slate-50 md:hidden">
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger>
         <span className="sr-only">Navigation</span>
-        <Icons.menu strokeWidth={1.5} className="inline h-6 w-6" />
+        <Icons.menu strokeWidth={1.5} className="inline h-[22px] w-[22px]" />
       </DialogTrigger>
       {isMobile && (
-        <DialogContent className="fixed top-4 right-4 flex w-full max-w-xs flex-col gap-6 rounded-lg border border-transparent bg-white p-6 shadow-md dark:border-slate-800 dark:bg-gray-800 sm:max-w-xs">
-          <ul className=" mt-4 flex flex-col items-start justify-center gap-y-2 text-left font-semibold">
+        <DialogContent className="fixed inset-x-0 top-0 w-screen dark:border-b dark:border-b-gray-800 dark:bg-[#0e0e12] sm:max-w-none sm:rounded-none">
+          <ul className="mt-6">
             {items.map((item) => (
-              <li className="w-full" key={item.title}>
-                <Link
-                  href={item.href}
-                  variant="non-style"
+              <Link
+                key={item.title}
+                href={item.href}
+                variant="non-style"
+                className="w-full"
+              >
+                <li
                   className={cn(
-                    'block rounded-md py-2 pl-1 font-medium dark:text-slate-300',
-                    router.pathname.startsWith(item.href) &&
-                      'font-semibold text-black dark:text-slate-100'
+                    'flex h-12 w-full select-none items-center border-b border-slate-200 text-black transition-colors hover:bg-slate-50 dark:border-gray-800 dark:text-white dark:hover:bg-slate-800/20',
+                    router.pathname.startsWith(item.href) && 'font-medium'
                   )}
                 >
                   {item.title}
-                </Link>
-              </li>
+                </li>
+              </Link>
             ))}
           </ul>
-          <div className="pl-1">
-            <hr className="dark:border-slate-700" />
-            <div className="mt-4 flex items-center justify-between gap-x-7">
-              <p className="shrink-0">Switch theme</p>
-              <ThemeSelect />
-            </div>
+          <div className="mt-8 mb-4 flex flex-col items-center justify-center gap-3 ">
+            <ThemeSelect />
           </div>
         </DialogContent>
       )}
@@ -105,33 +103,15 @@ function MobileNav({ items }: NavItemProps) {
 }
 
 export function SiteHeader() {
-  const [isPageScrolled, setIsPageScrolled] = useState<boolean>(false);
-
-  useEffect(() => {
-    const handlePageScroll = () => {
-      if (window.scrollY >= 32) {
-        setIsPageScrolled(true);
-      } else {
-        setIsPageScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handlePageScroll);
-
-    return () => window.removeEventListener('scroll', handlePageScroll);
-  }, []);
-
   return (
     <header
       className={cn(
-        'fixed top-0 z-20 h-header w-full max-w-full border-b border-slate-200 bg-white transition-shadow duration-200 dark:border-slate-800 dark:bg-black',
-        isPageScrolled && 'shadow-[0_0_15px_0_rgb(0,0,0,0.1)]'
+        'fixed top-0 z-20 h-header w-full max-w-full border-b border-slate-200 bg-white transition-shadow duration-200 dark:border-slate-800 dark:bg-black/80'
       )}
     >
       <div className="mx-auto flex h-full max-w-7xl grid-cols-2 items-center justify-between gap-x-7 px-6 sm:grid md:grid-cols-3">
         <div className="flex items-center">
           <Link href="/">
-            {/* <Wordmark /> */}
             <Icons.wordmark className="h-5 w-full text-black dark:text-slate-100" />
           </Link>
         </div>

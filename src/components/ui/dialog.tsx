@@ -29,7 +29,7 @@ const DialogOverlay = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
   <DialogPrimitive.Overlay
     className={cn(
-      'fixed inset-0 z-30 bg-black/20 backdrop-blur-sm transition-opacity animate-in fade-in dark:bg-black/60',
+      'fixed inset-0 z-30 bg-black/40 backdrop-blur-sm transition-opacity animate-in fade-in dark:bg-black/70',
       className
     )}
     {...props}
@@ -55,8 +55,8 @@ const DialogContent = React.forwardRef<
       {...props}
     >
       {children}
-      <DialogPrimitive.Close className="absolute top-4 right-4 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-slate-800 focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-slate-100 dark:focus:ring-slate-200 dark:focus:ring-offset-slate-900 dark:data-[state=open]:bg-slate-800">
-        <Icons.close className="h-5 w-5" />
+      <DialogPrimitive.Close className="absolute top-5 right-6 opacity-70 transition-opacity hover:opacity-100 disabled:pointer-events-none data-[state=open]:bg-slate-100 dark:data-[state=open]:bg-slate-800">
+        <Icons.close strokeWidth={1.5} className="h-[22px] w-[22px]" />
         <span className="sr-only">Close</span>
       </DialogPrimitive.Close>
     </DialogPrimitive.Content>

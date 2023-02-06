@@ -11,6 +11,64 @@ import { ResponsiveImage } from '@/components/ResponsiveImage';
 import { Text } from '@/components/Text';
 import { compareDesc } from 'date-fns';
 
+const projectsConfig = [
+  {
+    url: 'https://edroamz.github.io/car-rental-react',
+    title: 'car rental',
+    description: 'Your one-stop destination for all your transportation needs',
+    image: {
+      src: '/images/car-rental-react.png',
+      alt: 'a car rental website'
+    }
+  }
+];
+
+interface Project {
+  url: string;
+  title: string;
+  description: string;
+  image: {
+    src: string;
+    alt: string;
+  };
+}
+interface ProjectsProps {
+  projects: Project[];
+}
+
+function Projects({ projects }: ProjectsProps) {
+  // TODO: add `Priotity` prop to the first image only
+  return (
+    <div className="mx-auto mt-12 grid w-full max-w-6xl grid-cols-1 items-center gap-y-14 sm:mt-16">
+      {projects.map((project) => (
+        <article key={project.title}>
+          <AnchorLink
+            href={project.url}
+            variant="non-style"
+            className="block overflow-hidden rounded-xl outline-none transition-shadow focus-visible:outline-primary focus-visible:ring-2 dark:focus-visible:outline-primary-on-dark"
+          >
+            <ResponsiveImage src={project.image.src} alt={project.image.alt} />
+          </AnchorLink>
+          <div className="flex flex-col items-start justify-center text-left">
+            <Text as="h5" size={20} fontWeight={600} className="mt-6">
+              {project.title}
+            </Text>
+            <Text lineHeight={28} color="accents-2" className="mt-2">
+              {project.description}
+            </Text>
+            <AnchorLink href={project.url} variant="primary" className="mt-3">
+              <Text as="span" size={14} color="inherit">
+                Live demo
+              </Text>
+              <Icons.chevronRight className="ml-1.5 inline h-4 w-4" />
+            </AnchorLink>
+          </div>
+        </article>
+      ))}
+    </div>
+  );
+}
+
 export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async () => {
   let posts = allPosts
     .filter((post) => post.featured)
@@ -76,39 +134,7 @@ export default function Home({
           >
             Explore my portfolio of completed projects
           </Text>
-          <div className="mx-auto mt-12 grid w-full max-w-6xl grid-cols-1 items-center gap-y-14 sm:mt-16">
-            <article>
-              <AnchorLink
-                href="https://edroamz.github.io/car-rental-react/"
-                variant="non-style"
-                className="block overflow-hidden rounded-xl outline-none ring-primary focus-visible:ring-2 dark:ring-primary-on-dark"
-              >
-                <ResponsiveImage
-                  src="/images/car-rental-react.png"
-                  alt="car rental website"
-                  priority
-                />
-              </AnchorLink>
-              <div className="flex flex-col items-start justify-center text-left">
-                <Text as="h5" size={20} fontWeight={600} className="mt-6">
-                  car rental
-                </Text>
-                <Text lineHeight={28} color="accents-2" className="mt-2">
-                  Your one-stop destination for all your transportation needs.
-                </Text>
-                <AnchorLink
-                  href="https://edroamz.github.io/car-rental-react/"
-                  variant="primary"
-                  className="mt-3"
-                >
-                  <Text as="span" size={14} color="inherit">
-                    Live demo
-                  </Text>
-                  <Icons.chevronRight className="ml-1.5 inline h-4 w-4" />
-                </AnchorLink>
-              </div>
-            </article>
-          </div>
+          <Projects projects={projectsConfig} />
         </section>
         <section className="mx-auto mb-32 mt-20 flex max-w-5xl flex-col items-center justify-center px-6 text-center sm:mt-24">
           <Text as="h3" size={32} lineHeight={48} fontWeight={700}>

@@ -9,7 +9,12 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Fonts />
-      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
+      >
         <WrapBalancerProvider>
           <Component {...pageProps} />
         </WrapBalancerProvider>
