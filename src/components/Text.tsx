@@ -7,21 +7,36 @@ export type TextVariantProps = VariantProps<typeof textVariants>;
 export const textVariants = cva('text-black dark:text-slate-100', {
   variants: {
     size: {
-      10: 'text-[10px]',
-      12: 'text-[12px]',
-      13: 'text-[13px]',
-      14: 'text-[14px]',
-      16: 'text-[16px] tracking-[-0.025em]',
-      20: 'text-[20px] tracking-[-0.020625rem]',
-      24: 'text-[24px]',
-      32: 'text-[32px] tracking-[-0.05em]',
-      40: 'text-[40px] tracking-[-0.05em]',
-      48: 'text-[48px] tracking-[-0.05em]'
+      10: 'text-10',
+      12: 'text-12',
+      13: 'text-13',
+      14: 'text-14',
+      16: 'text-16',
+      18: 'text-18',
+      20: 'text-20',
+      24: 'text-24',
+      32: 'text-32',
+      40: 'text-40',
+      48: 'text-48',
+      64: 'text-64'
     },
     color: {
-      inherit: 'text-inherit',
-      'accents-1': 'text-slate-900 dark:text-slate-200',
-      'accents-2': 'text-slate-600 dark:text-slate-400'
+      inherit: 'text-inherit dark:text-inherit',
+      background: 'text-background',
+      foreground: 'text-foreground',
+      'accents-1': 'text-accents-1',
+      'accents-2': 'text-accents-2',
+      'accents-3': 'text-accents-3',
+      'accents-4': 'text-accents-4',
+      'accents-5': 'text-accents-5',
+      'accents-6': 'text-accents-6',
+      'accents-7': 'text-accents-7',
+      'accents-8': 'text-accents-8',
+      'primary-lighter': 'text-primary-lighter',
+      'primary-light': 'text-primary-light',
+      primary: 'text-primary',
+      'primary-dark': 'text-primary-dark',
+      highlight: 'text-highlight'
     },
     lineHeight: {
       12: 'leading-[12px]',
@@ -46,6 +61,11 @@ export const textVariants = cva('text-black dark:text-slate-100', {
       800: 'font-extrabold',
       900: 'font-black'
     },
+    align: {
+      left: 'text-left',
+      center: 'text-center',
+      right: 'text-right'
+    },
     transform: {
       capitalize: 'capitalize',
       uppercase: 'uppercase',
@@ -54,12 +74,19 @@ export const textVariants = cva('text-black dark:text-slate-100', {
     },
     monospace: {
       true: 'font-mono'
+    },
+    wrap: {
+      true: 'whitespace-normal',
+      false: 'whitespace-nowrap'
+    },
+    balanced: {
+      true: 'w-full'
     }
   },
-  defaultVariants: { size: 16 }
+  defaultVariants: { size: 16, wrap: true, monospace: false }
 });
 
-enum TextEnum {
+enum AsEnum {
   h1 = 'h1',
   h2 = 'h2',
   h3 = 'h3',
@@ -69,6 +96,7 @@ enum TextEnum {
   div = 'div',
   blockquote = 'blockquote',
   dt = 'dt',
+  dd = 'dd',
   legend = 'legend',
   p = 'p',
   q = 'q',
@@ -80,47 +108,53 @@ enum TextEnum {
 
 interface TextProps extends TextVariantProps {
   children: ReactNode;
-  as?: keyof typeof TextEnum;
+  as?: keyof typeof AsEnum;
   className?: string;
   style?: CSSProperties;
   title?: string;
-  wrap?: boolean;
   monospace?: boolean;
   id?: string;
+  dangerouslySetInnerHTML?: { __html: string };
   htmlFor?: string;
 }
 
 export function Text({
   children,
-  as = TextEnum.p,
+  as = AsEnum.p,
   color,
   size,
   lineHeight,
   fontWeight,
+  align,
   transform,
   className,
   style,
   title,
-  wrap = false,
-  monospace = false,
+  monospace,
+  wrap,
+  balanced,
   id,
+  dangerouslySetInnerHTML,
   htmlFor
 }: TextProps) {
-  const TextComponent: keyof typeof TextEnum = as;
+  const TextComponent: keyof typeof AsEnum = as;
 
   const classNames = cn(
     textVariants({
       color,
       size,
       lineHeight,
+      align,
       fontWeight,
       transform,
-      monospace
+      monospace,
+      wrap,
+      balanced
     }),
     className
   );
 
-  if (as === TextEnum.label) {
+  if (as === AsEnum.label) {
     return (
       <TextComponent
         id={id}
@@ -128,15 +162,22 @@ export function Text({
         style={style}
         title={title}
         htmlFor={htmlFor}
+        dangerouslySetInnerHTML={dangerouslySetInnerHTML}
       >
-        {wrap ? <Balancer>{children}</Balancer> : children}
+        {balanced ? <Balancer>{children}</Balancer> : children}
       </TextComponent>
     );
   }
 
   return (
-    <TextComponent id={id} className={classNames} style={style} title={title}>
-      {wrap ? <Balancer>{children}</Balancer> : children}
+    <TextComponent
+      id={id}
+      className={classNames}
+      style={style}
+      title={title}
+      dangerouslySetInnerHTML={dangerouslySetInnerHTML}
+    >
+      {balanced ? <Balancer>{children}</Balancer> : children}
     </TextComponent>
   );
 }

@@ -53,15 +53,15 @@ const components = {
   a: ({ href = '', ...props }: LinkHTMLAttributes<HTMLAnchorElement>) => {
     const isInternal = href.startsWith('/') || href.startsWith('#');
     if (isInternal) {
-      return <Link href={href} {...props}></Link>;
+      return <Link href={href} variant="underline" {...props}></Link>;
     }
 
-    return <AnchorLink href={href} {...props}></AnchorLink>;
+    return <AnchorLink href={href} variant="underline" {...props}></AnchorLink>;
   },
   p: ({ className, ...props }: HTMLAttributes<HTMLParagraphElement>) => (
     <p
       className={cn(
-        'leading-6 tracking-[-0.01rem] dark:text-slate-100 md+:text-lg [&:not(:first-child)]:mt-6',
+        'text-16 dark:text-slate-100 laptop:text-18 [&:not(:first-child)]:mt-6',
         className
       )}
       {...props}
@@ -76,7 +76,7 @@ const components = {
   li: ({ className, ...props }: HTMLAttributes<HTMLLIElement>) => (
     <li
       className={cn(
-        'mt-[10px] leading-6 tracking-[-0.01rem] dark:text-slate-100 md+:text-lg',
+        'mt-[10px] text-16 dark:text-slate-100 laptop:text-18',
         className
       )}
       {...props}
@@ -173,7 +173,7 @@ const components = {
     priority,
     ...props
   }: ResponsiveImageProps) => (
-    <div className="my-6 md+:my-12">
+    <div className="my-6 laptop:my-12">
       <ResponsiveImage
         ratio={ratio}
         className={className}

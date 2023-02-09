@@ -10,21 +10,124 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        'md+': '960px'
+        laptop: '960px'
       },
       fontFamily: {
         sans: ['var(--font-sans)', ...fontFamily.sans],
         mono: ['var(--font-mono)', ...fontFamily.mono]
       },
+      fontSize: {
+        10: [
+          '10px',
+          {
+            letterSpacing: '-0.01em',
+            lineHeight: '14px'
+          }
+        ],
+        12: [
+          '12px',
+          {
+            letterSpacing: '0',
+            lineHeight: '17px'
+          }
+        ],
+        13: [
+          '13px',
+          {
+            letterSpacing: '-0.0025em',
+            lineHeight: '18px'
+          }
+        ],
+        14: [
+          '14px',
+          {
+            letterSpacing: '-0.006em',
+            lineHeight: '20px'
+          }
+        ],
+        16: [
+          '16px',
+          {
+            letterSpacing: '-0.011em',
+            lineHeight: '24px'
+          }
+        ],
+        18: [
+          '18px',
+          {
+            letterSpacing: '-0.014em',
+            lineHeight: '28px'
+          }
+        ],
+        20: [
+          '20px',
+          {
+            letterSpacing: '-0.017em',
+            lineHeight: '28px'
+          }
+        ],
+        24: [
+          '24px',
+          {
+            letterSpacing: '-0.019em',
+            lineHeight: '34px'
+          }
+        ],
+        32: [
+          '32px',
+          {
+            letterSpacing: '-0.021em',
+            lineHeight: '46px'
+          }
+        ],
+        40: [
+          '40px',
+          {
+            letterSpacing: '-0.022em',
+            lineHeight: '54px'
+          }
+        ],
+        48: [
+          '48px',
+          {
+            letterSpacing: '-0.022em',
+            lineHeight: '60px'
+          }
+        ],
+        64: [
+          '64px',
+          {
+            letterSpacing: '-0.022em',
+            lineHeight: '72px'
+          }
+        ]
+      },
       spacing: {
-        header: '64px'
+        header: '56px'
       },
       minHeight: {
         main: 'calc(100vh - theme(spacing.header))'
       },
       colors: {
-        primary: '#0070F3',
-        'primary-on-dark': '#3291FF'
+        background: '#fff',
+        foreground: '#000',
+        accents: {
+          1: '#111',
+          2: '#333',
+          3: '#444',
+          4: '#666',
+          5: '#888',
+          6: '#999',
+          7: '#eaeaea',
+          8: '#fafafa'
+        },
+        primary: {
+          lighter: '#d3e5ff',
+          light: '#3291ff',
+          DEFAULT: '#0070f3',
+          dark: '#0761d1'
+        },
+        highlight: '#79ffe1'
       },
       boxShadow: {
         sm: '0 5px 10px rgba(0,0,0,.12)',

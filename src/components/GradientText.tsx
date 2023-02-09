@@ -4,14 +4,14 @@ import { cn } from '@/lib/utils';
 
 type GradientTextVariantProps = VariantProps<typeof gradientTextVariants>;
 export const gradientTextVariants = cva(
-  'inline m-0 bg-clip-text font-bold [&_p]:text-[length:inherit] [&_p]:leading-[1.2]',
+  'bg-clip-text bg-origin-padding box-decoration-clone selection:bg-inherit/[0.6] selection:bg-highlight/30',
   {
     variants: {
       variant: {
         winter:
-          'from-[#5237f9] to-[#00b8b9] dark:from-[#6369ff] dark:to-[#87ffff]',
+          'bg-[#5237f9] dark:bg-[#6369ff] from-[#5237f9] to-[#00b8b9] dark:from-[#6369ff] dark:to-[#87ffff]',
         summer:
-          'from-[#e36b52] to-[#632cda]  dark:from-[#fca493] dark:to-[#9f75f9] '
+          'bg-[#e36b52] dark:bg-[#fca493] from-[#e36b52] to-[#632cda]  dark:from-[#fca493] dark:to-[#9f75f9] '
       },
       direction: {
         top: 'bg-gradient-to-t',
@@ -44,7 +44,10 @@ export function GradientText({
   return (
     <span
       className={cn(gradientTextVariants({ variant, direction }), className)}
-      style={{ WebkitTextFillColor: 'transparent' }}
+      style={{
+        WebkitTextFillColor: 'transparent',
+        color: 'unset'
+      }}
       {...props}
     >
       {props.children}

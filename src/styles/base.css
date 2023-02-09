@@ -2,8 +2,7 @@
 
 @layer base {
   ::selection {
-    background-color: #79ffe1;
-    color: #000;
+    @apply bg-highlight text-black;
   }
 
   body,

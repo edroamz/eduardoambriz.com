@@ -3,13 +3,16 @@ import { Inter as FontSans, Roboto_Mono as FontMono } from '@next/font/google';
 const fontSans = FontSans({
   subsets: ['latin'],
   variable: '--font-sans',
-  display: 'swap'
+  display: 'swap',
+  weight: 'variable',
+  axes: ['slnt']
 });
 
 const fontMono = FontMono({
   subsets: ['latin'],
   variable: '--font-mono',
-  display: 'swap'
+  display: 'swap',
+  weight: 'variable'
 });
 
 export function Fonts() {

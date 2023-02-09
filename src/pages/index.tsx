@@ -37,30 +37,44 @@ interface ProjectsProps {
 }
 
 function Projects({ projects }: ProjectsProps) {
-  // TODO: add `Priotity` prop to the first image only
   return (
     <div className="mx-auto mt-12 grid w-full max-w-6xl grid-cols-1 items-center gap-y-14 sm:mt-16">
-      {projects.map((project) => (
+      {projects.map((project, index) => (
         <article key={project.title}>
           <AnchorLink
             href={project.url}
-            variant="non-style"
-            className="block overflow-hidden rounded-xl outline-none transition-shadow focus-visible:outline-primary focus-visible:ring-2 dark:focus-visible:outline-primary-on-dark"
+            className="block overflow-hidden rounded-xl outline-none transition-shadow focus-visible:outline-primary focus-visible:ring-2 dark:focus-visible:outline-primary-light"
           >
-            <ResponsiveImage src={project.image.src} alt={project.image.alt} />
+            <ResponsiveImage
+              src={project.image.src}
+              alt={project.image.alt}
+              priority={index === 0 && true}
+            />
           </AnchorLink>
-          <div className="flex flex-col items-start justify-center text-left">
-            <Text as="h5" size={20} fontWeight={600} className="mt-6">
+          <div className="flex flex-col items-start justify-center">
+            <Text
+              as="h5"
+              size={20}
+              lineHeight={28}
+              fontWeight={600}
+              className="mt-6"
+              balanced
+            >
               {project.title}
             </Text>
-            <Text lineHeight={28} color="accents-2" className="mt-2">
+            <Text
+              lineHeight={28}
+              color="accents-2"
+              align="left"
+              className="mt-2"
+            >
               {project.description}
             </Text>
-            <AnchorLink href={project.url} variant="primary" className="mt-3">
+            <AnchorLink href={project.url} variant="primary" className="mt-2">
               <Text as="span" size={14} color="inherit">
                 Live demo
               </Text>
-              <Icons.chevronRight className="ml-1.5 inline h-4 w-4" />
+              <Icons.arrowUpRight className="ml-1.5 inline h-4 w-4" />
             </AnchorLink>
           </div>
         </article>
@@ -92,7 +106,7 @@ export default function Home({
         <title>Eduardo Ambriz</title>
       </Head>
       <SiteLayout>
-        <section className="mx-auto flex max-w-7xl flex-col items-center justify-center px-10 pt-12 text-center">
+        <section className="mx-auto flex max-w-7xl flex-col items-center justify-center px-10 pt-20">
           <Avatar>
             <AvatarImage src="https://github.com/edroamz.png" />
             <AvatarFallback>EA</AvatarFallback>
@@ -101,54 +115,71 @@ export default function Home({
             as="h1"
             size={48}
             lineHeight={56}
-            fontWeight={700}
-            className="mt-8 w-full sm:text-[4rem] sm:leading-[1.2]"
-            wrap
+            align="center"
+            className="mt-8 font-[650] sm:text-64"
+            balanced
           >
             Front-End Web Developer.
           </Text>
           <Text
             as="h2"
             size={20}
-            color="accents-2"
+            color="accents-3"
+            align="center"
             lineHeight={32}
-            className="mt-7 w-full max-w-4xl"
-            wrap
+            className="mt-6 max-w-4xl "
+            balanced
           >
             Hi! I&apos;m Eduardo, a Front-End Software Engineer specializing in
             creating dynamic and user-friendly websites with clean, efficient
             code.
           </Text>
         </section>
-        <section className="mx-auto mt-20 flex max-w-7xl flex-col items-center justify-center px-6 text-center sm:mt-24">
-          <Text as="h3" size={32} lineHeight={48} fontWeight={700}>
+        <section className="mx-auto mt-20 flex max-w-7xl flex-col items-center justify-center px-6 sm:mt-24">
+          <Text
+            as="h3"
+            size={20}
+            fontWeight={700}
+            transform="uppercase"
+            align="center"
+            className="!tracking-widest sm:text-24"
+            monospace
+          >
             <GradientText variant="winter">Curated Work</GradientText>
           </Text>
           <Text
             as="h4"
-            size={40}
-            lineHeight={48}
-            fontWeight={700}
-            className="mt-2 w-full sm:mt-4 sm:text-5xl sm:leading-[1.35] sm:tracking-[-0.04em]"
-            wrap
+            size={32}
+            fontWeight={600}
+            align="center"
+            className="mt-2 sm:mt-4 sm:text-48"
+            balanced
           >
             Explore my portfolio of completed projects
           </Text>
           <Projects projects={projectsConfig} />
         </section>
-        <section className="mx-auto mb-32 mt-20 flex max-w-5xl flex-col items-center justify-center px-6 text-center sm:mt-24">
-          <Text as="h3" size={32} lineHeight={48} fontWeight={700}>
+        <section className="mx-auto mb-32 mt-20 flex max-w-5xl flex-col items-center justify-center px-6 sm:mt-24">
+          <Text
+            as="h3"
+            size={20}
+            fontWeight={700}
+            transform="uppercase"
+            align="center"
+            className="!tracking-widest sm:text-24"
+            monospace
+          >
             <GradientText variant="summer">Top-Read</GradientText>
           </Text>
           <Text
             as="h4"
-            size={40}
-            lineHeight={48}
-            fontWeight={700}
-            className="mt-2 w-full sm:mt-4 sm:text-5xl sm:leading-[1.35] sm:tracking-[-0.04em]"
-            wrap
+            size={32}
+            fontWeight={600}
+            align="center"
+            className="mt-2 sm:mt-4 sm:text-48"
+            balanced
           >
-            Most popularly read blog entries
+            Most popularly read blog posts
           </Text>
           <PostTimeline posts={posts} />
         </section>

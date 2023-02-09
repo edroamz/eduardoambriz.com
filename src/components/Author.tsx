@@ -17,7 +17,7 @@ export function Author({ image, fallback, name, username }: AuthorProps) {
       </Avatar>
       <div className="flex flex-col items-start justify-center">
         <p className="text-sm font-semibold">{name}</p>
-        <AnchorLink variant="non-style" href="https://twitter.com/edroamz">
+        <AnchorLink href="https://twitter.com/edroamz">
           <p className="text-sm text-slate-600 dark:text-slate-400">
             {`@${username}`}
           </p>

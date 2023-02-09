@@ -9,6 +9,7 @@ import { AnchorLink } from '@/components/Link';
 import { ResponsiveImage } from '@/components/ResponsiveImage';
 import { Author } from '@/components/Author';
 import { Icons } from '@/components/Icons';
+import { ScrollArea } from '@/components/ui/scroll-area';
 
 import { format, parseISO } from 'date-fns';
 
@@ -49,14 +50,14 @@ const PostLayout = ({
       </Head>
       <SiteLayout>
         <div className="mx-auto mt-5 max-w-7xl">
-          <div className="md+:max-w-4xl">
+          <div className="laptop:max-w-4xl">
             <Link
               href="/blog"
               variant="secondary"
               className="inline-flex items-center px-6"
             >
               <Icons.chevronLeft className="mr-1.5 inline h-4 w-4" />
-              <p className="text-sm tracking-tight md+:text-base">
+              <p className="text-sm tracking-tight laptop:text-base">
                 See all posts
               </p>
             </Link>
@@ -69,68 +70,63 @@ const PostLayout = ({
                   Published on {format(parseISO(post.date), 'LLLL d, yyyy')}
                 </p>
               </time>
-              <h1 className="mt-6 text-3xl font-bold leading-snug tracking-tight md+:text-5xl md+:leading-tight md+:tracking-tighter">
+              <h1 className="mt-6 text-3xl font-bold leading-snug tracking-tight laptop:text-5xl laptop:leading-tight laptop:tracking-tighter">
                 <Balancer>{post.title}</Balancer>
               </h1>
               {post?.description && (
-                <p className="mt-5 mb-8 tracking-tight text-slate-600 dark:text-slate-400 md+:mt-6 md+:text-2xl">
+                <p className="mt-5 mb-8 tracking-tight text-slate-600 dark:text-slate-400 laptop:mt-6 laptop:text-2xl">
                   <Balancer>{post.description}.</Balancer>
                 </p>
               )}
-              <div className="mt-10 sm:mt-14">
-                <div className="md+:hidden">
+              <div className="mt-8 sm:mt-10">
+                <div className="laptop:hidden">
                   {post.image && (
-                    <ResponsiveImage
-                      src={post.image}
-                      alt="Image"
-                      priority={true}
-                    />
+                    <ResponsiveImage src={post.image} alt="Image" priority />
                   )}
                 </div>
               </div>
 
-              <div className="mt-6 sm:mt-8 md+:hidden">
+              <div className="mt-6 sm:mt-8 laptop:hidden">
                 <p className="text-sm text-slate-600 dark:text-slate-400">
                   Posted by
                 </p>
               </div>
             </div>
           </div>
-          <div className="mt-4 md+:hidden">
-            <div className="flex flex-row flex-nowrap items-stretch justify-start gap-x-6 overflow-auto px-6 pb-4">
-              {post.authors.map((author) => (
-                <Author
-                  key={author}
-                  image={`https://github.com/${author}.png`}
-                  fallback="EA"
-                  name="Eduardo Ambriz"
-                  username={author}
-                />
-              ))}
-            </div>
+
+          <div className="mt-4 laptop:hidden">
+            <ScrollArea>
+              <div className="flex flex-row flex-nowrap items-stretch justify-start gap-x-6 overflow-auto px-6 pb-4">
+                {post.authors.map((author) => (
+                  <Author
+                    key={author}
+                    image={`https://github.com/${author}.png`}
+                    fallback="EA"
+                    name="Eduardo Ambriz"
+                    username={author}
+                  />
+                ))}
+              </div>
+            </ScrollArea>
           </div>
-          <hr className="md+:hidden" />
+          <hr className="laptop:hidden" />
         </div>
         {/* grid */}
-        <div className="mx-auto mt-6 grid w-full max-w-7xl grid-cols-1 items-start justify-between gap-x-3 md+:mt-8 md+:grid-cols-[minmax(0,1fr)_320px]">
+        <div className="mx-auto mt-6 grid w-full max-w-7xl grid-cols-1 items-start justify-between gap-x-3 laptop:mt-8 laptop:grid-cols-[minmax(0,1fr)_320px]">
           {/* article */}
-          <article className="mx-auto flex w-full flex-col items-start md+:pr-12 lg:pr-24">
+          <article className="mx-auto flex w-full flex-col items-start laptop:pr-12 lg:pr-24">
             {post.image && (
               <div className="w-full px-6">
-                <div className="md+:mb-12">
-                  <div className="hidden md+:block">
-                    <ResponsiveImage
-                      src={post.image}
-                      alt="Image"
-                      priority={true}
-                    />
+                <div className="laptop:mb-12">
+                  <div className="hidden laptop:block">
+                    <ResponsiveImage src={post.image} alt="Image" priority />
                   </div>
                 </div>
               </div>
             )}
             <div className="w-full px-6 ">
               <Mdx code={post.body.code} />
-              <div className="mt-16 flex flex-col justify-between gap-x-7 gap-y-10 pb-4 sm:flex-row md+:mt-20">
+              <div className="mt-16 flex flex-col justify-between gap-x-7 gap-y-10 pb-4 sm:flex-row laptop:mt-20">
                 <AnchorLink
                   variant="secondary"
                   className="text-left text-sm"
@@ -142,7 +138,7 @@ const PostLayout = ({
             </div>
           </article>
           {/* sidebar */}
-          <div className="hidden h-full w-full px-6 md+:block">
+          <div className="hidden h-full w-full px-6 laptop:block">
             <div className="flex flex-col items-start justify-center gap-16">
               <div className="flex w-full flex-col items-stretch justify-center gap-4">
                 <p className="text-sm text-slate-600 dark:text-slate-400">
