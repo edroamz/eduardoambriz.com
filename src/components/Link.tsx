@@ -9,7 +9,7 @@ export const linkVariants = cva('transition-colors hover:duration-75 group', {
     variant: {
       default: '',
       primary:
-        'font-semibold text-primary underline-offset-4 dark:text-primary-on-dark underline decoration-transparent hover:decoration-inherit',
+        'font-semibold text-primary-dark underline-offset-4 dark:text-primary-light underline decoration-transparent hover:decoration-inherit',
       secondary:
         'text-slate-600 hover:text-black dark:text-slate-400 dark:hover:text-slate-100',
       underline:

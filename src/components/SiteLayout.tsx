@@ -17,7 +17,7 @@ export function SiteLayout({ children }: SiteLayoutProps) {
         <SiteHeader />
         <SkipNavContent />
         <div className="flex min-h-main flex-col justify-between">
-          <main>{children}</main>
+          <main className="flex flex-auto flex-col">{children}</main>
           <SiteFooter />
         </div>
       </div>

@@ -106,7 +106,7 @@ export default function Home({
         <title>Eduardo Ambriz</title>
       </Head>
       <SiteLayout>
-        <section className="mx-auto flex max-w-7xl flex-col items-center justify-center px-10 pt-20">
+        <section className="mx-auto flex w-full max-w-7xl flex-col items-center justify-center px-10 pt-20">
           <Avatar>
             <AvatarImage src="https://github.com/edroamz.png" />
             <AvatarFallback>EA</AvatarFallback>
@@ -135,7 +135,7 @@ export default function Home({
             code.
           </Text>
         </section>
-        <section className="mx-auto mt-20 flex max-w-7xl flex-col items-center justify-center px-6 sm:mt-24">
+        <section className="mx-auto mt-20 flex w-full max-w-7xl flex-col items-center justify-center px-6 sm:mt-24">
           <Text
             as="h3"
             size={20}

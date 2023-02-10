@@ -158,7 +158,7 @@ export function SiteHeader() {
       <div className="mx-auto flex h-full max-w-7xl grid-cols-2 items-center justify-between gap-x-7 px-6 sm:grid md:grid-cols-3">
         <div className="flex items-center">
           <Link href="/">
-            <Icons.wordmark className="h-5 w-full" />
+            <Icons.wordmark className="h-[18px] w-full" />
           </Link>
         </div>
         <div className="hidden items-center justify-center md:flex">

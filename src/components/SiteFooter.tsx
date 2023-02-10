@@ -8,7 +8,7 @@ export function SiteFooter() {
       <div className=" mx-auto mb-12 w-full max-w-7xl px-6 pt-10">
         <div className="flex flex-col flex-wrap items-center justify-center gap-5 laptop:flex-row laptop:justify-between">
           <Link href="/">
-            <Icons.wordmark className="h-5 w-full" />
+            <Icons.wordmark className="h-[18px] w-full" />
           </Link>
           <Text
             color="accents-2"

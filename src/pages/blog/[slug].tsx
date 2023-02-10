@@ -49,7 +49,7 @@ const PostLayout = ({
         <title>{`Eduardo Ambriz - ${post.title}`}</title>
       </Head>
       <SiteLayout>
-        <div className="mx-auto mt-5 max-w-7xl">
+        <div className="mx-auto mt-5 w-full max-w-7xl">
           <div className="laptop:max-w-4xl">
             <Link
               href="/blog"
@@ -124,17 +124,8 @@ const PostLayout = ({
                 </div>
               </div>
             )}
-            <div className="w-full px-6 ">
+            <div className="w-full px-6">
               <Mdx code={post.body.code} />
-              <div className="mt-16 flex flex-col justify-between gap-x-7 gap-y-10 pb-4 sm:flex-row laptop:mt-20">
-                <AnchorLink
-                  variant="secondary"
-                  className="text-left text-sm"
-                  href={`https://github.com/edroamz/portfolio/edit/main/src/content/blog/${post.slugAsParams}.mdx`}
-                >
-                  Edit this page on GitHub
-                </AnchorLink>
-              </div>
             </div>
           </article>
           {/* sidebar */}
@@ -157,7 +148,26 @@ const PostLayout = ({
             </div>
           </div>
         </div>
-        <div className="mx-auto max-w-7xl px-6">
+        <div className="mx-auto w-full max-w-7xl px-6">
+          <div className="mt-16 flex flex-col justify-between gap-x-7 gap-y-10 pb-4 sm:flex-row laptop:mt-20">
+            <AnchorLink
+              variant="secondary"
+              className="text-left text-sm"
+              href={`https://github.com/edroamz/portfolio/edit/main/src/content/blog/${post.slugAsParams}.mdx`}
+            >
+              Edit this page on GitHub
+            </AnchorLink>
+          </div>
+
+          <hr />
+          <div className="my-14 flex flex-col items-center justify-center laptop:my-16">
+            <p className="text-14">Share this post</p>
+            <ul className="mt-6 flex flex-row items-center gap-x-7">
+              <Icons.twitter className="h-5 w-5" />
+              <Icons.facebook className="h-5 w-5" />
+              <Icons.linkedin className="h-5 w-5" />
+            </ul>
+          </div>
           <hr />
           <div className="my-20 flex items-center justify-center">
             <Link
