@@ -1,6 +1,7 @@
 import { AnchorLink, Link } from '@/components/Link';
 import { Text } from '@/components/Text';
 import { Icons } from '@/components/Icons';
+import { siteConfig } from '@/config/site';
 
 export function SiteFooter() {
   return (
@@ -16,14 +17,11 @@ export function SiteFooter() {
             className="text-center laptop:text-left"
           >
             Built by{' '}
-            <AnchorLink href="https://twitter.com/edroamz" variant="underline">
+            <AnchorLink href={siteConfig.links.twitter} variant="underline">
               edroamz
             </AnchorLink>
             . The source code is available on{' '}
-            <AnchorLink
-              href="https://github.com/edroamz/portfolio"
-              variant="underline"
-            >
+            <AnchorLink href={siteConfig.links.github} variant="underline">
               GitHub
             </AnchorLink>
             .{' '}
