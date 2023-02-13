@@ -133,6 +133,10 @@ module.exports = {
         sm: '0 5px 10px rgba(0,0,0,.12)',
         md: '0 8px 30px rgba(0,0,0,.12)',
         lg: '0 30px 60px rgba(0,0,0,.12)'
+      },
+      content: {
+        'subheading-anchor':
+          "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' aria-hidden='true'%3E%3Cpath d='M3.75 1v10M8.25 1v10M1 3.75h10M1 8.25h10' stroke='%2394A3B8' stroke-width='1.5' stroke-linecap='round'%3E%3C/path%3E%3C/svg%3E\")"
       }
     }
   },

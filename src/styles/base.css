@@ -19,7 +19,7 @@
   }
 
   body {
-    @apply w-screen overflow-x-hidden bg-white text-base text-slate-900 dark:bg-black dark:text-white;
+    @apply w-screen overflow-x-hidden bg-background text-base text-slate-900 dark:bg-foreground dark:text-white;
   }
 
   h1,

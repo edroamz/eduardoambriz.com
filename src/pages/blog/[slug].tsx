@@ -88,7 +88,7 @@ const PostLayout = ({
 
               <div className="mt-6 sm:mt-8 laptop:hidden">
                 <p className="text-sm text-slate-600 dark:text-slate-400">
-                  Posted by
+                  Written by
                 </p>
               </div>
             </div>
@@ -133,7 +133,7 @@ const PostLayout = ({
             <div className="flex flex-col items-start justify-center gap-16">
               <div className="flex w-full flex-col items-stretch justify-center gap-4">
                 <p className="text-sm text-slate-600 dark:text-slate-400">
-                  Posted by
+                  Written by
                 </p>
                 {post.authors.map((author) => (
                   <Author

@@ -1,7 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 
-import { Link } from '@/components/Link';
 import { SiteLayout } from '@/components/SiteLayout';
 import { Text } from '@/components/Text';
 import { Icons } from '@/components/Icons';
@@ -15,7 +14,7 @@ const NotFound: NextPage = () => {
       <SiteLayout>
         <section className="flex flex-1 flex-col items-center justify-center px-6 py-24">
           <div className="m-[0_auto] max-w-[792px]">
-            <Icons.notFound className="mx-auto mb-8 h-36 w-36 dark:text-slate-200" />
+            <Icons.notFound className="mx-auto mb-8 h-40 w-40 " />
             <Text
               as="h1"
               size={48}
@@ -28,14 +27,6 @@ const NotFound: NextPage = () => {
             <Text size={18} align="center" className="mt-6 max-w-2xl">
               The page you're trying to access does not exist.
             </Text>
-            <Link
-              href="/"
-              variant="primary"
-              className="mt-10 block text-center font-medium"
-            >
-              <Icons.chevronLeft className="mr-2 inline h-4 w-4" /> Go back to
-              home
-            </Link>
           </div>
         </section>
       </SiteLayout>
