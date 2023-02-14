@@ -11,6 +11,8 @@ import { Author } from '@/components/Author';
 import { Icons } from '@/components/Icons';
 import { ScrollArea } from '@/components/ui/scroll-area';
 
+import { siteConfig } from '@/config/site';
+
 import { format, parseISO } from 'date-fns';
 
 export async function getStaticPaths() {
@@ -42,6 +44,9 @@ const PostLayout = ({
   if (!post) {
     return null;
   }
+
+  const encodedUrl = encodeURIComponent(`${siteConfig.url}${post?.slug}`);
+  const encodedTitle = encodeURIComponent(post?.title);
 
   return (
     <>
@@ -163,9 +168,36 @@ const PostLayout = ({
           <div className="my-14 flex flex-col items-center justify-center laptop:my-16">
             <p className="text-14">Share this post</p>
             <ul className="mt-6 flex flex-row items-center gap-x-7">
-              <Icons.twitter className="h-5 w-5" />
-              <Icons.facebook className="h-5 w-5" />
-              <Icons.linkedin className="h-5 w-5" />
+              <AnchorLink
+                href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`}
+                aria-label="share on twitter"
+              >
+                <Icons.twitter
+                  className="h-5 w-5"
+                  role="img"
+                  focusable="false"
+                />
+              </AnchorLink>
+              <AnchorLink
+                href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodedUrl}&title=${encodedTitle}`}
+                aria-label="share on linkedin"
+              >
+                <Icons.linkedin
+                  className="h-5 w-5"
+                  role="img"
+                  focusable="false"
+                />
+              </AnchorLink>
+              <AnchorLink
+                href={`https://www.facebook.com/sharer.php?u=${encodedUrl}`}
+                aria-label="share on facebook"
+              >
+                <Icons.facebook
+                  className="h-5 w-5"
+                  role="img"
+                  focusable="false"
+                />
+              </AnchorLink>
             </ul>
           </div>
           <hr />
