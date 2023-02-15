@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import type { InferGetStaticPropsType, GetStaticProps } from 'next';
 import { allPosts, Post } from 'contentlayer/generated';
+
 import { SiteLayout } from '@/components/SiteLayout';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { AnchorLink } from '@/components/Link';
@@ -9,6 +10,7 @@ import { PostTimeline } from '@/components/PostTimeline';
 import { Icons } from '@/components/Icons';
 import { ResponsiveImage } from '@/components/ResponsiveImage';
 import { Text } from '@/components/Text';
+
 import { compareDesc } from 'date-fns';
 
 const projectsConfig = [

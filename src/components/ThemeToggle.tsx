@@ -13,6 +13,7 @@ import {
   SelectTrigger,
   SelectValue
 } from '@/components/ui/select';
+import { Button } from '@/components/ui/button';
 import { Icons } from '@/components/Icons';
 import { Text } from '@/components/Text';
 
@@ -51,38 +52,38 @@ export function ThemeToggle() {
 
   return (
     <DropdownMenu dir="ltr" modal={false}>
-      <DropdownMenuTrigger className="px-1 py-[2px]">
-        <Icons.moon className="hidden h-[22px] w-[22px] text-slate-700 dark:inline dark:text-slate-400" />
-        <Icons.sun className="inline h-[22px] w-[22px] text-slate-700 dark:hidden dark:text-slate-400" />
+      <DropdownMenuTrigger asChild>
+        <Button variant="ghost" size="sm">
+          <Icons.moon className="hidden h-[22px] w-[22px] text-slate-700 dark:inline dark:text-slate-400" />
+          <Icons.sun className="inline h-[22px] w-[22px] text-slate-700 dark:hidden dark:text-slate-400" />
+        </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
         className="grid w-36 grid-cols-1"
-        sideOffset={28}
+        sideOffset={20}
         collisionPadding={{ right: 28 }}
         hideWhenDetached
       >
         <>
           {themeSettings.map(({ value, label, icon: Icon }) => (
-            <DropdownMenuItem asChild key={value}>
-              <button onClick={() => setTheme(value)}>
-                <Icon
-                  className={cn(
-                    'mr-2 inline h-[19px] w-[19px] text-slate-600 dark:text-slate-400',
-                    currentTheme === value && 'text-black dark:text-white'
-                  )}
-                ></Icon>
-                <Text
-                  as="span"
-                  size={14}
-                  className={
-                    currentTheme === value
-                      ? 'font-semibold text-black dark:text-slate-200'
-                      : 'text-slate-700 dark:text-slate-400'
-                  }
-                >
-                  {label}
-                </Text>
-              </button>
+            <DropdownMenuItem key={value} onClick={() => setTheme(value)}>
+              <Icon
+                className={cn(
+                  'mr-2 inline h-[19px] w-[19px] text-slate-600 dark:text-slate-400',
+                  currentTheme === value && 'text-black dark:text-white'
+                )}
+              ></Icon>
+              <Text
+                as="span"
+                size={14}
+                className={
+                  currentTheme === value
+                    ? 'font-semibold text-black dark:text-slate-200'
+                    : 'text-slate-700 dark:text-slate-400'
+                }
+              >
+                {label}
+              </Text>
             </DropdownMenuItem>
           ))}
         </>

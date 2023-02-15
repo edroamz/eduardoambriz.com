@@ -4,20 +4,23 @@ import { cva, VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 export type LinkVariantProps = VariantProps<typeof linkVariants>;
-export const linkVariants = cva('transition-colors hover:duration-75 group', {
-  variants: {
-    variant: {
-      default: '',
-      primary:
-        'font-semibold text-primary-dark underline-offset-4 dark:text-primary-light underline decoration-transparent hover:decoration-inherit',
-      secondary:
-        'text-slate-600 hover:text-black dark:text-slate-400 dark:hover:text-slate-100',
-      underline:
-        'underline hover:decoration-2 underline-offset-4 decoration-inherit'
-    }
-  },
-  defaultVariants: { variant: 'default' }
-});
+export const linkVariants = cva(
+  'transition-colors hover:duration-75 group  outline-offset-2',
+  {
+    variants: {
+      variant: {
+        default: '',
+        primary:
+          'font-semibold text-primary-dark hover:text-black dark:text-primary-light no-underline dark:hover:text-white',
+        secondary:
+          'text-slate-600 hover:text-black dark:text-slate-400 dark:hover:text-slate-100',
+        underline:
+          'underline hover:decoration-2 underline-offset-4 decoration-inherit'
+      }
+    },
+    defaultVariants: { variant: 'default' }
+  }
+);
 
 export interface LinkProps
   extends NextLinkProps,

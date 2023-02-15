@@ -6,6 +6,7 @@ import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
 import { Icons } from '@/components/Icons';
 import { Text } from '@/components/Text';
+import { Button } from '@/components/ui/button';
 
 type NavItems = {
   title: string;
@@ -95,9 +96,11 @@ function MobileNav({ items }: NavItemProps) {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger>
-        <span className="sr-only">Navigation</span>
-        <Icons.menu strokeWidth={1.5} className="inline h-[22px] w-[22px]" />
+      <DialogTrigger asChild>
+        <Button variant="ghost" size="sm">
+          <span className="sr-only">Navigation</span>
+          <Icons.menu strokeWidth={1.5} className="inline h-[22px] w-[22px]" />
+        </Button>
       </DialogTrigger>
       {isMobile && (
         <DialogContent className="fixed inset-x-0 top-0 w-screen dark:border-b dark:border-b-gray-800 dark:bg-[#0e0e12] sm:max-w-none sm:rounded-none">
