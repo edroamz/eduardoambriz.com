@@ -1,8 +1,10 @@
 import Head from 'next/head';
-import { SiteLayout } from '@/components/SiteLayout';
 import type { InferGetStaticPropsType, GetStaticProps } from 'next';
 import { allPages, Page } from 'contentlayer/generated';
+
+import { SiteLayout } from '@/components/SiteLayout';
 import { Mdx } from '@/components/Mdx';
+import { Text } from '@/components/Text';
 
 export const getStaticProps: GetStaticProps<{ page?: Page }> = async () => {
   let page = allPages.find((page) => page.slugAsParams === 'uses');
@@ -24,9 +26,9 @@ export default function Uses({
       </Head>
       <SiteLayout>
         <section className="mx-auto mb-24 flex max-w-5xl flex-col items-center justify-center py-8 px-6 text-center md:py-10">
-          <h1 className="mt-2 text-4xl font-bold tracking-tight">
+          <Text as="h1" fontWeight={600} size={32} className="sm:text-40">
             {page?.title}
-          </h1>
+          </Text>
           {page && (
             <article className="mx-auto mt-2 flex max-w-3xl flex-col items-center sm:px-6">
               <hr className="mb-10 w-full" />

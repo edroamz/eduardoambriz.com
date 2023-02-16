@@ -3,7 +3,6 @@ import {
   ChevronRight,
   ChevronDown,
   Check,
-  Circle,
   Laptop,
   Loader2,
   LucideProps,
@@ -18,7 +17,6 @@ import {
 export type Icon = LucideIcon;
 
 export const Icons = {
-  circle: Circle,
   check: Check,
   close: X,
   spinner: Loader2,
@@ -29,7 +27,7 @@ export const Icons = {
   menu: Menu,
   sun: SunMedium,
   moon: Moon,
-  laptop: Laptop,
+  system: Laptop,
   gitHub: (props: LucideProps) => (
     <svg viewBox="0 0 438.549 438.549" {...props}>
       <path
@@ -83,9 +81,9 @@ export const Icons = {
     <svg viewBox="0 0 112 138" {...props}>
       <path
         fill="currentColor"
-        fill-rule="evenodd"
+        fillRule="evenodd"
         d="M12 4h88a8 8 0 0 1 8 8v108H4V12a8 8 0 0 1 8-8ZM0 12C0 5.373 5.373 0 12 0h88c6.627 0 12 5.373 12 12v112h-8.131v13.156H10V124H0V12Zm21.603 5.953h67.954c.565 0 1.023.458 1.023 1.023V72.93c0 .565-.458 1.023-1.023 1.023H21.603a1.023 1.023 0 0 1-1.023-1.023V18.976c0-.565.458-1.023 1.023-1.023Zm-5.023 1.023a5.023 5.023 0 0 1 5.023-5.023h67.954a5.023 5.023 0 0 1 5.023 5.023V72.93a5.023 5.023 0 0 1-5.023 5.023H21.603a5.023 5.023 0 0 1-5.023-5.023V18.976Zm83.29 105.522H14v8.658h85.87v-8.658ZM92.433 93.94H64.81v5.074h27.626V93.94h-.003Zm-80.877 10.074h10.046v5.074H11.557l-.001-5.074ZM38.864 28.16h-3.767v5.164h3.767V28.16Z"
-        clip-rule="evenodd"
+        clipRule="evenodd"
       />
       <path
         fill="currentColor"

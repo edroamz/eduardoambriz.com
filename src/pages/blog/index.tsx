@@ -1,9 +1,12 @@
-import Head from 'next/head';
-import { SiteLayout } from '@/components/SiteLayout';
-import { PostTimeline } from '@/components/PostTimeline';
-import { allPosts, Post } from 'contentlayer/generated';
-import { compareDesc } from 'date-fns';
 import type { InferGetStaticPropsType, GetStaticProps } from 'next';
+import Head from 'next/head';
+import { allPosts, Post } from 'contentlayer/generated';
+
+import { SiteLayout } from '@/components/SiteLayout';
+import { Text } from '@/components/Text';
+import { BlogPost } from '@/components/BlogPost';
+
+import { compareDesc } from 'date-fns';
 
 export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async () => {
   const posts = allPosts.sort((a, b) => {
@@ -26,9 +29,17 @@ export default function Blog({
         <title>Eduardo Ambriz - Blog</title>
       </Head>
       <SiteLayout>
-        <section className="mb-24 flex max-w-5xl flex-col items-center justify-center py-8 px-6 sm:mx-auto md:py-10">
-          <h1 className="mt-2 text-4xl font-bold tracking-tight">All Posts</h1>
-          <PostTimeline posts={posts} />
+        <section className="mb-24 flex max-w-5xl flex-col items-center justify-center py-8 sm:mx-auto md:py-10">
+          <Text as="h1" fontWeight={600} size={32} className="sm:text-40">
+            All Posts
+          </Text>
+          <div className="mx-auto mt-12 w-full px-6 lg:mt-16 lg:max-w-6xl">
+            <div className="grid grid-cols-1 items-start gap-14 md:grid-cols-2">
+              {posts.map((post) => (
+                <BlogPost key={post._id} post={post} />
+              ))}
+            </div>
+          </div>
         </section>
       </SiteLayout>
     </>

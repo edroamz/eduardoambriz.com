@@ -85,8 +85,12 @@ const PostLayout = ({
               )}
               <div className="mt-8 sm:mt-10">
                 <div className="laptop:hidden">
-                  {post.image && (
-                    <ResponsiveImage src={post.image} alt="Image" priority />
+                  {post.image?.src && post.image?.alt && (
+                    <ResponsiveImage
+                      src={post.image.src}
+                      alt={post.image.alt}
+                      priority
+                    />
                   )}
                 </div>
               </div>
@@ -120,11 +124,15 @@ const PostLayout = ({
         <div className="mx-auto mt-6 grid w-full max-w-7xl grid-cols-1 items-start justify-between gap-x-3 laptop:mt-8 laptop:grid-cols-[minmax(0,1fr)_320px]">
           {/* article */}
           <article className="mx-auto flex w-full flex-col items-start laptop:pr-12 lg:pr-24">
-            {post.image && (
+            {post.image?.src && post.image?.alt && (
               <div className="w-full px-6">
                 <div className="laptop:mb-12">
                   <div className="hidden laptop:block">
-                    <ResponsiveImage src={post.image} alt="Image" priority />
+                    <ResponsiveImage
+                      src={post.image.src}
+                      alt={post.image.alt}
+                      priority
+                    />
                   </div>
                 </div>
               </div>

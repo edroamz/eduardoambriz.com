@@ -33,7 +33,7 @@ let themeSettings = [
   {
     value: 'system',
     label: 'System',
-    icon: Icons.laptop
+    icon: Icons.system
   }
 ];
 
@@ -55,7 +55,7 @@ export function ThemeToggle() {
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="sm">
           <Icons.moon className="hidden h-5 w-5 text-slate-700 dark:inline dark:text-slate-400" />
-          <Icons.sun className="inline h-5 w-5 text-slate-700 dark:hidden dark:text-slate-400" />
+          <Icons.sun className="inline h-[22px] w-[22px] text-slate-700 dark:hidden dark:text-slate-400" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent

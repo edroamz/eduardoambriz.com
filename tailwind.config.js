@@ -63,7 +63,7 @@ module.exports = {
           '20px',
           {
             letterSpacing: '-0.017em',
-            lineHeight: '28px'
+            lineHeight: '32px'
           }
         ],
         24: [

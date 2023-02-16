@@ -5,11 +5,10 @@ import { allPosts, Post } from 'contentlayer/generated';
 import { SiteLayout } from '@/components/SiteLayout';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { AnchorLink } from '@/components/Link';
-import { GradientText } from '@/components/GradientText';
-import { PostTimeline } from '@/components/PostTimeline';
 import { Icons } from '@/components/Icons';
 import { ResponsiveImage } from '@/components/ResponsiveImage';
 import { Text } from '@/components/Text';
+import { BlogPost } from '@/components/BlogPost';
 
 import { compareDesc } from 'date-fns';
 
@@ -55,7 +54,7 @@ function Projects({ projects }: ProjectsProps) {
           </AnchorLink>
           <div className="flex flex-col items-start justify-center">
             <Text
-              as="h5"
+              as="h4"
               size={20}
               lineHeight={28}
               fontWeight={600}
@@ -85,8 +84,10 @@ function Projects({ projects }: ProjectsProps) {
   );
 }
 
-export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async () => {
-  let posts = allPosts
+export const getStaticProps: GetStaticProps<{
+  featuredPosts: Post[];
+}> = async () => {
+  let featuredPosts = allPosts
     .filter((post) => post.featured)
     .sort((a, b) => {
       return compareDesc(new Date(a.date), new Date(b.date));
@@ -94,13 +95,13 @@ export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async () => {
 
   return {
     props: {
-      posts
+      featuredPosts
     }
   };
 };
 
 export default function Home({
-  posts
+  featuredPosts
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
@@ -140,17 +141,6 @@ export default function Home({
         <section className="mx-auto mt-20 flex w-full max-w-7xl flex-col items-center justify-center px-6 sm:mt-24">
           <Text
             as="h3"
-            size={20}
-            fontWeight={700}
-            transform="uppercase"
-            align="center"
-            className="!tracking-widest sm:text-24"
-            monospace
-          >
-            <GradientText variant="winter">Curated Work</GradientText>
-          </Text>
-          <Text
-            as="h4"
             size={32}
             fontWeight={600}
             align="center"
@@ -161,30 +151,28 @@ export default function Home({
           </Text>
           <Projects projects={projectsConfig} />
         </section>
-        <section className="mx-auto mb-32 mt-20 flex max-w-5xl flex-col items-center justify-center px-6 sm:mt-24">
-          <Text
-            as="h3"
-            size={20}
-            fontWeight={700}
-            transform="uppercase"
-            align="center"
-            className="!tracking-widest sm:text-24"
-            monospace
-          >
-            <GradientText variant="summer">Top-Read</GradientText>
-          </Text>
-          <Text
-            as="h4"
-            size={32}
-            fontWeight={600}
-            align="center"
-            className="mt-2 sm:mt-4 sm:text-48"
-            balanced
-          >
-            Most popularly read blog posts
-          </Text>
-          <PostTimeline posts={posts} />
-        </section>
+        {featuredPosts.length > 0 && (
+          <section className="mx-auto mt-20 flex max-w-5xl flex-col items-center justify-center sm:mt-24">
+            <Text
+              as="h3"
+              size={32}
+              fontWeight={600}
+              align="center"
+              className="mt-2 sm:mt-4 sm:text-48"
+              balanced
+            >
+              Most popularly read blog posts
+            </Text>
+            <div className="mx-auto mt-12 w-full px-6 lg:mt-16 lg:max-w-6xl">
+              <div className="grid grid-cols-1 items-start gap-14 md:grid-cols-2">
+                {featuredPosts.map((post) => (
+                  <BlogPost key={post._id} post={post} heading="h4" />
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+        <div className="mb-32"></div>
       </SiteLayout>
     </>
   );

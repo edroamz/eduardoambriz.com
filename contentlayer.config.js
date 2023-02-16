@@ -1,5 +1,9 @@
 import path from 'path';
-import { defineDocumentType, makeSource } from 'contentlayer/source-files';
+import {
+  defineDocumentType,
+  makeSource,
+  defineNestedType
+} from 'contentlayer/source-files';
 import remarkGfm from 'remark-gfm';
 import rehypePrettyCode from 'rehype-pretty-code';
 import rehypeSlug from 'rehype-slug';
@@ -34,6 +38,14 @@ export const Page = defineDocumentType(() => ({
   computedFields
 }));
 
+const Image = defineNestedType(() => ({
+  name: 'Image',
+  fields: {
+    src: { type: 'string', required: true },
+    alt: { type: 'string', required: true }
+  }
+}));
+
 export const Post = defineDocumentType(() => ({
   name: 'Post',
   filePathPattern: `blog/**/*.mdx`,
@@ -55,7 +67,9 @@ export const Post = defineDocumentType(() => ({
       default: true
     },
     image: {
-      type: 'string'
+      type: 'nested',
+      of: Image,
+      required: true
     },
     authors: {
       type: 'list',
