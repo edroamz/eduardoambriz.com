@@ -54,13 +54,13 @@ export function ThemeToggle() {
     <DropdownMenu dir="ltr" modal={false}>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="sm">
-          <Icons.moon className="hidden h-[22px] w-[22px] text-slate-700 dark:inline dark:text-slate-400" />
-          <Icons.sun className="inline h-[22px] w-[22px] text-slate-700 dark:hidden dark:text-slate-400" />
+          <Icons.moon className="hidden h-5 w-5 text-slate-700 dark:inline dark:text-slate-400" />
+          <Icons.sun className="inline h-5 w-5 text-slate-700 dark:hidden dark:text-slate-400" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
         className="grid w-36 grid-cols-1"
-        sideOffset={20}
+        sideOffset={18}
         collisionPadding={{ right: 28 }}
         hideWhenDetached
       >
@@ -69,7 +69,7 @@ export function ThemeToggle() {
             <DropdownMenuItem key={value} onClick={() => setTheme(value)}>
               <Icon
                 className={cn(
-                  'mr-2 inline h-[19px] w-[19px] text-slate-600 dark:text-slate-400',
+                  'mr-2 inline h-[18px] w-[18px] text-slate-600 dark:text-slate-400',
                   currentTheme === value && 'text-black dark:text-white'
                 )}
               ></Icon>
