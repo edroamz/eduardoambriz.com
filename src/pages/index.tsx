@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import type { InferGetStaticPropsType, GetStaticProps } from 'next';
-import { allPosts, Post } from 'contentlayer/generated';
+import { allPosts, Post, allProjects, Project } from 'contentlayer/generated';
 
 import { SiteLayout } from '@/components/SiteLayout';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -12,80 +12,52 @@ import { BlogPost } from '@/components/BlogPost';
 
 import { compareDesc } from 'date-fns';
 
-const projectsConfig = [
-  {
-    url: 'https://edroamz.github.io/car-rental-react',
-    title: 'car rental',
-    description: 'Your one-stop destination for all your transportation needs',
-    image: {
-      src: '/images/car-rental-react.png',
-      alt: 'a car rental website'
-    }
-  }
-];
-
-interface Project {
-  url: string;
-  title: string;
-  description: string;
-  image: {
-    src: string;
-    alt: string;
-  };
-}
-interface ProjectsProps {
-  projects: Project[];
+interface ProjectProps {
+  project: Project;
+  index: number;
 }
 
-function Projects({ projects }: ProjectsProps) {
+function Project({ project, index }: ProjectProps) {
   return (
-    <div className="mx-auto mt-12 grid w-full max-w-6xl grid-cols-1 items-center gap-y-14 sm:mt-16">
-      {projects.map((project, index) => (
-        <article key={project.title}>
-          <AnchorLink
-            href={project.url}
-            className="block overflow-hidden rounded-xl outline-none transition-shadow focus-visible:outline-primary focus-visible:ring-2 dark:focus-visible:outline-primary-light"
-          >
-            <ResponsiveImage
-              src={project.image.src}
-              alt={project.image.alt}
-              priority={index === 0 && true}
-            />
-          </AnchorLink>
-          <div className="flex flex-col items-start justify-center">
-            <Text
-              as="h4"
-              size={20}
-              lineHeight={28}
-              fontWeight={600}
-              className="mt-6"
-              balanced
-            >
-              {project.title}
-            </Text>
-            <Text
-              lineHeight={28}
-              color="accents-2"
-              align="left"
-              className="mt-2"
-            >
-              {project.description}
-            </Text>
-            <AnchorLink href={project.url} variant="primary" className="mt-2">
-              <Text as="span" size={14} color="inherit">
-                Live demo
-              </Text>
-              <Icons.arrowUpRight className="ml-1.5 inline h-4 w-4" />
-            </AnchorLink>
-          </div>
-        </article>
-      ))}
-    </div>
+    <article>
+      <AnchorLink
+        href={project.url}
+        className="block overflow-hidden rounded-xl outline-none transition-shadow focus-visible:outline-primary focus-visible:ring-2 dark:focus-visible:outline-primary-light"
+      >
+        <ResponsiveImage
+          src={project.image.src}
+          alt={project.image.alt}
+          priority={index === 0 && true}
+        />
+      </AnchorLink>
+      <div className="flex flex-col items-start justify-center">
+        <Text
+          as="h4"
+          size={20}
+          lineHeight={28}
+          fontWeight={600}
+          className="mt-6"
+          balanced
+        >
+          {project.name}
+        </Text>
+        <Text lineHeight={28} color="accents-2" align="left" className="mt-2">
+          {project.description}
+        </Text>
+        <AnchorLink href={project.url} variant="primary" className="mt-2">
+          <Text as="span" size={14} color="inherit">
+            Live demo
+          </Text>
+          <Icons.arrowUpRight className="ml-1.5 inline h-4 w-4" />
+        </AnchorLink>
+      </div>
+    </article>
   );
 }
 
 export const getStaticProps: GetStaticProps<{
   featuredPosts: Post[];
+  projects: Project[];
 }> = async () => {
   let featuredPosts = allPosts
     .filter((post) => post.featured)
@@ -95,13 +67,15 @@ export const getStaticProps: GetStaticProps<{
 
   return {
     props: {
-      featuredPosts
+      featuredPosts,
+      projects: allProjects
     }
   };
 };
 
 export default function Home({
-  featuredPosts
+  featuredPosts,
+  projects
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
@@ -138,19 +112,25 @@ export default function Home({
             code.
           </Text>
         </section>
-        <section className="mx-auto mt-20 flex w-full max-w-7xl flex-col items-center justify-center px-6 sm:mt-24">
-          <Text
-            as="h3"
-            size={32}
-            fontWeight={600}
-            align="center"
-            className="mt-2 sm:mt-4 sm:text-48"
-            balanced
-          >
-            Explore my portfolio of completed projects
-          </Text>
-          <Projects projects={projectsConfig} />
-        </section>
+        {projects.length > 0 && (
+          <section className="mx-auto mt-20 flex w-full max-w-7xl flex-col items-center justify-center px-6 sm:mt-24">
+            <Text
+              as="h3"
+              size={32}
+              fontWeight={600}
+              align="center"
+              className="mt-2 sm:mt-4 sm:text-48"
+              balanced
+            >
+              Explore my portfolio of completed projects
+            </Text>
+            <div className="mx-auto mt-12 grid w-full max-w-6xl grid-cols-1 items-center gap-y-14 sm:mt-16">
+              {projects.map((project, index) => (
+                <Project key={project._id} project={project} index={index} />
+              ))}
+            </div>
+          </section>
+        )}
         {featuredPosts.length > 0 && (
           <section className="mx-auto mt-20 flex max-w-5xl flex-col items-center justify-center sm:mt-24">
             <Text
