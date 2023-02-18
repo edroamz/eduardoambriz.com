@@ -61,7 +61,7 @@ const components = {
   p: ({ className, ...props }: HTMLAttributes<HTMLParagraphElement>) => (
     <p
       className={cn(
-        'text-16 dark:text-slate-100 laptop:text-18 [&:not(:first-child)]:mt-6',
+        'font-serif text-16 dark:text-slate-100 laptop:text-18 [&:not(:first-child)]:mt-6',
         className
       )}
       {...props}
@@ -76,7 +76,7 @@ const components = {
   li: ({ className, ...props }: HTMLAttributes<HTMLLIElement>) => (
     <li
       className={cn(
-        'mt-[10px] text-16 dark:text-slate-100 laptop:text-18',
+        'mt-[10px] font-serif text-16 dark:text-slate-100 laptop:text-18',
         className
       )}
       {...props}
@@ -114,7 +114,7 @@ const components = {
     />
   ),
   table: ({ className, ...props }: HTMLAttributes<HTMLTableElement>) => (
-    <div className="my-10 w-full overflow-y-auto">
+    <div className="my-10 w-full overflow-y-auto font-serif">
       <table className={cn('w-full tabular-nums', className)} {...props} />
     </div>
   ),
