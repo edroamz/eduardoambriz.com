@@ -13,14 +13,17 @@ import {
 const components = {
   h1: ({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) => (
     <h1
-      className={cn('mt-2 scroll-m-20 text-4xl font-bold', className)}
+      className={cn(
+        'mt-2 scroll-m-20 text-3xl font-bold laptop:text-4xl',
+        className
+      )}
       {...props}
     />
   ),
   h2: ({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) => (
     <h2
       className={cn(
-        'mt-12 scroll-m-20 text-3xl font-bold first:mt-0',
+        'mt-12 scroll-m-20 text-2xl font-bold first:mt-0 laptop:text-3xl',
         className
       )}
       {...props}
@@ -28,19 +31,28 @@ const components = {
   ),
   h3: ({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) => (
     <h3
-      className={cn('mt-8 scroll-m-20 text-2xl font-bold', className)}
+      className={cn(
+        'mt-8 scroll-m-20 text-xl font-bold laptop:text-2xl',
+        className
+      )}
       {...props}
     />
   ),
   h4: ({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) => (
     <h4
-      className={cn('mt-8 scroll-m-20 text-xl font-bold', className)}
+      className={cn(
+        'mt-8 scroll-m-20 text-lg font-bold laptop:text-xl',
+        className
+      )}
       {...props}
     />
   ),
   h5: ({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) => (
     <h5
-      className={cn('mt-8 scroll-m-20 text-lg font-bold', className)}
+      className={cn(
+        'mt-8 scroll-m-20 text-base font-bold laptop:text-lg',
+        className
+      )}
       {...props}
     />
   ),

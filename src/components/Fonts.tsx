@@ -1,7 +1,7 @@
 import {
   Inter as FontSans,
   Roboto_Mono as FontMono,
-  Source_Serif_4 as FontSerif
+  Hahmlet as FontSerif
 } from '@next/font/google';
 
 const fontSans = FontSans({
@@ -24,7 +24,6 @@ const fontSerif = FontSerif({
   variable: '--font-serif',
   display: 'swap',
   weight: 'variable'
-  // axes: ['opsz']
 });
 
 export function Fonts() {
