@@ -62,6 +62,10 @@ export const Post = defineDocumentType(() => ({
       type: 'date',
       required: true
     },
+    lastModified: {
+      type: 'date',
+      required: false
+    },
     published: {
       type: 'boolean',
       default: true
