@@ -1,7 +1,7 @@
 import {
   Inter as FontSans,
   Roboto_Mono as FontMono,
-  Hahmlet as FontSerif
+  Roboto_Serif as FontSerif
 } from '@next/font/google';
 
 const fontSans = FontSans({

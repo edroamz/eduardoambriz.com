@@ -23,7 +23,7 @@ const components = {
   h2: ({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) => (
     <h2
       className={cn(
-        'mt-12 scroll-m-20 text-2xl font-bold first:mt-0 laptop:text-3xl',
+        'mt-12 scroll-m-20 font-serif text-2xl font-bold first:mt-0 laptop:text-3xl',
         className
       )}
       {...props}
@@ -32,7 +32,7 @@ const components = {
   h3: ({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) => (
     <h3
       className={cn(
-        'mt-8 scroll-m-20 text-xl font-bold laptop:text-2xl',
+        'mt-8 scroll-m-20 font-serif text-xl font-bold laptop:text-2xl',
         className
       )}
       {...props}
@@ -41,7 +41,7 @@ const components = {
   h4: ({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) => (
     <h4
       className={cn(
-        'mt-8 scroll-m-20 text-lg font-bold laptop:text-xl',
+        'mt-8 scroll-m-20 font-serif text-lg font-bold laptop:text-xl',
         className
       )}
       {...props}
@@ -50,7 +50,7 @@ const components = {
   h5: ({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) => (
     <h5
       className={cn(
-        'mt-8 scroll-m-20 text-base font-bold laptop:text-lg',
+        'mt-8 scroll-m-20 font-serif text-base font-bold laptop:text-lg',
         className
       )}
       {...props}
@@ -58,7 +58,10 @@ const components = {
   ),
   h6: ({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) => (
     <h6
-      className={cn('mt-8 scroll-m-20 text-base font-bold', className)}
+      className={cn(
+        'mt-8 scroll-m-20 font-serif text-base font-bold',
+        className
+      )}
       {...props}
     />
   ),
@@ -73,7 +76,7 @@ const components = {
   p: ({ className, ...props }: HTMLAttributes<HTMLParagraphElement>) => (
     <p
       className={cn(
-        'font-serif text-16 dark:text-slate-100 laptop:text-18 [&:not(:first-child)]:mt-6',
+        ' text-16 dark:text-slate-100 laptop:text-18 [&:not(:first-child)]:mt-6',
         className
       )}
       {...props}
@@ -88,7 +91,7 @@ const components = {
   li: ({ className, ...props }: HTMLAttributes<HTMLLIElement>) => (
     <li
       className={cn(
-        'mt-[10px] font-serif text-16 dark:text-slate-100 laptop:text-18',
+        'mt-[10px]  text-16 dark:text-slate-100 laptop:text-18',
         className
       )}
       {...props}
@@ -126,7 +129,7 @@ const components = {
     />
   ),
   table: ({ className, ...props }: HTMLAttributes<HTMLTableElement>) => (
-    <div className="my-10 w-full overflow-y-auto font-serif">
+    <div className="my-10 w-full overflow-y-auto ">
       <table className={cn('w-full tabular-nums', className)} {...props} />
     </div>
   ),
