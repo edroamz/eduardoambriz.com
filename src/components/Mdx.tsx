@@ -172,7 +172,7 @@ const components = {
   code: ({ className, ...props }: HTMLAttributes<HTMLElement>) => (
     <code
       className={cn(
-        'relative rounded border border-slate-300 bg-slate-200 bg-opacity-25 py-[0.2rem] px-[0.3rem] font-mono text-sm not-italic text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300',
+        'relative rounded border border-slate-300 bg-slate-200/25 py-[0.2rem] px-[0.3rem] font-mono text-sm not-italic text-slate-700 dark:border-slate-700 dark:bg-slate-900/25 dark:text-slate-300',
         className
       )}
       {...props}
