@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const fs = require('fs').promises;
 const matter = require('gray-matter');
+const formatISO = require('date-fns/formatISO');
 
 const updateLastModified = async () => {
   const [, , ...mdFilePaths] = process.argv;
@@ -12,7 +13,7 @@ const updateLastModified = async () => {
     if (currentFrontmatter.published === true) {
       const updatedFrontmatter = {
         ...currentFrontmatter,
-        lastModified: new Date()
+        lastModified: formatISO(new Date(), { representation: 'date' })
       };
       file.data = updatedFrontmatter;
       const updatedFileContent = matter.stringify(file);
