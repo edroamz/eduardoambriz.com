@@ -25,7 +25,7 @@ const NotFound: NextPage = () => {
               Not found
             </Text>
             <Text size={18} align="center" className="mt-6 max-w-2xl">
-              The page you're trying to access does not exist.
+              The page you&apos;re trying to access does not exist.
             </Text>
           </div>
         </section>

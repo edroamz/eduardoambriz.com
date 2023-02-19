@@ -3,6 +3,7 @@ import {
   ChevronRight,
   ChevronDown,
   Check,
+  Circle,
   Laptop,
   Loader2,
   LucideProps,
@@ -18,6 +19,7 @@ export type Icon = LucideIcon;
 
 export const Icons = {
   check: Check,
+  circle: Circle,
   close: X,
   spinner: Loader2,
   chevronLeft: ChevronLeft,
